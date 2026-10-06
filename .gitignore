@@ -1,0 +1,9 @@
+# Worktrees, local secrets, scratch output and big binaries (art, fonts and audio come from an assets zip, as in Desert Ranger)
+.claude/worktrees/
+.DS_Store
+desertbandit/config.php
+deploy/
+art-binaries/
+node_modules/
+__pycache__/
+docs_sim_report.txt
