@@ -1,6 +1,6 @@
 // Renders the Desert Bandit pitch sheet with Playwright (macOS or any machine with Node + a Chromium-based browser).
 //   CHROME=/path/to/browser node design/pitch/render.js [outBase]      (needs `cd dev/e2e && npm install` once)
-// Runs build.py first. Writes <outBase>.pdf (all pages), <outBase>.png (page 1) and <outBase>-status.png (page 2),
+// Runs build.py first. Writes <outBase>.pdf (all pages), <outBase>.png (page 1), <outBase>-look.png (the mock-up page) and <outBase>-status.png (the plan),
 // then prints a layout check (text past a card, a card over the footer, a card left mostly empty).
 'use strict';
 const { execFileSync } = require('child_process');
@@ -42,7 +42,11 @@ const { chromium } = require('../../dev/e2e/node_modules/playwright-core');
   });
   console.log(problems.length ? 'LAYOUT WARNINGS:\n  ' + problems.join('\n  ') : 'layout check: no overflow, no overlap');
   const sheets = await page.$$('.sheet');
-  for (let i = 0; i < sheets.length; i++) await sheets[i].screenshot({ path: i === 0 ? out + '.png' : out + '-status.png' });
+  // page 1 -> <out>.png; a sheet with data-png="look" -> <out>-look.png; data-png="status" -> <out>-status.png
+  for (let i = 0; i < sheets.length; i++) {
+    const tag = await sheets[i].getAttribute('data-png');
+    await sheets[i].screenshot({ path: tag ? out + '-' + tag + '.png' : out + '.png' });
+  }
   await page.pdf({ path: out + '.pdf', width: '8.5in', height: '11in', printBackground: true, preferCSSPageSize: true });
   console.log('rendered', sheets.length, 'page(s) ->', out + '.{png,pdf}');
   await browser.close();
