@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Sidewinder rattlesnake (Crotalus cerastes)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#3b2814" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <mask id="bm" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+      <g stroke="#fff" fill="none">
+        <path d="M46,64 C70,28 112,30 120,66" stroke-width="16"/>
+        <path d="M120,66 C128,98 92,108 74,128" stroke-width="16"/>
+        <path d="M74,128 C54,150 72,178 110,172" stroke-width="15"/>
+        <path d="M110,172 C144,168 160,152 164,130" stroke-width="12"/>
+        <path d="M164,130 C166,118 168,114 174,106" stroke-width="8"/>
+      </g>
+    </mask>
+  </defs>
+  <!-- body outline pass (all segments), then fill pass, so the joints stay clean -->
+  <g stroke="#2b1d12" fill="none">
+    <path d="M46,64 C70,28 112,30 120,66" stroke-width="20.5"/>
+    <path d="M120,66 C128,98 92,108 74,128" stroke-width="20.5"/>
+    <path d="M74,128 C54,150 72,178 110,172" stroke-width="19.5"/>
+    <path d="M110,172 C144,168 160,152 164,130" stroke-width="16.5"/>
+    <path d="M164,130 C166,118 168,114 174,106" stroke-width="12.5"/>
+  </g>
+  <g stroke="#d6b27a" fill="none">
+    <path d="M46,64 C70,28 112,30 120,66" stroke-width="16"/>
+    <path d="M120,66 C128,98 92,108 74,128" stroke-width="16"/>
+    <path d="M74,128 C54,150 72,178 110,172" stroke-width="15"/>
+    <path d="M110,172 C144,168 160,152 164,130" stroke-width="12"/>
+    <path d="M164,130 C166,118 168,114 174,106" stroke-width="8"/>
+  </g>
+  <!-- engraved shadow on the underside of each curve, and a cream highlight on top -->
+  <g mask="url(#bm)" fill="none">
+    <g transform="translate(3,4.5)" stroke="url(#hb)" stroke-width="7">
+      <path d="M46,64 C70,28 112,30 120,66 C128,98 92,108 74,128 C54,150 72,178 110,172 C144,168 160,152 164,130 C166,118 168,114 174,106"/>
+    </g>
+    <g transform="translate(-3,-3.5)" stroke="#f4ebd3" stroke-width="2.4" opacity=".8">
+      <path d="M46,64 C70,28 112,30 120,66 C128,98 92,108 74,128 C54,150 72,178 110,172 C144,168 160,152 164,130"/>
+    </g>
+  </g>
+  <!-- row of darker dorsal blotches (dashes with round caps) -->
+  <g fill="none" stroke="#7a5428" stroke-linecap="round">
+    <path d="M60,52 C76,36 108,36 115,58 C120,84 106,100 90,114" stroke-width="7" stroke-dasharray="0.1 14"/>
+    <path d="M68,132 C58,152 80,172 108,169 C132,166 150,156 158,142" stroke-width="6.5" stroke-dasharray="0.1 13"/>
+    <path d="M166,124 C167,118 169,114 172,110" stroke-width="3.2" stroke-dasharray="0.1 8"/>
+  </g>
+  <!-- rattle: stacked horny segments -->
+  <g transform="translate(174,106) rotate(-48)" stroke="#2b1d12" stroke-width="2">
+    <rect x="2" y="-4" width="9" height="8" rx="3" fill="#e4d2a0"/>
+    <rect x="9" y="-5" width="9" height="10" rx="3.4" fill="#e9dab0"/>
+    <rect x="16" y="-5.6" width="10" height="11.2" rx="4.4" fill="#e4d2a0"/>
+    <path d="M10,-3 L10,3 M17,-4 L17,4" stroke-width="1.1"/>
+  </g>
+  <!-- head -->
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <path d="M13,72 C14,62 22,53 34,53 C44,53 53,57 57,66 C57,77 48,83 36,83 C24,83 14,81 13,72 Z" fill="#d6b27a"/>
+    <path d="M30,76 C40,84 50,82 57,68 C56,78 48,84 36,84 C26,84 18,80 14,74 Z" fill="url(#hb)" stroke="none"/>
+    <!-- hornlike scale above the eye -->
+    <path d="M25,58 L29,46 L36,57 Z" fill="#eadcb2" stroke-width="2"/>
+    <path d="M13,76 C26,81 40,81 52,77" stroke-width="1.6"/>
+    <!-- blotch behind the eye -->
+    <path d="M44,60 C50,60 54,64 54,70 C48,70 44,66 44,60 Z" fill="#7a5428" stroke="none"/>
+  </g>
+  <ellipse cx="30" cy="64.5" rx="4.6" ry="4.2" fill="#e8c23e" stroke="#2b1d12" stroke-width="1.6"/>
+  <ellipse cx="30" cy="64.5" rx="1.2" ry="3.6" fill="#2b1d12"/>
+  <circle cx="17.5" cy="70" r="1.2" fill="#2b1d12"/>
+  <!-- forked tongue -->
+  <path d="M13,75 L7,75.5 L3,72 M7,75.5 L3,79" stroke="#a8321f" stroke-width="1.7"/>
+</svg>
