@@ -13,3 +13,6 @@ design/pitch/fonts
 design/pitch/img
 design/pitch/*.html
 design/pitch/out/
+# generated creature review page and scratch probe (see design/creatures/build_review.py)
+design/creatures/review.html
+design/creatures/_probe.html

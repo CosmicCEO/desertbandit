@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Costa's hummingbird (Calypte costae)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2f2216" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <pattern id="hw" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)">
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#4a5a52" stroke-width="1" opacity=".72"/>
+    </pattern>
+  </defs>
+  <!-- blurred wings, raised: ghost copies behind a pale core -->
+  <g stroke="#2b1d12" stroke-width="1.4" opacity=".9">
+    <path d="M92,92 C104,60 130,30 170,16 C176,34 168,62 138,86 C124,96 108,100 92,98 Z" fill="#cdd6cc" opacity=".72"/>
+    <path d="M92,94 C112,70 148,48 188,44 C186,66 168,90 138,100 C120,106 104,104 92,100 Z" fill="#cdd6cc" opacity=".72"/>
+    <path d="M92,94 C108,66 138,38 180,30 C180,52 164,80 136,94 C120,102 106,102 92,98 Z" fill="#b9c6bd" opacity=".78"/>
+  </g>
+  <g stroke="#2b1d12" stroke-width="1.6">
+    <path d="M92,94 C108,66 138,38 180,30 C180,52 164,80 136,94 C120,102 106,102 92,98 Z" fill="url(#hw)" stroke="none"/>
+    <path d="M94,92 C116,70 142,52 172,38 M96,96 C122,82 150,66 182,46 M98,98 C124,92 152,84 180,64" stroke-width="1.2" opacity=".7"/>
+  </g>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- tail feathers -->
+    <path d="M112,134 L132,176 L120,180 L106,150 Z" fill="#4a5a44"/>
+    <path d="M118,140 L146,170 L136,178 L112,152 Z" fill="#3a4a38"/>
+    <path d="M118,140 L146,170 L136,178 L124,160 Z" fill="url(#hb)" stroke="none"/>
+    <!-- body: green back, pale belly -->
+    <path d="M62,76 C84,76 112,94 122,124 C124,142 112,152 98,150 C82,146 62,118 56,94 Z" fill="#4f8a4a"/>
+    <path d="M58,98 C66,124 84,146 98,150 C112,154 124,144 124,126 C108,130 92,120 80,108 C70,100 62,98 58,98 Z" fill="#f1e6c8"/>
+    <path d="M70,118 C80,126 92,134 108,138" stroke-width="1.2" stroke="#7a6a48"/>
+    <path d="M96,100 C108,106 118,118 122,128 C124,142 112,152 98,150 C94,138 100,122 96,100 Z" fill="url(#hb)" stroke="none"/>
+    <!-- near wing root -->
+    <path d="M84,88 C98,86 108,92 112,102 C100,102 90,98 84,88 Z" fill="#3e6e3e" stroke-width="1.8"/>
+    <!-- head -->
+    <path d="M40,64 C40,48 54,42 66,48 C76,54 76,70 68,80 C58,88 42,80 40,64 Z" fill="#4f8a4a"/>
+    <!-- violet gorget flaring at the sides -->
+    <path d="M42,66 C46,76 56,82 68,80 L96,98 L84,76 L96,64 C84,70 76,66 70,58 C60,60 50,62 42,66 Z" fill="#8a2fc0"/>
+    <path d="M60,76 C70,80 84,80 96,98 C82,90 68,88 60,76 Z" fill="url(#hb)" stroke="none"/>
+    <!-- violet crown -->
+    <path d="M40,60 C40,48 54,40 66,46 C72,50 74,56 74,60 C64,54 50,54 40,60 Z" fill="#9a38d6"/>
+    <!-- long thin bill -->
+    <path d="M42,64 L6,76 L7,79 L42,69 Z" fill="#2b1d12"/>
+  </g>
+  <!-- highlights and eye -->
+  <path d="M46,50 C52,46 60,46 64,49" stroke="#f4ebd3" stroke-width="1.6" opacity=".9"/>
+  <path d="M46,70 C52,76 58,78 64,77" stroke="#d9a8f0" stroke-width="1.4" opacity=".9"/>
+  <circle cx="54" cy="62" r="3.4" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.4"/>
+  <circle cx="54" cy="62" r="2.1" fill="#2b1d12"/>
+</svg>

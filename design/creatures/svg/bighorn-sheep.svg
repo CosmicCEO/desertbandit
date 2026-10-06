@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Peninsular bighorn sheep (Ovis canadensis nelsoni)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#3b2814" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <pattern id="hh" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <line x1="0" y1="0" x2="0" y2="3" stroke="#6b4a12" stroke-width=".9" opacity=".7"/>
+    </pattern>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- neck and shoulder, with engraved shading on the far side -->
+    <path d="M108,80 C140,70 180,92 192,140 L194,200 L90,200 C100,176 96,160 82,148 Z" fill="#a98458"/>
+    <path d="M150,84 C172,96 190,118 192,140 L194,200 L128,200 C146,170 150,130 128,100 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M118,120 C128,128 134,142 134,158 M132,108 C146,116 152,132 152,150 M104,134 C110,144 112,156 110,170" stroke-width="1.3" stroke="#4a3320"/>
+    <!-- ear -->
+    <path d="M106,78 C116,62 134,58 144,62 C136,74 124,82 112,88 Z" fill="#8f6a44"/>
+    <path d="M114,76 C124,68 132,66 138,66" stroke-width="1.2"/>
+    <!-- head -->
+    <path d="M100,72 C86,70 74,80 68,92 C62,104 52,112 44,122 C38,128 38,138 46,142 C54,146 64,146 72,144 C84,142 92,138 100,128 C112,116 118,96 112,80 Z" fill="#c09a68"/>
+    <path d="M100,100 C108,112 104,126 90,136 C84,140 76,142 72,144 C84,142 92,138 100,128 C112,116 118,96 112,80 C108,86 102,92 100,100 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M76,100 C70,106 62,112 56,114 M80,112 C74,118 68,120 62,122" stroke-width="1.2" stroke="#4a3320"/>
+    <!-- pale muzzle -->
+    <path d="M44,122 C38,128 38,138 46,142 C54,146 64,146 72,144 C68,134 58,126 44,122 Z" fill="#f4ebd3"/>
+    <!-- horn: thick curl from the brow, back over the ear, down and forward to the tip -->
+    <path d="M90,82 C80,44 112,14 152,20 C190,26 200,76 182,110 C166,136 128,142 110,122 L116,114 C128,124 148,118 158,100 C168,78 158,54 140,52 C122,50 112,62 116,86 Z" fill="#e3c27e"/>
+    <path d="M90,82 C80,44 112,14 152,20 C190,26 200,76 182,110 C170,128 150,138 130,138 C158,128 176,100 170,70 C164,40 130,30 110,46 C96,58 92,72 90,82 Z" fill="url(#hh)" stroke="none"/>
+    <path d="M92,72 L114,76 M98,50 L116,62 M116,34 L126,54 M142,26 L144,50 M172,34 L158,56 M188,64 L166,74 M184,96 L162,94 M170,122 L154,106 M148,134 L140,116" stroke-width="1.8"/>
+  </g>
+  <!-- eye and nostril -->
+  <ellipse cx="84" cy="98" rx="5.4" ry="4.6" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.6"/>
+  <circle cx="84" cy="98" r="3.2" fill="#2b1d12"/>
+  <path d="M74,90 C80,85 88,85 95,90" stroke="#2b1d12" stroke-width="2"/>
+  <ellipse cx="47" cy="132" rx="2.6" ry="1.8" fill="#2b1d12"/>
+  <path d="M52,142 C58,141 64,140 70,137" stroke="#2b1d12" stroke-width="1.6"/>
+</svg>

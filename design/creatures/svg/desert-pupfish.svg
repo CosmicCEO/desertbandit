@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Desert pupfish (Cyprinodon macularius)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2c2a4a" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <clipPath id="tailclip">
+      <path d="M144,84 C160,64 176,54 190,60 C194,82 194,116 190,142 C176,146 160,128 144,114 Z"/>
+    </clipPath>
+    <clipPath id="bodyclip"><path d="M18,100 C20,82 38,66 64,60 C94,54 128,60 146,82 L150,92 L150,108 L146,120 C126,146 92,152 64,144 C38,138 20,124 18,100 Z"/></clipPath>
+</defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- tail fin: yellow-orange wash, dark band near the edge -->
+    <path d="M144,84 C160,64 176,54 190,60 C194,82 194,116 190,142 C176,146 160,128 144,114 Z" fill="#f2ae36"/>
+    <g clip-path="url(#tailclip)" stroke="none">
+      <path d="M182,40 C188,80 188,120 182,160" stroke="#34261c" stroke-width="9"/>
+      <path d="M144,100 C160,112 176,134 190,142 L190,150 L144,150 Z" fill="url(#hb)"/>
+    </g>
+    <path d="M148,92 L176,72 M148,99 L180,100 M148,106 L176,128" stroke-width="1.2" stroke="#8a4a14"/>
+    <!-- far pelvic fin -->
+    <path d="M78,142 C80,156 92,164 102,160 C96,152 94,146 92,142 Z" fill="#6fb0e6"/>
+    <!-- dorsal fin: big and rounded -->
+    <path d="M80,64 C80,38 104,22 126,26 C142,30 148,52 146,84 Z" fill="#2f86d8"/>
+    <path d="M118,28 C140,30 148,54 146,84 L118,70 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M90,62 L98,36 M102,62 L110,30 M114,64 L122,28 M126,68 L132,32 M136,74 L140,40" stroke-width="1.2" stroke="#16457c"/>
+    <!-- anal fin -->
+    <path d="M96,146 C96,170 120,182 138,172 C148,164 148,140 142,124 Z" fill="#2f86d8"/>
+    <path d="M122,178 C138,176 148,160 146,136 L142,124 L128,138 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M108,148 L110,170 M120,144 L124,176 M132,134 L138,170" stroke-width="1.2" stroke="#16457c"/>
+    <!-- body: short and deep -->
+    <path d="M18,100 C20,82 38,66 64,60 C94,54 128,60 146,82 L150,92 L150,108 L146,120 C126,146 92,152 64,144 C38,138 20,124 18,100 Z" fill="#2c7fd6"/>
+    <!-- pale belly -->
+    <g clip-path="url(#bodyclip)" stroke="none">
+      <path d="M16,126 C50,122 100,138 152,106 L152,160 L16,160 Z" fill="#dbe9ef"/>
+      <path d="M16,140 C50,136 100,150 152,118 L152,160 L16,160 Z" fill="url(#hb)"/>
+    </g>
+    <!-- engraved shading on the underside and back -->
+    <path d="M110,58 C130,62 142,74 148,92 C136,80 124,74 106,70 Z" fill="url(#hb)" stroke="none"/>
+    <!-- gill cover -->
+    <path d="M56,70 C46,88 48,110 60,126" stroke-width="1.8"/>
+    <!-- pectoral fin -->
+    <path d="M62,106 C78,98 94,104 98,120 C84,126 68,122 62,106 Z" fill="#7fbcea" stroke-width="1.8"/>
+    <path d="M70,108 L88,114 M70,112 L90,118" stroke-width="1.1"/>
+    <!-- highlight along the head and back -->
+    <path d="M26,84 C36,72 52,66 70,63 C82,61 96,60 106,61" stroke="#f4ebd3" stroke-width="2.2" opacity=".85"/>
+  </g>
+  <!-- eye -->
+  <circle cx="37" cy="88" r="7.4" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.8"/>
+  <circle cx="35.5" cy="88.5" r="4.4" fill="#2b1d12"/>
+  <circle cx="34" cy="86.5" r="1.4" fill="#f4ebd3"/>
+  <!-- small upturned mouth -->
+  <path d="M19,98 C22,103 27,108 33,109" stroke="#2b1d12" stroke-width="1.8"/>
+  <circle cx="24" cy="94" r="1.4" fill="#2b1d12"/>
+</svg>
