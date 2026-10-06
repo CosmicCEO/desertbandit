@@ -1,0 +1,37 @@
+# Desert Bandit - Apache settings (works on Apache 2.2 and 2.4).
+Options -Indexes
+DirectoryIndex index.html
+
+# Never serve the real config, SQL, or markdown files directly.
+<FilesMatch "^(config\.php|config\.sample\.php|.*\.sql|.*\.md)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# The API is never cached (api.php also sends Cache-Control: no-store itself).
+<FilesMatch "^api\.php$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-store"
+  </IfModule>
+</FilesMatch>
+
+# Long cache for art and fonts; never cache the API.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/ttf   "access plus 30 days"
+  # The host stamps ~4 h on static files. HTML and JSON must be re-checked every time so an update shows at once
+  # (scripts are versioned with ?v=).
+  ExpiresByType text/html  "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+AddType font/ttf .ttf
+# The host sends no type for .json, so the ExpiresByType application/json rule above never matched (its cache then kept manifest.json for 4 h).
+AddType application/json .json
