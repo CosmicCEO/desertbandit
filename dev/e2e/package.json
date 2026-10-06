@@ -1,0 +1,8 @@
+{
+  "name": "desertbandit-e2e",
+  "private": true,
+  "description": "Browser tooling for the pitch sheet render and, later, the game tests",
+  "dependencies": {
+    "playwright-core": "^1.48.0"
+  }
+}
