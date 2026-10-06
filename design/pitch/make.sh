@@ -21,6 +21,6 @@ SECTIONS=$(grep -o '<section class="sheet"' "$HTML" | wc -l | tr -d ' ')
 PAGES=$(python3 -c "import re,sys;print(len(re.findall(rb'/Type\s*/Page(?![a-zA-Z])',open(sys.argv[1],'rb').read())))" "$OUT.pdf")
 echo "pdf pages: $PAGES (sheets in html: $SECTIONS)  size: $(du -h "$OUT.pdf" | cut -f1)"
 [ "$PAGES" = "$SECTIONS" ] || { echo "PAGE COUNT MISMATCH"; exit 1; }
-for f in "$OUT.png" "$OUT-status.png"; do [ -f "$f" ] && echo "$f  $(sips -g pixelWidth -g pixelHeight "$f" | awk '/pixel/{printf "%s ", $2}')"; done
+for f in "$OUT.png" "$OUT-look.png" "$OUT-status.png"; do [ -f "$f" ] && echo "$f  $(sips -g pixelWidth -g pixelHeight "$f" | awk '/pixel/{printf "%s ", $2}')"; done
 echo "NEXT: Read each PNG above and look at it; fix and re-run if anything is off."
 if grep -q 'past its box\|overlaps\|touches the page edge' "$LOG"; then echo "LAYOUT PROBLEMS: fix before sending"; exit 2; fi
