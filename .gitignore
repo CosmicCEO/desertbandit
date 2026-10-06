@@ -1,10 +1,15 @@
-# Worktrees, local secrets, scratch output and big binaries (art, fonts and audio come from an assets zip, as in Desert Ranger)
+# Worktrees, local secrets, scratch output and big binaries (art, fonts and audio come from Desert Ranger's assets zip)
 .claude/worktrees/
 .DS_Store
 desertbandit/config.php
 deploy/
 art-binaries/
-design/symbols/icons
-node_modules/
+node_modules
 __pycache__/
-docs_sim_report.txt
+# linked art and generated pitch files (see tools/link-icons.sh and tools/link-pitch-art.sh)
+design/symbols/icons
+design/art
+design/pitch/fonts
+design/pitch/img
+design/pitch/*.html
+design/pitch/out/
