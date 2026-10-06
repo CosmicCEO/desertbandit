@@ -87,6 +87,11 @@ a.btn { line-height: 30px; }
 .top { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; }
 .room-chip { font: .72rem Bungee, sans-serif; background: var(--paper); border: 1.8px solid var(--ink); border-radius: 7px; padding: 4px 7px; white-space: nowrap; }
 .logo { font: 1.15rem Bungee, sans-serif; font-weight: normal; color: var(--terra); text-shadow: 1.5px 1.5px 0 var(--mari); white-space: nowrap; }
+.snd-slot { flex: none; }
+.snd-wrap { position: relative; }
+.snd-slot-home { position: absolute; top: 14px; right: 16px; z-index: 5; }
+#screen-home { position: relative; }
+.lobby-top { display: flex; align-items: center; justify-content: space-between; min-height: 48px; }
 .snd-btn { width: 44px; height: 44px; border-radius: 50%; background: var(--mari); border: 2px solid var(--ink); font-size: 1.2rem; line-height: 1; color: var(--ink); cursor: pointer; flex: none; padding: 0; }
 .snd-btn.muted { background: var(--sand); text-decoration: line-through; }
 .snd-panel { position: absolute; top: calc(100% + 6px); right: 0; z-index: 60; width: min(280px, calc(100vw - 32px));

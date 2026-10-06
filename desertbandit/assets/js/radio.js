@@ -5,7 +5,7 @@
  *
  * PURE: pickCall(events, ctx) decides, from the events of ONE action and shared inputs only, which calls play and when:
  *   - at most one RESULT call per action: the priority table below, the first matching row wins, the rest are dropped;
- *   - plus the CARD call of a `turn` event (not for `broken`; for `sweep` only when ev.id % 4 == 1).
+ *   - plus the CARD call of a `turn` event (not for `broken`; for `sweep` only when ev.id % 9 == 0).
  *   Every phone gets the same answer: the variant comes from the triggering event's id (variant(ev)), never from chance.
  *   Times: the action starts at ctx.start (server ms, its playAt); its events follow each other with the WAVE1 durations (DUR).
  *
@@ -53,7 +53,7 @@
       case 'win': return { row: 1, moment: 'win', delay: 400 };
       case 'lock':
         if (d.points === 1500 && (d.picks || []).length === 6) return { row: 2, moment: 'supersweep', delay: 450 };
-        if (d.points >= 500 && ev.id % 2 === 0) return { row: 10, moment: 'lock', delay: 100 };
+        if (d.points >= 500 && ev.id % 3 === 0) return { row: 10, moment: 'lock', delay: 100 };
         return null;
       case 'bank':
         if (d.via === 'offroad') return { row: 3, moment: 'offroad', delay: 500 };
@@ -96,7 +96,7 @@
       }
       if (ev.type === 'turn') {
         card = d.card == null ? null : d.card;
-        if (!cardCall && CARD_CALLS[card] && (card !== 'sweep' || ev.id % 4 === 1)) {
+        if (!cardCall && CARD_CALLS[card] && (card !== 'sweep' || ev.id % 9 === 0)) {
           cardCall = { kind: 'card', id: 'card-' + card + '-' + (ev.id % 2 === 0 ? 'a' : 'b'), moment: 'card', row: 0,
                        offset: t + 150, evId: ev.id, card: card };
         }

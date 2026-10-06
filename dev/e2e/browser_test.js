@@ -122,6 +122,7 @@ function check(name, ok, detail) { ok ? pass++ : fail++; console.log((ok ? 'ok  
     audioReqs.filter(r => r.label === 'host').length === 0, audioReqs.slice(0, 3));
   check('home: eight rigs to pick from', (await A.locator('.vehicle').count()) === 8);
   check('home: about link', (await A.locator('a[href="about.html"]').count()) === 1);
+  check('home: the sound button is there (top right)', await A.isVisible('#screen-home #btn-snd'));
   await A.fill('#in-name', 'Marigold');
   await A.tap('.vehicle[data-vehicle="bronco-orange"]');
   await sleep(300);
@@ -139,6 +140,17 @@ function check(name, ok, detail) { ok ? pass++ : fail++; console.log((ok ? 'ok  
   const bedOn = await A.waitForFunction(() => !!window.BanditAmbience.state.bed, null, { timeout: 8000 }).then(() => true, () => false);
   check('desert bed: starts in the lobby after the unlock tap (amb-bed-01 looping on the amb bus)', bedOn && await A.evaluate(() =>
     !!window.BanditSound.buffers['amb-bed-01'] && window.BanditAmbience.state.bedStarts === 1 && window.BanditSound.ctx.state === 'running'));
+  // the bed plays in the lobby, so the sound panel is there too: mute it from the lobby
+  await panel(A, true);
+  await A.screenshot({ path: SHOTS + 'lobby-sound-panel-390.png', fullPage: false });
+  const lobPan = await A.evaluate(() => { const r = document.getElementById('snd-panel').getBoundingClientRect();
+    return { inLobby: !!document.querySelector('#screen-lobby #snd-panel'), inside: r.left >= 0 && r.right <= window.innerWidth }; });
+  await A.tap('#set-mute');
+  const lobMute = await A.evaluate(() => window.BanditSound.master.gain.value === 0 && localStorage.getItem('bandit_muted') === '1');
+  await A.tap('#set-mute');
+  await panel(A, false);
+  check('lobby: the sound panel opens there, fits 390 px, and Mute silences the bed', lobPan.inLobby && lobPan.inside && lobMute && await noHScroll(A),
+    { lobPan, lobMute });
   await A.tap('#btn-addbot');
   await A.waitForFunction(() => document.querySelectorAll('#lobby-players li').length === 2);
   check('lobby: Add computer seats a computer', /COMPUTER/.test(await A.textContent('#lobby-players')));

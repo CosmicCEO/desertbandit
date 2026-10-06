@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#C3623B">
 <link rel="icon" href="assets/img/reels/0.svg">
 <title>Desert Bandit</title>
-<link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 <!-- The phone paused the sound (call, lock screen) or it has not started yet: one tap here starts it. In the page flow, never fixed, so it never covers a button. -->
@@ -29,6 +29,7 @@
 
 <!-- HOME -->
 <section id="screen-home" class="screen" hidden>
+  <div id="snd-slot-home" class="snd-slot snd-slot-home"></div>
   <h1 class="title">DESERT<br>BANDIT</h1>
   <p class="tagline">Six reels. Hold what scores. Race the old board.</p>
 
@@ -56,7 +57,7 @@
 
 <!-- LOBBY -->
 <section id="screen-lobby" class="screen" hidden>
-  <a class="lobby-home" href="./">&larr; Home</a>
+  <div class="lobby-top"><a class="lobby-home" href="./">&larr; Home</a><div id="snd-slot-lobby" class="snd-slot"></div></div>
   <h2 class="mini-title">Desert Bandit</h2>
   <div class="card code-card">
     <div class="label">Room code</div>
@@ -84,6 +85,8 @@
   <header class="top">
     <span id="game-code" class="room-chip"></span>
     <b class="logo">DESERT BANDIT</b>
+    <div id="snd-slot-game" class="snd-slot"><div id="snd-wrap" class="snd-wrap">
+    <!-- the sound button and panel: one copy, moved into the slot of the screen that shows (home, lobby, game) -->
     <button id="btn-snd" class="snd-btn" type="button" aria-label="Sound settings" aria-haspopup="true" aria-expanded="false">&#9835;</button>
     <div id="snd-panel" class="snd-panel" role="dialog" aria-label="Sound" hidden>
       <label class="snd-row"><input id="set-mute" type="checkbox"><span>Mute all sound</span></label>
@@ -93,6 +96,7 @@
       <label class="snd-row snd-vol"><span>Desert volume <b id="set-amb-val">20</b></span><input id="set-amb-vol" type="range" min="0" max="100" step="1"></label>
       <button id="btn-test-snd" class="btn sage slim snd-test" type="button">Test sound</button>
     </div>
+    </div></div>
   </header>
 
   <div id="race" class="race" aria-label="The race"></div>
@@ -146,10 +150,10 @@
 
 <script src="assets/js/sync.js?v=2"></script>
 <script src="assets/js/sound.js?v=1"></script>
-<script src="assets/js/radio.js?v=2"></script>
+<script src="assets/js/radio.js?v=3"></script>
 <script src="assets/js/ambience.js?v=2"></script>
 <script src="assets/js/scoring.js?v=1"></script>
 <script src="assets/js/race.js?v=1"></script>
-<script src="assets/js/app.js?v=2"></script>
+<script src="assets/js/app.js?v=3"></script>
 </body>
 </html>

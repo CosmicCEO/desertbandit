@@ -95,6 +95,8 @@
 
   function show(screen) {
     ['home', 'lobby', 'game'].forEach(function (s) { $('screen-' + s).hidden = (s !== screen); });
+    var slot = $('snd-slot-' + screen), wrap = $('snd-wrap');   // the sound button goes with the screen (the bed plays in the lobby too)
+    if (slot && wrap.parentNode !== slot) { $('snd-panel').hidden = true; $('btn-snd').setAttribute('aria-expanded', 'false'); slot.appendChild(wrap); }
   }
 
   function pieceImg(vehicle) {

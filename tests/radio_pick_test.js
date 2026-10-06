@@ -64,7 +64,7 @@ eq('row 1 win beats the bigbank and the lock', ids(pick([lock(100, 1500, 6), ban
 // 2 supersweep: a lock of 1500 with six picks (then the sweep): lock start + 450
 eq('row 2 supersweep: lock 1500 x6 picks, at lock start + 450 (after a roll)', brief(first(pick([roll(200), lock(201, 1500, 6), sweep(202)]))),
    { id: 'call-supersweep-b', kind: 'result', offset: 2800 + 450 });
-eq('row 2 needs six picks (1500 with 5 picks is a lock, row 10)', ids(pick([lock(202, 1500, 5)])), ['call-lock-a']);
+eq('row 2 needs six picks (1500 with 5 picks is a lock, row 10)', ids(pick([lock(210, 1500, 5)])), ['call-lock-a']);
 eq('row 2 beats the sweep row', first(pick([lock(204, 1500, 6), sweep(205)])).moment, 'supersweep');
 // 3 offroad: bank via offroad, bank start + 500 (lock 450, sweep 1400 before it)
 var offAct = [lock(300, 300, 2), sweep(301), bank(302, 2900, 4000, { via: 'offroad' }), turn(303, 'broken'), broken(304), turn(305, 'sweep')];
@@ -83,20 +83,21 @@ eq('row 5 fire beats subpoena-like steal (card fire)', first(pick([bank(604, 150
 // 7 sweep (not offroad): sweep start + 300
 eq('row 7 sweep: sweep start + 300', brief(first(pick([lock(700, 500, 3), sweep(702)]))), { id: 'call-sweep-a', kind: 'result', offset: 450 + 300 });
 eq('row 7 sweep under the offroad card (no bank in the action) is not a sweep call', pick([sweep(703)], { card: 'offroad' }).calls.length, 0);
-eq('row 7 sweep beats broken, bust and lock', first(pick([lock(704, 600, 3), sweep(705), bust(706)])).moment, 'sweep');
+eq('row 7 sweep beats broken, bust and lock', first(pick([lock(702, 600, 3), sweep(703), bust(704)])).moment, 'sweep');
 // 8 broken: broken start + 200 (after the turn's 900)
 var brokenAct = [bust(800), turn(801, 'broken'), broken(802), turn(803, 'sweep')];
 eq('row 8 broken: broken start + 200 (bust 1500 + turn 900)', brief(first(pick(brokenAct))), { id: 'call-broken-a', kind: 'result', offset: 1500 + 900 + 200 });
 eq('row 8 broken beats bust', first(pick(brokenAct)).moment, 'broken');
 // 9 bust: bust start + 300
 eq('row 9 bust: bust start + 300 (after the roll)', brief(first(pick([roll(900), bust(901), turn(902, 'sweep')]))), { id: 'call-bust-b', kind: 'result', offset: 2800 + 300 });
-eq('row 9 bust beats a lock of 500 (even id)', first(pick([lock(904, 500, 3), roll(905), bust(906)])).moment, 'bust');
+eq('row 9 bust beats a lock of 500 (id%3==0)', first(pick([lock(903, 500, 3), roll(904), bust(905)])).moment, 'bust');
 // 10 lock: points >= 500, only even ids, lock start + 100
-eq('row 10 lock: even id, 500 points, at lock start + 100', brief(first(pick([lock(1002, 500, 3), roll(1003)]))), { id: 'call-lock-a', kind: 'result', offset: 100 });
-eq('row 10 lock: id%4==0 -> lock c', ids(pick([lock(1004, 600, 3), roll(1005)])), ['call-lock-c']);
-eq('row 10 lock: odd id -> no lock call', pick([lock(1001, 1000, 3), roll(1002)]).calls.length, 0);
+eq('row 10 lock: id%3==0 (even), 500 points, at lock start + 100', brief(first(pick([lock(1002, 500, 3), roll(1003)]))), { id: 'call-lock-a', kind: 'result', offset: 100 });
+eq('row 10 lock: id%3==0 and id%4==0 -> lock c', ids(pick([lock(1008, 600, 3), roll(1009)])), ['call-lock-c']);
+eq('row 10 lock: id%3==0 and odd -> lock b', ids(pick([lock(1005, 600, 3), roll(1006)])), ['call-lock-b']);
+eq('row 10 lock: id%3 != 0 -> no lock call', [1000, 1001, 1003, 1004].map(function (id) { return pick([lock(id, 1000, 3), roll(id + 1)]).calls.length; }), [0, 0, 0, 0]);
 eq('row 10 lock: 450 points -> no call', pick([lock(1006, 450, 3), roll(1007)]).calls.length, 0);
-eq('row 10 lock beats bigbank and place', first(pick([lock(1008, 500, 3), bank(1009, 1500, 3000)])).moment, 'lock');
+eq('row 10 lock beats bigbank and place', first(pick([lock(1011, 500, 3), bank(1012, 1500, 3000)])).moment, 'lock');
 // 11 bigbank: amount >= 1500, variants a/b only
 eq('row 11 bigbank: amount 1500 at bank start + 500', brief(first(pick([lock(1101, 300, 1), bank(1102, 1500, 1500)]))), { id: 'call-bigbank-a', kind: 'result', offset: 950 });
 eq('row 11 bigbank: id%4==0 still a (no c)', ids(pick([lock(1103, 300, 1), bank(1104, 1600, 1600)])), ['call-bigbank-a']);
@@ -128,8 +129,16 @@ eq('card call: odd id -> b', ids(pick([turn(1501, 'subpoena')])), ['card-subpoen
 eq('card call: each card', ['fire', 'offroad', 'subpoena', 'overdue'].map(function (c) { return ids(pick([turn(1502, c)]))[0]; }),
    ['card-fire-a', 'card-offroad-a', 'card-subpoena-a', 'card-overdue-a']);
 eq('card call: broken card -> none (the broken result call instead)', ids(pick([turn(1504, 'broken'), broken(1505)])), ['call-broken-b']);
-eq('card call: sweep card only when id%4==1', [1600, 1601, 1602, 1603, 1605, 1609].map(function (id) { return ids(pick([turn(id, 'sweep')])).join(); }),
-   ['', 'card-sweep-b', '', '', 'card-sweep-b', 'card-sweep-b']);
+eq('card call: sweep card only when id%9==0', [1600, 1601, 1602, 1611, 1620, 1629, 1603].map(function (id) { return ids(pick([turn(id, 'sweep')])).join(); }),
+   ['', '', 'card-sweep-a', 'card-sweep-b', 'card-sweep-a', 'card-sweep-b', '']);
+// every variant can be picked for some id (the gates do not share parity with the variant rule)
+var lockIds = {}, sweepIds = {};
+for (var n = 1; n <= 200; n++) {
+  ids(pick([lock(n, 600, 3)])).forEach(function (id) { lockIds[id] = 1; });
+  ids(pick([turn(n, 'sweep')])).forEach(function (id) { sweepIds[id] = 1; });
+}
+eq('reachable: call-lock-a, -b and -c each play for some id', Object.keys(lockIds).sort(), ['call-lock-a', 'call-lock-b', 'call-lock-c']);
+eq('reachable: card-sweep-a and -b each play for some id', Object.keys(sweepIds).sort(), ['card-sweep-a', 'card-sweep-b']);
 eq('card call after the result call, at its own time (bust 3100, card at 2800+1500+150)', pick([roll(1700), bust(1701), turn(1702, 'offroad')]).calls.map(brief),
    [{ id: 'call-bust-b', kind: 'result', offset: 3100 }, { id: 'card-offroad-a', kind: 'card', offset: 2800 + 1500 + 150 }]);
 eq('a broken chain: the card call is for the turn that is played', ids(pick([bank(1800, 300, 5300 - 4900), turn(1801, 'broken'), broken(1802), turn(1803, 'offroad')])),
