@@ -39,10 +39,10 @@ def miles(items):
     return f'<div class="miles"><div class="track"></div><div class="mrow">{out}</div></div>'
 
 
-# the owner's six reel symbols (icon file, caption, what three of a kind pays)
-REELS = [("olla", "Olla", "$1,000"), ("sunset-mountain", "Sunset Mountain", "$600"), ("numeral-17-palms", "17 Palms", "$500"),
-         ("sheep", "Sheep", "$400"), ("palm-trees", "Palm Trees", "$300"), ("dos-cabezas", "Dos Cabezas", "$200")]
-reel_html = "".join(f'<div class="reel"><div class="face"><img src="{A}/icons/{s}-color.png"></div><b>{n}</b><span>3 of a kind: {v}</span></div>' for s, n, v in REELS)
+# the owner's six reel creatures (drawing in design/creatures/svg, caption, what three of a kind pays); picked Oct 6, 2026
+REELS = [("bighorn-sheep", "Bighorn Sheep", "$1,000"), ("gambels-quail", "Gambel's Quail", "$600"), ("desert-hairy-scorpion", "Hairy Scorpion", "$500"),
+         ("ocotillo", "Ocotillo", "$400"), ("chuckwalla", "Chuckwalla", "$300"), ("sidewinder", "Sidewinder", "$200")]
+reel_html = "".join(f'<div class="reel"><div class="face"><img src="../creatures/svg/{s}.svg"></div><b>{n}</b><span>3 of a kind: {v}</span></div>' for s, n, v in REELS)
 
 # four rigs racing the old board: (piece, name, percent along the road)
 RACERS = [("bronco-orange", "Marigold", 74), ("jeep-red", "Red Rocket", 52), ("buggy-blue", "Blue Buggy", 33), ("rail-purple", "Purple Rail", 12)]
@@ -56,10 +56,10 @@ page1 = f'''<section class="sheet">
   <div class="sub">A six-reel slot machine you race on the old paper board.</div>
   {starburst(344, -2, 190, 150, "PULL!<br>LOCK!<br>BANK!", rot=-4, fs=24)}
   <div class="photo"><div class="tape"></div><img src="img/board-thumb.jpg"><div class="cap">The old paper board is the race track</div></div>
-  <div class="intro">The rangers of Desert Ranger are after the <b>Bandit's loot</b>. Six reels spin, you keep the symbols that score, and your rig drives from <b>Start</b> toward <b>Finish</b> as your bank grows. The same <b>52 real places</b>, the same hand-drawn doodles, the same radio crackle: <i>"R TWO SEVEN THREE, the machine is down."</i></div>
+  <div class="intro">The rangers of Desert Ranger are after the <b>Bandit's loot</b>. Six reels spin, you keep the symbols that score, and your rig drives from <b>Start</b> toward <b>Finish</b> as your bank grows. The same <b>52 real places</b>, the same radio crackle, and reels full of the <b>real creatures of Anza-Borrego</b>: <i>"R TWO SEVEN THREE, the machine is down."</i></div>
 
   <div class="tech machine"><div class="bg"></div>
-    <h3>THE MACHINE · SIX REELS, SIX DOODLES FROM YOUR BOARD</h3>
+    <h3>THE MACHINE · SIX REELS, SIX CREATURES OF THE DESERT</h3>
     <div class="reels">{reel_html}</div>
   </div>
 
@@ -130,7 +130,7 @@ page2 = f'''<section class="sheet">
       <ul>
         <li><b>Online rooms</b> with a room code, like Desert Ranger: 2 to 4 players, any seat a computer, plus a solo demo.</li>
         <li><b>Play money,</b> race to a total you pick: $2,500 to $15,000, with $5,000 as the usual.</li>
-        <li><b>Your six symbols:</b> Olla, Sunset Mountain, 17 Palms, Sheep, Palm Trees and Dos Cabezas.</li>
+        <li><b>Your six reels:</b> bighorn sheep, Gambel's quail, hairy scorpion, ocotillo, chuckwalla and sidewinder, newly drawn.</li>
         <li><b>Goal cards</b> named after board squares; the radio rangers call the action.</li>
       </ul>
     </div>
@@ -241,8 +241,8 @@ h3{font-family:Bungee;font-size:13.5px;position:relative;color:var(--sage);lette
 .machine{position:absolute;top:296px;left:0;right:0;height:158px}
 .reels{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:9px}
 .reel{background:#fff;border:2px solid var(--ink);border-radius:11px;text-align:center;padding:4px 2px 5px;box-shadow:0 3px 0 var(--ink)}
-.reel .face{height:62px;display:flex;align-items:center;justify-content:center}
-.reel img{max-width:84%;max-height:60px;object-fit:contain}
+.reel .face{height:62px;display:flex;align-items:center;justify-content:center;background:#f6ecd0;border:2px double #3A2A1E}
+.reel img{max-width:100%;max-height:58px;object-fit:contain}
 .reel b{display:block;font-family:Bungee;font-size:9.4px;letter-spacing:.2px;font-weight:normal;margin-top:1px}
 .reel span{display:block;font-size:9.4px;color:#6d4a2f;font-weight:700}
 .cols{position:absolute;top:468px;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;gap:22px}

@@ -11,7 +11,7 @@ It follows the rules of play of *One Arm Battle* (see `~/Developer/one-arm-battl
 | Pay table | Our own, tuned by `tools/simulate.py` |
 | Goal cards | Same six mechanics and odds, renamed after board squares |
 | Money | Dollars; host picks the victory total, $2,500 to $15,000, default $5,000 |
-| Symbols | Six hand-drawn doodle icons from the board |
+| Symbols | Six original drawings of real Anza-Borrego creatures in a field-guide plate style (the board doodles were replaced on Oct 6, 2026) |
 | Race display | Rig pieces drive the paper board as banks grow toward the total |
 | Story | The Desert Ranger rangers (R273, dispatch) chase the Bandit's loot; the machine is the bandit |
 | Sound | Machine sounds plus radio lines (new wording from DETERMINATION.md, including its "meme-fresh" column) |
@@ -22,7 +22,7 @@ It follows the rules of play of *One Arm Battle* (see `~/Developer/one-arm-battl
 | Art | Board art is Jeffery Price's hand-drawn work, rights reserved by Jerod Price; reuse for this client confirmed |
 | One Arm Battle credit | None in the game's About page (it stays in `docs/`) |
 | Goal-card names | Agreed as proposed |
-| Icons | Picked on the review page: Olla, Sunset Mountain, 17 Palms, Sheep, Palm Trees, Dos Cabezas |
+| Reel creatures | Picked from 16 candidates (`design/creatures/`): bighorn sheep, Gambel's quail, giant desert hairy scorpion, ocotillo, chuckwalla, sidewinder |
 
 ## Rules
 1. Each turn the player draws a **goal card** (odds below).
@@ -34,13 +34,13 @@ It follows the rules of play of *One Arm Battle* (see `~/Developer/one-arm-battl
 7. The first player whose banked total reaches the victory total wins at once.
 
 ## Symbols and scoring
-Six symbols; every reel shows each symbol with equal chance, independently. They are the owner's picks (Oct 6, 2026), all hand-drawn doodles from the board: Olla (Found an Olla), Sunset Mountain, 17 Palms (the green numeral), Bighorn Sheep (Sheep Canyon), Palm Trees (Palm Canyon) and Dos Cabezas (the twin rocks). Olla and Sunset Mountain are the two that score alone. To check at reel size in Wave 1: the 17 Palms numeral and Palm Trees must stay easy to tell apart, and Sunset Mountain is a thin doodle.
+Six symbols; every reel shows each symbol with equal chance, independently. They are the owner's picks (Oct 6, 2026), original drawings (see `design/creatures/PROVENANCE.md`) of real Anza-Borrego creatures, listed here from highest to lowest pay: Bighorn Sheep, Gambel's Quail, Giant Desert Hairy Scorpion, Ocotillo, Chuckwalla and Sidewinder. The sheep and the quail are the two that score alone. The "Found an Olla" goal card keeps its name (it is a place on the board). To check at reel size in Wave 1: the scorpion and the sidewinder share a tan palette, so they must stay easy to tell apart by shape.
 
 | Group | Value |
 |---|---|
-| A lone Olla | $100 |
-| A lone Sunset Mountain | $50 |
-| Three of a kind | Olla $1,000, Sunset Mountain $600, 17 Palms $500, Sheep $400, Palm Trees $300, Dos Cabezas $200 |
+| A lone Bighorn Sheep | $100 |
+| A lone Gambel's Quail | $50 |
+| Three of a kind | Bighorn Sheep $1,000, Gambel's Quail $600, Hairy Scorpion $500, Ocotillo $400, Chuckwalla $300, Sidewinder $200 |
 | Four / five / six of a kind | the three-of-a-kind value x2 / x3 / x4 |
 | Supersweep: one of each symbol on six reels | $1,500 |
 

@@ -19,6 +19,6 @@
   {"id": "sidewinder", "category": "Reptile", "name": "Sidewinder", "latin": "Crotalus cerastes", "fact": "A small rattlesnake that moves sideways across loose sand."},
   {"id": "flat-tailed-horned-lizard", "category": "Reptile", "name": "Flat-tailed horned lizard", "latin": "Phrynosoma mcallii", "fact": "A flat, spiny sand-dweller listed among the park's lizards; it hides by lying still and buries itself in loose sand."}
  ],
- "defaults": ["bighorn-sheep", "roadrunner", "desert-pupfish", "tarantula-hawk", "ocotillo", "sidewinder"],
+ "defaults": ["bighorn-sheep", "gambels-quail", "desert-hairy-scorpion", "ocotillo", "chuckwalla", "sidewinder"],
  "tiers": ["top $1,000", "$600", "$500", "$400", "$300", "$200"]
 }
