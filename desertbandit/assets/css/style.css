@@ -38,6 +38,7 @@ input, select { display: block; width: 100%; font: 600 1.2rem Nunito, sans-serif
 select { -webkit-appearance: none; appearance: none; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%233A2A1E' stroke-width='2.4'/%3E%3C/svg%3E") no-repeat right 14px center; }
 #in-code { text-transform: uppercase; letter-spacing: .3em; font-family: Bungee, sans-serif; }
 .error { color: var(--terra); font-weight: 800; min-height: 1.2em; margin: 8px 0; }
+.game .error { margin: 10px 0 0; min-height: 0; }
 
 /* Buttons: paper buttons with an ink drop shadow, at least 44 px tall */
 .btn { display: block; width: 100%; border: 2.4px solid var(--ink); border-radius: 14px; background: var(--terra);
@@ -73,7 +74,7 @@ a.btn { line-height: 30px; }
 .tag { font: .6rem Bungee, sans-serif; background: var(--mari); border-radius: 6px; padding: 2px 5px; flex: none; }
 .tag.cpu { background: var(--sagel); }
 .target-fixed { font: 1.6rem Bangers, Bungee, sans-serif; letter-spacing: .05em; }
-.about-link { color: var(--terra); font-weight: 800; display: inline-block; padding: 10px; }
+.about-link { color: var(--terra); font-weight: 800; display: inline-block; padding: 12px 10px; min-height: 44px; }
 .lobby-home { display: inline-block; font: 700 .95rem Nunito, sans-serif; color: var(--terra); text-decoration: none; padding: 10px 4px; min-height: 44px; }
 
 /* "Sound paused" bar: in the page flow at the top, the whole bar is the button */
@@ -96,13 +97,13 @@ a.btn { line-height: 30px; }
 .snd-vol input[type=range] { min-height: 36px; padding: 0; border: 0; background: transparent; accent-color: var(--terra); }
 
 /* race strip */
-.race { position: relative; height: 66px; margin-top: 4px; }
-.race-track { position: absolute; left: 0; right: 0; top: 0; height: 46px; }
-.race-rig { position: absolute; width: 44px; height: 30px; object-fit: contain; z-index: 2; filter: drop-shadow(1px 2px 0 rgba(58,42,30,.28));
+.race { position: relative; height: 72px; margin-top: 4px; }
+.race-track { position: absolute; left: 4px; right: 4px; top: 4px; height: 54px; z-index: 2; }
+.race-rig { position: absolute; width: 40px; height: 27px; object-fit: contain; filter: drop-shadow(1px 2px 0 rgba(58,42,30,.28));
   transition: left 1.2s cubic-bezier(.45,.05,.3,1); }
-.race-rig.cur { transform: scale(1.15); }
-.race-road { position: absolute; left: 0; right: 0; top: 34px; height: 28px; background: var(--sand); border-radius: 14px; border: 2px dashed rgba(58,42,30,.35);
-  display: flex; align-items: center; justify-content: space-between; padding: 0 10px; }
+.race-rig.cur { transform: scale(1.18) translateY(-2px); }
+.race-road { position: absolute; left: 0; right: 0; top: 36px; height: 32px; background: var(--sand); border-radius: 14px; border: 2px dashed rgba(58,42,30,.35);
+  display: flex; align-items: flex-end; justify-content: space-between; padding: 0 10px 3px; }
 .race-road span { font: .6rem Bungee, sans-serif; color: var(--terra); }
 .race-note { margin: 2px 0 0; font: 700 1rem Caveat, cursive; color: var(--ink2); text-align: center; min-height: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -193,6 +194,7 @@ a.btn { line-height: 30px; }
   box-shadow: 2px 3px 0 rgba(58,42,30,.3); flex: none; min-width: 104px; }
 .stake small { display: block; font: .58rem Bungee, sans-serif; color: var(--sage); letter-spacing: .6px; }
 .stake .st b { font: 2rem Bangers, Bungee, sans-serif; font-weight: normal; line-height: .95; letter-spacing: .8px; }
+.stake-sel { display: block; font: normal 700 1rem Caveat, cursive; color: var(--terra); line-height: 1; margin-top: -1px; }
 .stake p { font-size: .86rem; line-height: 1.3; font-weight: 700; color: var(--ink3); margin: 0; }
 .stake-pop { position: absolute; right: -10px; top: -14px; font: normal 1.3rem Bangers, Bungee, sans-serif; color: var(--terra); opacity: 0; pointer-events: none; }
 .stake-pop.up { animation: popup .9s ease-out; }

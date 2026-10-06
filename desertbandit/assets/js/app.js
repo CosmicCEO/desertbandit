@@ -768,7 +768,8 @@
 
     if (S.race) S.race.render(V.players, bankMap(), V.target, V.status === 'active' ? V.currentId : null);
     var mp = viewPlayer(me), place = S.race && mp ? S.race.placeName(mp.bank, V.target) : null;
-    $('race-note').textContent = mp ? 'Your rig: ' + money(mp.bank) + ' of ' + money(V.target) + (place ? ' · ' + place : '') : '';
+    $('race-note').textContent = !mp ? '' : mp.bank >= V.target ? 'Your rig made it: ' + money(mp.bank) + ' at the finish!'
+      : 'Your rig: ' + money(mp.bank) + ' of ' + money(V.target) + (place ? ' · ' + place : '');
 
     renderGoal();
     renderReels();
@@ -776,6 +777,9 @@
     // stake and the message line
     var pv = act && V.phase === 'rolled' ? preview() : null;
     $('stake-amt').textContent = money(V.stake);
+    $('stake-sel').hidden = !(pv && pv.valid);
+    $('stake-sel').textContent = pv && pv.valid ? '+' + money(pv.pts) + ' held' : '';
+    $('actions').hidden = V.status === 'finished';
     var msg = '', cur = viewPlayer(V.currentId), meP = playerById(me);
     if (V.status === 'finished') msg = nameOf(V.winnerId) + ' wins the race!';
     else if (meP && meP.out && g.status === 'active') msg = 'The host has you sitting out.';
@@ -864,7 +868,7 @@
     ul.textContent = '';
     st.players.forEach(function (p) {
       if (p.id === me) return;
-      var li = el('li' + '', p.out ? 'out' : '');
+      var li = el('li', p.out ? 'out' : '');
       li.appendChild(pieceImg(p.vehicle));
       li.appendChild(el('span', 'nm', p.name + (p.out ? ' (sitting out)' : '')));
       var b = el('button', 'mini-btn', p.out ? 'Bring back' : 'Sit out');
@@ -975,11 +979,15 @@
   }
 
   function addLog(ev) {
-    if (!ev.msg) return;
-    var d = ev.data || {}, who = d.playerId ? nameOf(d.playerId) : '';
-    var li = el('li', 'ev-' + ev.type);
-    if (ev.type === 'turn') li.textContent = who + "'s turn · " + ((CARDS[d.card] || [d.card])[0]);
-    else li.textContent = (who && ev.type !== 'win' ? who + ': ' : who ? who + ' ' : '') + ev.msg;
+    var d = ev.data || {}, who = d.playerId ? nameOf(d.playerId) : '', text;
+    if (ev.type === 'turn') text = who + "'s turn · " + ((CARDS[d.card] || [d.card])[0]);
+    else if (ev.type === 'join') text = who ? who + ' joined.' : '';
+    else if (ev.type === 'start') text = 'The race is on!';
+    else if (ev.type === 'leave' || ev.type === 'rematch') text = '';
+    else if (ev.type === 'win') text = who + ' wins with ' + money(d.bank) + '!';
+    else if (ev.msg) text = (who ? who + ': ' : '') + ev.msg;
+    if (!text) return;
+    var li = el('li', 'ev-' + ev.type, text);
     var log = $('log');
     log.insertBefore(li, log.firstChild);
     while (log.children.length > 60) log.removeChild(log.lastChild);
@@ -1063,6 +1071,8 @@
     });
   }
 
-  window.BanditApp = { state: function () { return S; }, view: function () { return V; }, animating: animating, preview: function () { return V && S.state ? preview() : null; } };
+  // read-only hooks for the browser test and for debugging in the console
+  window.BanditApp = { state: function () { return S; }, view: function () { return V; }, animating: animating, canAct: canAct,
+    preview: function () { return V && S.state && S.state.game.phase === 'rolled' ? preview() : null; } };
   init();
 })();

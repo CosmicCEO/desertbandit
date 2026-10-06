@@ -6,6 +6,8 @@
 (function () {
   'use strict';
 
+  var LANE_X = 12, LANE_Y = 8;
+
   function RaceStrip(el) {
     this.el = el;
     this.rigs = {};          // player id -> img
@@ -56,11 +58,13 @@
         self.track.appendChild(img);
         self.rigs[p.id] = img;
       }
-      var f = self.fraction(banks[p.id] || 0, target);
-      // left: from 0 to (track width - rig width), as a percentage of the track with a fixed rig width
-      img.style.left = 'calc(' + (f * 100).toFixed(2) + '% - ' + (f * 44).toFixed(1) + 'px)';
-      img.style.top = (k % 2 ? 10 : 0) + 'px';
-      img.style.zIndex = p.id === currentId ? 5 : 2 + k;
+      var f = self.fraction(banks[p.id] || 0, target), n = players.length;
+      // each seat drives its own lane: a little lower and a little to the right per seat, so rigs at the same bank stay visible.
+      // left runs from lane offset to (track width - rig width - spare lane room), with a fixed rig width of 40 px
+      var spare = (n - 1) * LANE_X;
+      img.style.left = 'calc(' + (f * 100).toFixed(2) + '% - ' + (f * (40 + spare)).toFixed(1) + 'px + ' + (k * LANE_X) + 'px)';
+      img.style.top = (k * LANE_Y) + 'px';
+      img.style.zIndex = p.id === currentId ? 10 : 2 + k;
       img.className = 'race-rig' + (p.id === currentId ? ' cur' : '');
       img.title = p.name + ': $' + Number(banks[p.id] || 0).toLocaleString('en-US');
     });
