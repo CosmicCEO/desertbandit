@@ -99,9 +99,10 @@ a.btn { line-height: 30px; }
 /* race strip */
 .race { position: relative; height: 72px; margin-top: 4px; }
 .race-track { position: absolute; left: 4px; right: 4px; top: 4px; height: 54px; z-index: 2; }
-.race-rig { position: absolute; width: 40px; height: 27px; object-fit: contain; filter: drop-shadow(1px 2px 0 rgba(58,42,30,.28));
-  transition: left 1.2s cubic-bezier(.45,.05,.3,1); }
-.race-rig.cur { transform: scale(1.18) translateY(-2px); }
+/* the rig pictures face left; the race runs left to right, so mirror them to face the way they drive */
+.race-rig { position: absolute; width: 40px; height: 27px; object-fit: contain; filter: drop-shadow(-1px 2px 0 rgba(58,42,30,.28));
+  transform: scaleX(-1); transition: left 1.2s cubic-bezier(.45,.05,.3,1); }
+.race-rig.cur { transform: scaleX(-1) scale(1.18) translateY(-2px); }
 .race-road { position: absolute; left: 0; right: 0; top: 36px; height: 32px; background: var(--sand); border-radius: 14px; border: 2px dashed rgba(58,42,30,.35);
   display: flex; align-items: flex-end; justify-content: space-between; padding: 0 10px 3px; }
 .race-road span { font: .6rem Bungee, sans-serif; color: var(--terra); }

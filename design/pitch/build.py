@@ -388,7 +388,7 @@ h3{font-family:Bungee;font-size:13.5px;position:relative;color:var(--sage);lette
 .road{position:absolute;left:-6px;right:-6px;top:56px;height:40px;background:var(--sand);border-radius:20px;filter:url(#rough);border:2px dashed rgba(58,42,30,.35)}
 .racers{position:absolute;left:44px;right:60px;top:24px;height:80px}
 .racer{position:absolute;top:0;width:80px;text-align:center}
-.racer img{width:80px;height:56px;object-fit:contain;filter:drop-shadow(1px 2px 0 rgba(58,42,30,.25))}
+.racer img{width:80px;height:56px;object-fit:contain;transform:scaleX(-1);filter:drop-shadow(-1px 2px 0 rgba(58,42,30,.25))}
 .racer span{display:block;font-family:Bungee;font-size:8.6px;margin-top:2px}
 .flag{position:absolute;top:60px;font-family:Bungee;font-size:10px;color:var(--terra);left:6px}
 .flag.fin{left:auto;right:6px}
@@ -420,7 +420,7 @@ h3{font-family:Bungee;font-size:13.5px;position:relative;color:var(--sage);lette
 .ph-race{position:absolute;left:0;right:0;top:68px;height:68px}
 .ph-road{position:absolute;left:14px;right:14px;top:36px;height:26px;background:var(--sand);border-radius:13px;border:2px dashed rgba(58,42,30,.35);display:flex;align-items:center;justify-content:space-between;padding:0 8px}
 .ph-road span{font-family:Bungee;font-size:7.5px;color:var(--terra)}
-.ph-rig{position:absolute;z-index:2;top:12px;width:44px;height:30px;object-fit:contain;filter:drop-shadow(1px 2px 0 rgba(58,42,30,.28))}
+.ph-rig{position:absolute;z-index:2;top:12px;width:44px;height:30px;object-fit:contain;transform:scaleX(-1);filter:drop-shadow(-1px 2px 0 rgba(58,42,30,.28))}
 .gcard{position:absolute;left:14px;right:14px;top:144px;height:80px;background:#fffaf0;border:2px solid var(--ink);border-radius:8px;transform:rotate(-1.2deg);box-shadow:2px 3px 6px rgba(60,40,20,.3);display:flex;align-items:center;gap:10px;padding:6px 10px}
 .gcard img{width:44px;height:44px;object-fit:contain;flex:none}
 .gcard .gk{font-family:Caveat;font-weight:700;font-size:13px;color:var(--terra);line-height:1}
