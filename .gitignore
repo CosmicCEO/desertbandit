@@ -19,6 +19,10 @@ desertbandit/assets/img/pieces
 desertbandit/assets/img/board-2000.jpg
 desertbandit/assets/img/board-flat.jpg
 dev/e2e/shots/
+# audio build scratch (takes, QA, masters; see tools/audio/README.md) and Desert Ranger audio linked by tools/link-game-audio.sh
+audio-work-bandit/
+desertbandit/audio/radio/
+desertbandit/audio/amb
 # generated creature review page and scratch probe (see design/creatures/build_review.py)
 design/creatures/review.html
 design/creatures/_probe.html

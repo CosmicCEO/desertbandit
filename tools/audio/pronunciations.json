@@ -1,0 +1,4 @@
+{
+ "_about": "Respellings sent to the voice instead of the written word (copied from Desert Ranger's docs/audio-lines.json 'pronunciations' key; only the words these lines use). Value: {default, senior_ranger?, ranger_273?}. Letters a-z only, all lowercase or Title-case, no hyphens (python3 tools/audio/pron.py --check).",
+ "Olla": {"default": "oya", "senior_ranger": "oyah"}
+}
