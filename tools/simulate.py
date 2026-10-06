@@ -14,8 +14,8 @@ from functools import lru_cache
 from math import factorial
 
 # ------------------------------------------------------------------ PAY TABLE (all values are proposals, tuned by this tool)
-SYMBOLS = ['Olla', 'Star', 'Water', 'Sheep', 'Palm', 'Wrench']          # index 0..5, premium singles are Olla and Star
-SINGLE = {0: 100, 1: 50}                                                 # a lone Olla / Star scores on its own
+SYMBOLS = ['Olla', 'Sunset Mountain', '17 Palms', 'Sheep', 'Palm Trees', 'Dos Cabezas']   # index 0..5, premium singles are the first two
+SINGLE = {0: 100, 1: 50}                                                 # a lone Olla / Sunset Mountain scores on its own
 TRIPLE = {0: 1000, 1: 600, 2: 500, 3: 400, 4: 300, 5: 200}              # three of a kind; more of a kind multiplies it
 KIND_MULT = {3: 1, 4: 2, 5: 3, 6: 4}
 STRAIGHT = 1500                                                          # one of each symbol on six reels: the "Supersweep"
