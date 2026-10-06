@@ -1,0 +1,1352 @@
+{
+ "coordinateSpace": {
+  "bbox_flat": "[x,y,w,h] in art/board-flat.jpg pixels (4372x3321)",
+  "bbox_3000": "[x,y,w,h] in 3000px-wide working space (3000x2279) = board-flat scaled by 0.6862"
+ },
+ "icons": {
+  "cattails-ocotillo": {
+   "label": "red-tipped stalks (Go to Ocotillo Wells)",
+   "square": 41,
+   "squareName": "Go to Ocotillo Wells",
+   "nearestSquareByCenter": 41,
+   "bbox_flat": [
+    630,
+    44,
+    482,
+    423
+   ],
+   "bbox_3000": [
+    432,
+    30,
+    331,
+    290
+   ],
+   "files": {
+    "lineart_png": "icons/cattails-ocotillo.png",
+    "lineart_svg": "icons/cattails-ocotillo.svg",
+    "color_png": "icons/cattails-ocotillo-color.png",
+    "color_svg": "icons/cattails-ocotillo-color.svg"
+   },
+   "mode": "all",
+   "params": {
+    "rects": [
+     [
+      440,
+      30,
+      575,
+      160
+     ],
+     [
+      640,
+      150,
+      770,
+      320
+     ]
+    ],
+    "dthr": 0.7
+   },
+   "rotation": -37,
+   "size_after_rotation": [
+    316,
+    183
+   ]
+  },
+  "fonts-point-rays": {
+   "label": "yellow rays/scrub (Fonts Point)",
+   "square": 43,
+   "squareName": "Fonts Point",
+   "nearestSquareByCenter": 43,
+   "bbox_flat": [
+    85,
+    393,
+    153,
+    254
+   ],
+   "bbox_3000": [
+    58,
+    270,
+    105,
+    174
+   ],
+   "files": {
+    "lineart_png": "icons/fonts-point-rays.png",
+    "lineart_svg": "icons/fonts-point-rays.svg",
+    "color_png": "icons/fonts-point-rays-color.png",
+    "color_svg": "icons/fonts-point-rays-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -60,
+   "size_after_rotation": [
+    128,
+    149
+   ]
+  },
+  "red-arrow": {
+   "label": "red down arrow (Subpoena)",
+   "square": 40,
+   "squareName": "Subpoena",
+   "nearestSquareByCenter": 40,
+   "bbox_flat": [
+    660,
+    612,
+    134,
+    291
+   ],
+   "bbox_3000": [
+    453,
+    420,
+    92,
+    200
+   ],
+   "files": {
+    "lineart_png": "icons/red-arrow.png",
+    "lineart_svg": "icons/red-arrow.svg",
+    "color_png": "icons/red-arrow-color.png",
+    "color_svg": "icons/red-arrow-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    186,
+    78
+   ]
+  },
+  "fish": {
+   "label": "blue fish (Fish Creek)",
+   "square": 39,
+   "squareName": "Fish Creek",
+   "nearestSquareByCenter": 39,
+   "bbox_flat": [
+    675,
+    918,
+    185,
+    124
+   ],
+   "bbox_3000": [
+    463,
+    630,
+    127,
+    85
+   ],
+   "files": {
+    "lineart_png": "icons/fish.png",
+    "lineart_svg": "icons/fish.svg",
+    "color_png": "icons/fish-color.png",
+    "color_svg": "icons/fish-color.svg"
+   },
+   "mode": "color",
+   "params": {
+    "cth": 7
+   },
+   "rotation": -90,
+   "size_after_rotation": [
+    78,
+    113
+   ]
+  },
+  "barrel": {
+   "label": "barrel (Barrel Springs)",
+   "square": 45,
+   "squareName": "Barrel Springs",
+   "nearestSquareByCenter": 45,
+   "bbox_flat": [
+    109,
+    1008,
+    160,
+    157
+   ],
+   "bbox_3000": [
+    75,
+    692,
+    110,
+    108
+   ],
+   "files": {
+    "lineart_png": "icons/barrel.png",
+    "lineart_svg": "icons/barrel.svg",
+    "color_png": "icons/barrel-color.png",
+    "color_svg": "icons/barrel-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    98,
+    103
+   ]
+  },
+  "numeral-17-palms": {
+   "label": "green 17 (17 Palms)",
+   "square": 38,
+   "squareName": "17 Palms",
+   "nearestSquareByCenter": 38,
+   "bbox_flat": [
+    823,
+    1180,
+    204,
+    188
+   ],
+   "bbox_3000": [
+    565,
+    810,
+    140,
+    129
+   ],
+   "files": {
+    "lineart_png": "icons/numeral-17-palms.png",
+    "lineart_svg": "icons/numeral-17-palms.svg",
+    "color_png": "icons/numeral-17-palms-color.png",
+    "color_svg": "icons/numeral-17-palms-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    118,
+    134
+   ]
+  },
+  "cholla-cactus": {
+   "label": "yellow cholla cactus",
+   "square": 46,
+   "squareName": "Cholla Flat Tire",
+   "nearestSquareByCenter": 46,
+   "bbox_flat": [
+    306,
+    1249,
+    328,
+    376
+   ],
+   "bbox_3000": [
+    210,
+    857,
+    225,
+    258
+   ],
+   "files": {
+    "lineart_png": "icons/cholla-cactus.png",
+    "lineart_svg": "icons/cholla-cactus.svg",
+    "color_png": "icons/cholla-cactus-color.png",
+    "color_svg": "icons/cholla-cactus-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    245,
+    218
+   ]
+  },
+  "bow": {
+   "label": "bow (Bow Willow)",
+   "square": 37,
+   "squareName": "Bow Willow",
+   "nearestSquareByCenter": 37,
+   "bbox_flat": [
+    816,
+    1516,
+    303,
+    211
+   ],
+   "bbox_3000": [
+    560,
+    1040,
+    208,
+    145
+   ],
+   "files": {
+    "lineart_png": "icons/bow.png",
+    "lineart_svg": "icons/bow.svg",
+    "color_png": "icons/bow-color.png",
+    "color_svg": "icons/bow-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -38,
+   "size_after_rotation": [
+    230,
+    51
+   ]
+  },
+  "sunset-mountain": {
+   "label": "red/green doodle (Sunset Mountain)",
+   "square": 47,
+   "squareName": "Sunset Mountain",
+   "nearestSquareByCenter": 47,
+   "bbox_flat": [
+    185,
+    1554,
+    102,
+    290
+   ],
+   "bbox_3000": [
+    127,
+    1066,
+    70,
+    199
+   ],
+   "files": {
+    "lineart_png": "icons/sunset-mountain.png",
+    "lineart_svg": "icons/sunset-mountain.svg",
+    "color_png": "icons/sunset-mountain-color.png",
+    "color_svg": "icons/sunset-mountain-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    188,
+    56
+   ]
+  },
+  "numeral-9": {
+   "label": "red 9 (Sheep Canyon Closure)",
+   "square": 48,
+   "squareName": "Sheep Canyon Closure",
+   "nearestSquareByCenter": 48,
+   "bbox_flat": [
+    50,
+    1925,
+    171,
+    141
+   ],
+   "bbox_3000": [
+    34,
+    1321,
+    117,
+    97
+   ],
+   "files": {
+    "lineart_png": "icons/numeral-9.png",
+    "lineart_svg": "icons/numeral-9.svg",
+    "color_png": "icons/numeral-9-color.png",
+    "color_svg": "icons/numeral-9-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    84,
+    104
+   ]
+  },
+  "numeral-17-small": {
+   "label": "green 17 (Go to 17 Palms)",
+   "square": 49,
+   "squareName": "Go to 17 Palms",
+   "nearestSquareByCenter": 49,
+   "bbox_flat": [
+    277,
+    2224,
+    138,
+    137
+   ],
+   "bbox_3000": [
+    190,
+    1526,
+    95,
+    94
+   ],
+   "files": {
+    "lineart_png": "icons/numeral-17-small.png",
+    "lineart_svg": "icons/numeral-17-small.svg",
+    "color_png": "icons/numeral-17-small-color.png",
+    "color_svg": "icons/numeral-17-small-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    84,
+    83
+   ]
+  },
+  "ground-fire": {
+   "label": "fire ring (Report of a Ground Fire)",
+   "square": 50,
+   "squareName": "Ground Fire Report",
+   "nearestSquareByCenter": 50,
+   "bbox_flat": [
+    83,
+    2512,
+    80,
+    271
+   ],
+   "bbox_3000": [
+    57,
+    1724,
+    55,
+    186
+   ],
+   "files": {
+    "lineart_png": "icons/ground-fire.png",
+    "lineart_svg": "icons/ground-fire.svg",
+    "color_png": "icons/ground-fire-color.png",
+    "color_svg": "icons/ground-fire-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    179,
+    41
+   ]
+  },
+  "finish": {
+   "label": "FINISH lettering + !!!",
+   "square": 51,
+   "squareName": "Finish",
+   "nearestSquareByCenter": 51,
+   "bbox_flat": [
+    146,
+    2827,
+    342,
+    402
+   ],
+   "bbox_3000": [
+    100,
+    1940,
+    235,
+    276
+   ],
+   "files": {
+    "lineart_png": "icons/finish.png",
+    "lineart_svg": "icons/finish.svg",
+    "color_png": "icons/finish-color.png",
+    "color_svg": "icons/finish-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": -90,
+   "size_after_rotation": [
+    270,
+    233
+   ]
+  },
+  "start": {
+   "label": "blue START lettering",
+   "square": 0,
+   "squareName": "Start",
+   "nearestSquareByCenter": 0,
+   "bbox_flat": [
+    576,
+    2676,
+    386,
+    385
+   ],
+   "bbox_3000": [
+    395,
+    1836,
+    265,
+    264
+   ],
+   "files": {
+    "lineart_png": "icons/start.png",
+    "lineart_svg": "icons/start.svg",
+    "color_png": "icons/start-color.png",
+    "color_svg": "icons/start-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 38,
+   "size_after_rotation": [
+    325,
+    129
+   ]
+  },
+  "title-desert-ranger": {
+   "label": "red DESERT RANGER title",
+   "square": null,
+   "squareName": null,
+   "nearestSquareByCenter": 36,
+   "bbox_flat": [
+    618,
+    1814,
+    1261,
+    665
+   ],
+   "bbox_3000": [
+    424,
+    1245,
+    865,
+    456
+   ],
+   "files": {
+    "lineart_png": "icons/title-desert-ranger.png",
+    "lineart_svg": "icons/title-desert-ranger.svg",
+    "color_png": "icons/title-desert-ranger-color.png",
+    "color_svg": "icons/title-desert-ranger-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    865,
+    456
+   ]
+  },
+  "palm-trees": {
+   "label": "twin palm trees (Palm Canyon)",
+   "square": 2,
+   "squareName": "Palm Canyon",
+   "nearestSquareByCenter": 2,
+   "bbox_flat": [
+    1239,
+    2324,
+    459,
+    546
+   ],
+   "bbox_3000": [
+    850,
+    1595,
+    315,
+    375
+   ],
+   "files": {
+    "lineart_png": "icons/palm-trees.png",
+    "lineart_svg": "icons/palm-trees.svg",
+    "color_png": "icons/palm-trees-color.png",
+    "color_svg": "icons/palm-trees-color.svg"
+   },
+   "mode": "all",
+   "params": {
+    "cth": 7
+   },
+   "rotation": 0,
+   "size_after_rotation": [
+    315,
+    375
+   ]
+  },
+  "star": {
+   "label": "pink star (Promoted)",
+   "square": 3,
+   "squareName": "Promoted",
+   "nearestSquareByCenter": 3,
+   "bbox_flat": [
+    1720,
+    2740,
+    211,
+    211
+   ],
+   "bbox_3000": [
+    1180,
+    1880,
+    145,
+    145
+   ],
+   "files": {
+    "lineart_png": "icons/star.png",
+    "lineart_svg": "icons/star.svg",
+    "color_png": "icons/star-color.png",
+    "color_svg": "icons/star-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    145,
+    145
+   ]
+  },
+  "sandstone": {
+   "label": "sandstone strata (Sandstone Canyon)",
+   "square": 4,
+   "squareName": "Sandstone Canyon",
+   "nearestSquareByCenter": 4,
+   "bbox_flat": [
+    1986,
+    2463,
+    309,
+    466
+   ],
+   "bbox_3000": [
+    1363,
+    1690,
+    212,
+    320
+   ],
+   "files": {
+    "lineart_png": "icons/sandstone.png",
+    "lineart_svg": "icons/sandstone.svg",
+    "color_png": "icons/sandstone-color.png",
+    "color_svg": "icons/sandstone-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 25,
+   "size_after_rotation": [
+    186,
+    281
+   ]
+  },
+  "shortcut-arrow": {
+   "label": "orange shortcut arrow (Cut Across Trail)",
+   "square": 6,
+   "squareName": "Cut Across Trail",
+   "nearestSquareByCenter": 6,
+   "bbox_flat": [
+    2674,
+    1672,
+    153,
+    369
+   ],
+   "bbox_3000": [
+    1835,
+    1147,
+    105,
+    253
+   ],
+   "files": {
+    "lineart_png": "icons/shortcut-arrow.png",
+    "lineart_svg": "icons/shortcut-arrow.svg",
+    "color_png": "icons/shortcut-arrow-color.png",
+    "color_svg": "icons/shortcut-arrow-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    105,
+    253
+   ]
+  },
+  "reeds": {
+   "label": "reeds with red tips (Harper Flat)",
+   "square": 7,
+   "squareName": "Harper Flat",
+   "nearestSquareByCenter": 7,
+   "bbox_flat": [
+    2725,
+    1672,
+    466,
+    493
+   ],
+   "bbox_3000": [
+    1870,
+    1147,
+    320,
+    338
+   ],
+   "files": {
+    "lineart_png": "icons/reeds.png",
+    "lineart_svg": "icons/reeds.svg",
+    "color_png": "icons/reeds-color.png",
+    "color_svg": "icons/reeds-color.svg"
+   },
+   "mode": "color",
+   "params": {
+    "cth": 7
+   },
+   "rotation": 0,
+   "size_after_rotation": [
+    320,
+    338
+   ]
+  },
+  "signpost": {
+   "label": "vandalized signpost",
+   "square": 9,
+   "squareName": "Vandalized Sign",
+   "nearestSquareByCenter": 9,
+   "bbox_flat": [
+    3159,
+    2448,
+    309,
+    270
+   ],
+   "bbox_3000": [
+    2168,
+    1680,
+    212,
+    185
+   ],
+   "files": {
+    "lineart_png": "icons/signpost.png",
+    "lineart_svg": "icons/signpost.svg",
+    "color_png": "icons/signpost-color.png",
+    "color_svg": "icons/signpost-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": -79,
+   "size_after_rotation": [
+    155,
+    200
+   ]
+  },
+  "grapes": {
+   "label": "grapes (Grapevine Canyon)",
+   "square": 10,
+   "squareName": "Grapevine Canyon",
+   "nearestSquareByCenter": 10,
+   "bbox_flat": [
+    2878,
+    2935,
+    122,
+    169
+   ],
+   "bbox_3000": [
+    1975,
+    2014,
+    84,
+    116
+   ],
+   "files": {
+    "lineart_png": "icons/grapes.png",
+    "lineart_svg": "icons/grapes.svg",
+    "color_png": "icons/grapes-color.png",
+    "color_svg": "icons/grapes-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    84,
+    116
+   ]
+  },
+  "dos-cabezas": {
+   "label": "twin rocks (Dos Cabezas)",
+   "square": 11,
+   "squareName": "Dos Cabezas",
+   "nearestSquareByCenter": 11,
+   "bbox_flat": [
+    3031,
+    3050,
+    310,
+    201
+   ],
+   "bbox_3000": [
+    2080,
+    2093,
+    213,
+    138
+   ],
+   "files": {
+    "lineart_png": "icons/dos-cabezas.png",
+    "lineart_svg": "icons/dos-cabezas.svg",
+    "color_png": "icons/dos-cabezas-color.png",
+    "color_svg": "icons/dos-cabezas-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    213,
+    138
+   ]
+  },
+  "ocotillo-stems": {
+   "label": "ocotillo stems (Ocotillo Wells)",
+   "square": 12,
+   "squareName": "Ocotillo Wells",
+   "nearestSquareByCenter": 12,
+   "bbox_flat": [
+    3359,
+    2601,
+    379,
+    670
+   ],
+   "bbox_3000": [
+    2305,
+    1785,
+    260,
+    460
+   ],
+   "files": {
+    "lineart_png": "icons/ocotillo-stems.png",
+    "lineart_svg": "icons/ocotillo-stems.svg",
+    "color_png": "icons/ocotillo-stems-color.png",
+    "color_svg": "icons/ocotillo-stems-color.svg"
+   },
+   "mode": "color",
+   "params": {
+    "cth": 6
+   },
+   "rotation": 0,
+   "size_after_rotation": [
+    260,
+    460
+   ]
+  },
+  "screwdriver": {
+   "label": "screwdriver (Garage)",
+   "square": 13,
+   "squareName": "Garage",
+   "nearestSquareByCenter": 13,
+   "bbox_flat": [
+    3718,
+    2967,
+    71,
+    302
+   ],
+   "bbox_3000": [
+    2551,
+    2036,
+    49,
+    207
+   ],
+   "files": {
+    "lineart_png": "icons/screwdriver.png",
+    "lineart_svg": "icons/screwdriver.svg",
+    "color_png": "icons/screwdriver-color.png",
+    "color_svg": "icons/screwdriver-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    49,
+    207
+   ]
+  },
+  "wrench": {
+   "label": "wrench (Garage)",
+   "square": 13,
+   "squareName": "Garage",
+   "nearestSquareByCenter": 13,
+   "bbox_flat": [
+    3804,
+    2958,
+    259,
+    335
+   ],
+   "bbox_3000": [
+    2610,
+    2030,
+    178,
+    230
+   ],
+   "files": {
+    "lineart_png": "icons/wrench.png",
+    "lineart_svg": "icons/wrench.svg",
+    "color_png": "icons/wrench-color.png",
+    "color_svg": "icons/wrench-color.svg"
+   },
+   "mode": "all",
+   "params": {
+    "rects": [
+     [
+      2610,
+      2125,
+      2800,
+      2260
+     ],
+     [
+      2610,
+      2030,
+      2695,
+      2125
+     ]
+    ]
+   },
+   "rotation": 57,
+   "size_after_rotation": [
+    134,
+    256
+   ]
+  },
+  "fault-wash": {
+   "label": "brown strata (Fault Wash)",
+   "square": 15,
+   "squareName": "Fault Wash",
+   "nearestSquareByCenter": 15,
+   "bbox_flat": [
+    4204,
+    2150,
+    133,
+    286
+   ],
+   "bbox_3000": [
+    2885,
+    1475,
+    91,
+    196
+   ],
+   "files": {
+    "lineart_png": "icons/fault-wash.png",
+    "lineart_svg": "icons/fault-wash.svg",
+    "color_png": "icons/fault-wash-color.png",
+    "color_svg": "icons/fault-wash-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": 90,
+   "size_after_rotation": [
+    190,
+    78
+   ]
+  },
+  "water-drop": {
+   "label": "drop (No Extra Drinking Water)",
+   "square": 16,
+   "squareName": "No Extra Water",
+   "nearestSquareByCenter": 16,
+   "bbox_flat": [
+    4053,
+    1983,
+    144,
+    58
+   ],
+   "bbox_3000": [
+    2781,
+    1361,
+    99,
+    40
+   ],
+   "files": {
+    "lineart_png": "icons/water-drop.png",
+    "lineart_svg": "icons/water-drop.svg",
+    "color_png": "icons/water-drop-color.png",
+    "color_svg": "icons/water-drop-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": 90,
+   "size_after_rotation": [
+    26,
+    91
+   ]
+  },
+  "willows": {
+   "label": "willow grass (Middle Willows)",
+   "square": 17,
+   "squareName": "Middle Willows",
+   "nearestSquareByCenter": 17,
+   "bbox_flat": [
+    4175,
+    1231,
+    189,
+    321
+   ],
+   "bbox_3000": [
+    2865,
+    845,
+    130,
+    220
+   ],
+   "files": {
+    "lineart_png": "icons/willows.png",
+    "lineart_svg": "icons/willows.svg",
+    "color_png": "icons/willows-color.png",
+    "color_svg": "icons/willows-color.svg"
+   },
+   "mode": "all",
+   "params": {},
+   "rotation": 90,
+   "size_after_rotation": [
+    220,
+    130
+   ]
+  },
+  "wagon-wheel": {
+   "label": "wagon wheel (Vallecito)",
+   "square": 18,
+   "squareName": "Vallecito",
+   "nearestSquareByCenter": 18,
+   "bbox_flat": [
+    4060,
+    895,
+    262,
+    325
+   ],
+   "bbox_3000": [
+    2786,
+    614,
+    180,
+    223
+   ],
+   "files": {
+    "lineart_png": "icons/wagon-wheel.png",
+    "lineart_svg": "icons/wagon-wheel.svg",
+    "color_png": "icons/wagon-wheel-color.png",
+    "color_svg": "icons/wagon-wheel-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 90,
+   "size_after_rotation": [
+    209,
+    166
+   ]
+  },
+  "arroyo-salado": {
+   "label": "blue water doodle (Arroyo Salado)",
+   "square": 19,
+   "squareName": "Arroyo Salado",
+   "nearestSquareByCenter": 19,
+   "bbox_flat": [
+    4076,
+    525,
+    248,
+    341
+   ],
+   "bbox_3000": [
+    2797,
+    360,
+    170,
+    234
+   ],
+   "files": {
+    "lineart_png": "icons/arroyo-salado.png",
+    "lineart_svg": "icons/arroyo-salado.svg",
+    "color_png": "icons/arroyo-salado-color.png",
+    "color_svg": "icons/arroyo-salado-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 90,
+   "size_after_rotation": [
+    227,
+    156
+   ]
+  },
+  "hawk-canyon": {
+   "label": "canyon lines (Hawk Canyon)",
+   "square": 20,
+   "squareName": "Hawk Canyon",
+   "nearestSquareByCenter": 20,
+   "bbox_flat": [
+    3855,
+    90,
+    294,
+    261
+   ],
+   "bbox_3000": [
+    2645,
+    62,
+    202,
+    179
+   ],
+   "files": {
+    "lineart_png": "icons/hawk-canyon.png",
+    "lineart_svg": "icons/hawk-canyon.svg",
+    "color_png": "icons/hawk-canyon-color.png",
+    "color_svg": "icons/hawk-canyon-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 180,
+   "size_after_rotation": [
+    196,
+    165
+   ]
+  },
+  "ladder": {
+   "label": "orange ladder/corral (Sacramento)",
+   "square": 21,
+   "squareName": "Sacramento",
+   "nearestSquareByCenter": 21,
+   "bbox_flat": [
+    3425,
+    187,
+    452,
+    506
+   ],
+   "bbox_3000": [
+    2350,
+    128,
+    310,
+    347
+   ],
+   "files": {
+    "lineart_png": "icons/ladder.png",
+    "lineart_svg": "icons/ladder.svg",
+    "color_png": "icons/ladder-color.png",
+    "color_svg": "icons/ladder-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 153,
+   "size_after_rotation": [
+    207,
+    389
+   ]
+  },
+  "arrow-back-10": {
+   "label": "orange arrow (Vehicle Breaks Down)",
+   "square": 23,
+   "squareName": "Vehicle Breaks Down",
+   "nearestSquareByCenter": 23,
+   "bbox_flat": [
+    3017,
+    55,
+    162,
+    90
+   ],
+   "bbox_3000": [
+    2070,
+    38,
+    111,
+    62
+   ],
+   "files": {
+    "lineart_png": "icons/arrow-back-10.png",
+    "lineart_svg": "icons/arrow-back-10.svg",
+    "color_png": "icons/arrow-back-10-color.png",
+    "color_svg": "icons/arrow-back-10-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 180,
+   "size_after_rotation": [
+    97,
+    49
+   ]
+  },
+  "sheep": {
+   "label": "bighorn sheep horns (Sheep Canyon)",
+   "square": 24,
+   "squareName": "Sheep Canyon",
+   "nearestSquareByCenter": 24,
+   "bbox_flat": [
+    2663,
+    143,
+    185,
+    149
+   ],
+   "bbox_3000": [
+    1827,
+    98,
+    127,
+    102
+   ],
+   "files": {
+    "lineart_png": "icons/sheep.png",
+    "lineart_svg": "icons/sheep.svg",
+    "color_png": "icons/sheep-color.png",
+    "color_svg": "icons/sheep-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 180,
+   "size_after_rotation": [
+    113,
+    88
+   ]
+  },
+  "tamarisk": {
+   "label": "tamarisk shrub (Tamarisk Grove)",
+   "square": 25,
+   "squareName": "Tamarisk Grove",
+   "nearestSquareByCenter": 25,
+   "bbox_flat": [
+    2253,
+    154,
+    297,
+    125
+   ],
+   "bbox_3000": [
+    1546,
+    106,
+    204,
+    86
+   ],
+   "files": {
+    "lineart_png": "icons/tamarisk.png",
+    "lineart_svg": "icons/tamarisk.svg",
+    "color_png": "icons/tamarisk-color.png",
+    "color_svg": "icons/tamarisk-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 180,
+   "size_after_rotation": [
+    191,
+    72
+   ]
+  },
+  "olla": {
+   "label": "olla pot (Found an Olla)",
+   "square": 26,
+   "squareName": "Found an Olla",
+   "nearestSquareByCenter": 26,
+   "bbox_flat": [
+    2005,
+    178,
+    169,
+    157
+   ],
+   "bbox_3000": [
+    1376,
+    122,
+    116,
+    108
+   ],
+   "files": {
+    "lineart_png": "icons/olla.png",
+    "lineart_svg": "icons/olla.svg",
+    "color_png": "icons/olla-color.png",
+    "color_svg": "icons/olla-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 180,
+   "size_after_rotation": [
+    102,
+    94
+   ]
+  },
+  "dice": {
+   "label": "die (Shooters Cited)",
+   "square": 29,
+   "squareName": "Shooters Cited",
+   "nearestSquareByCenter": 29,
+   "bbox_flat": [
+    1625,
+    972,
+    146,
+    200
+   ],
+   "bbox_3000": [
+    1115,
+    667,
+    100,
+    137
+   ],
+   "files": {
+    "lineart_png": "icons/dice.png",
+    "lineart_svg": "icons/dice.svg",
+    "color_png": "icons/dice-color.png",
+    "color_svg": "icons/dice-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    100,
+    137
+   ]
+  },
+  "yaqui-pass": {
+   "label": "yellow doodle (Yaqui Pass)",
+   "square": 32,
+   "squareName": "Yaqui Pass",
+   "nearestSquareByCenter": 32,
+   "bbox_flat": [
+    2869,
+    998,
+    168,
+    379
+   ],
+   "bbox_3000": [
+    1969,
+    685,
+    115,
+    260
+   ],
+   "files": {
+    "lineart_png": "icons/yaqui-pass.png",
+    "lineart_svg": "icons/yaqui-pass.svg",
+    "color_png": "icons/yaqui-pass-color.png",
+    "color_svg": "icons/yaqui-pass-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    115,
+    260
+   ]
+  },
+  "court-gavel": {
+   "label": "COURT + gavel",
+   "square": 34,
+   "squareName": "Court",
+   "nearestSquareByCenter": 34,
+   "bbox_flat": [
+    1973,
+    1364,
+    424,
+    347
+   ],
+   "bbox_3000": [
+    1354,
+    936,
+    291,
+    238
+   ],
+   "files": {
+    "lineart_png": "icons/court-gavel.png",
+    "lineart_svg": "icons/court-gavel.svg",
+    "color_png": "icons/court-gavel-color.png",
+    "color_svg": "icons/court-gavel-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    291,
+    238
+   ]
+  },
+  "una-palma": {
+   "label": "small palm (Una Palma)",
+   "square": 33,
+   "squareName": "Una Palma",
+   "nearestSquareByCenter": 33,
+   "bbox_flat": [
+    2413,
+    1465,
+    203,
+    268
+   ],
+   "bbox_3000": [
+    1656,
+    1005,
+    139,
+    184
+   ],
+   "files": {
+    "lineart_png": "icons/una-palma.png",
+    "lineart_svg": "icons/una-palma.svg",
+    "color_png": "icons/una-palma-color.png",
+    "color_svg": "icons/una-palma-color.svg"
+   },
+   "mode": "color",
+   "params": {
+    "cth": 6
+   },
+   "rotation": 0,
+   "size_after_rotation": [
+    139,
+    184
+   ]
+  },
+  "numeral-4": {
+   "label": "red 4 (Elephant Trees)",
+   "square": 35,
+   "squareName": "Elephant Trees Stampede",
+   "nearestSquareByCenter": 35,
+   "bbox_flat": [
+    1587,
+    1660,
+    128,
+    115
+   ],
+   "bbox_3000": [
+    1089,
+    1139,
+    88,
+    79
+   ],
+   "files": {
+    "lineart_png": "icons/numeral-4.png",
+    "lineart_svg": "icons/numeral-4.svg",
+    "color_png": "icons/numeral-4-color.png",
+    "color_svg": "icons/numeral-4-color.svg"
+   },
+   "mode": "color",
+   "params": {},
+   "rotation": 0,
+   "size_after_rotation": [
+    88,
+    79
+   ]
+  }
+ },
+ "rotationConvention": "per-icon 'rotation' = degrees clockwise applied to the original cut (same sense as SVG rotate()); originals kept in icons/_original/"
+}

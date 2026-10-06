@@ -4,6 +4,7 @@
 desertbandit/config.php
 deploy/
 art-binaries/
+design/symbols/icons
 node_modules/
 __pycache__/
 docs_sim_report.txt

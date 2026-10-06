@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desert Bandit: pick the six reel symbols</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --cream:#F4ECD8; --paper:#fffaf0; --ink:#3A2A1E; --ink2:#6d4a2f; --terra:#C3623B; --mari:#E9A23B; --gold:#F2B640; --sage:#7E9168; --sagel:#C9D3B4; --sand:#E8D7B4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.4 Nunito, 'Avenir Next', system-ui, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
+  h1 { font: 400 clamp(1.6rem, 5vw, 2.4rem)/1.1 Bungee, 'Arial Black', Impact, sans-serif; color: var(--terra); margin: 8px 0; }
+  h2 { font: 400 1.15rem Bungee, 'Arial Black', Impact, sans-serif; margin: 22px 0 8px; }
+  p { margin: 6px 0; }
+  .card { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; box-shadow: 3px 4px 0 var(--ink); padding: 14px; }
+  .reels { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .slot { background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 6px 4px 8px; text-align: center; cursor: pointer; font: inherit; color: inherit; }
+  .slot.sel { outline: 4px solid var(--mari); background: #fff4d6; }
+  .slot img { width: 100%; aspect-ratio: 1; object-fit: contain; display: block; }
+  .slot b { display: block; font: 400 .72rem Bungee, 'Arial Black', Impact, sans-serif; }
+  .slot span { display: block; font-size: .72rem; color: var(--ink2); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+  .cand { background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 6px; text-align: center; cursor: pointer; font: inherit; color: inherit; }
+  .cand.used { background: var(--sagel); }
+  .cand img { width: 100%; aspect-ratio: 1; object-fit: contain; display: block; }
+  .cand small { display: block; font-size: .7rem; line-height: 1.15; color: var(--ink2); }
+  .hint { color: var(--ink2); font-size: .92rem; }
+  textarea { width: 100%; min-height: 4.5em; border: 2px solid var(--ink); border-radius: 10px; padding: 8px; font: 600 .9rem ui-monospace, Menlo, monospace; background: #fff; }
+  button.act { font: 400 .95rem Bungee, 'Arial Black', Impact, sans-serif; background: var(--gold); border: 2px solid var(--ink); border-radius: 12px; padding: 10px 16px; box-shadow: 0 4px 0 var(--ink); cursor: pointer; margin-top: 8px; }
+  button.act:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+  .toggle { display: inline-flex; gap: 6px; align-items: center; margin: 4px 0 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Pick the six reel symbols</h1>
+  <p>Six reels, six symbols: a reel shows each symbol with equal chance, and one of each on the six reels is the Supersweep. My proposal is on the machine below. Tap a symbol slot, then tap any doodle to swap it in. Copy the list at the bottom and send it back.</p>
+
+  <h2>The machine</h2>
+  <div class="card">
+    <div class="reels" id="reels"></div>
+    <p class="hint" id="pay" style="margin-top:10px"></p>
+  </div>
+
+  <h2>All the board doodles</h2>
+  <label class="toggle"><input type="checkbox" id="line"> show line art instead of colour</label>
+  <div class="grid" id="cands"></div>
+
+  <h2>Your pick</h2>
+  <div class="card">
+    <textarea id="out" readonly></textarea>
+    <button class="act" id="copy" type="button">Copy the list</button>
+    <span class="hint" id="msg"></span>
+  </div>
+</div>
+<script>
+(function () {
+  // The six in my proposal, with the scoring each one carries (DESIGN.md). The first two are the premium singles.
+  var PAY = [
+    'Lone symbol $100; three of a kind $1,000 (the top symbol)',
+    'Lone symbol $50; three of a kind $600',
+    'Three of a kind $500',
+    'Three of a kind $400',
+    'Three of a kind $300',
+    'Three of a kind $200 (the lowest)'
+  ];
+  var picks = ['olla', 'star', 'water-drop', 'sheep', 'palm-trees', 'wrench'];
+  var skip = { 'title-desert-ranger': 1, 'finish': 1, 'start': 1 };
+  var manifest = null, sel = 0, line = false;
+
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+  function src(slug) { return 'icons/' + slug + (line ? '' : '-color') + '.png'; }
+  function label(slug) { var m = manifest && manifest.icons[slug]; return m ? m.squareName || m.label : slug; }
+
+  function draw() {
+    var reels = document.getElementById('reels'); reels.innerHTML = '';
+    picks.forEach(function (slug, i) {
+      var b = el('button', 'slot' + (i === sel ? ' sel' : '')); b.type = 'button';
+      var im = el('img'); im.src = src(slug); im.alt = slug; b.appendChild(im);
+      b.appendChild(el('b', '', slug.replace(/-/g, ' ')));
+      b.appendChild(el('span', '', ['top $1,000', '$600', '$500', '$400', '$300', '$200'][i] + ' x3'));
+      b.onclick = function () { sel = i; draw(); };
+      reels.appendChild(b);
+    });
+    document.getElementById('pay').textContent = 'Selected slot ' + (sel + 1) + ': ' + PAY[sel] + '.';
+    var cands = document.getElementById('cands'); cands.innerHTML = '';
+    Object.keys(manifest.icons).forEach(function (slug) {
+      if (skip[slug]) return;
+      var b = el('button', 'cand' + (picks.indexOf(slug) >= 0 ? ' used' : '')); b.type = 'button';
+      var im = el('img'); im.src = src(slug); im.alt = slug; im.loading = 'lazy'; b.appendChild(im);
+      b.appendChild(el('small', '', slug + ' (' + label(slug) + ')'));
+      b.onclick = function () {
+        var at = picks.indexOf(slug);
+        if (at >= 0) { picks[at] = picks[sel]; }          // already on a reel: swap the two
+        picks[sel] = slug; draw();
+      };
+      cands.appendChild(b);
+    });
+    document.getElementById('out').value = picks.map(function (s, i) { return (i + 1) + '. ' + s + ' (' + label(s) + ')'; }).join('\n');
+  }
+
+  document.getElementById('line').onchange = function () { line = this.checked; draw(); };
+  document.getElementById('copy').onclick = function () {
+    var t = document.getElementById('out'); t.select();
+    try { document.execCommand('copy'); document.getElementById('msg').textContent = ' Copied.'; } catch (e) { document.getElementById('msg').textContent = ' Select the text and copy it.'; }
+  };
+  var x = new XMLHttpRequest();
+  x.open('GET', 'manifest.json'); x.onload = function () { manifest = JSON.parse(x.responseText); draw(); }; x.send();
+})();
+</script>
+</body>
+</html>
