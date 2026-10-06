@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#C3623B">
+<link rel="icon" href="assets/img/reels/0.svg">
+<title>Desert Bandit</title>
+<link rel="stylesheet" href="assets/css/style.css?v=1">
+</head>
+<body>
+<!-- The phone paused the sound (call, lock screen) or it has not started yet: one tap here starts it. In the page flow, never fixed, so it never covers a button. -->
+<button id="sound-bar" class="sound-bar" type="button" hidden>Sound is paused. Tap here to turn it on.</button>
+<!--
+  Desert Bandit, Wave 1. One page, three screens (home / lobby / game). Plain ES5, no build step:
+    assets/js/sync.js     shared clock + Web Audio scheduling (Sound.at)
+    assets/js/sound.js    synthesized machine sounds
+    assets/js/scoring.js  the browser's copy of the scoring rules (hints and button labels; the server decides)
+    assets/js/race.js     the race strip
+    assets/js/app.js      screens, API calls, polling, the reel animations
+  URL: ?g=CODE opens or resumes that game.
+-->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="vblur" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="0 5"/></filter>
+</defs></svg>
+
+<!-- HOME -->
+<section id="screen-home" class="screen" hidden>
+  <h1 class="title">DESERT<br>BANDIT</h1>
+  <p class="tagline">Six reels. Hold what scores. Race the old board.</p>
+
+  <div id="resume-box" class="card" hidden>
+    <button id="btn-resume" class="btn big sage" type="button">Resume game</button>
+  </div>
+
+  <div class="card paper-card">
+    <span class="tape tape-l"></span>
+    <label class="field" for="in-name">Your name</label>
+    <input id="in-name" maxlength="20" autocomplete="nickname" placeholder="e.g., Jeff">
+    <label class="field" for="in-code">Room code <span class="hint">(empty for a new game)</span></label>
+    <input id="in-code" maxlength="4" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="ABCD">
+    <div class="field">Pick your rig</div>
+    <div id="vehicle-grid" class="vehicle-grid"></div>
+    <p id="home-error" class="error" role="alert"></p>
+    <button id="btn-join" class="btn big" type="button" hidden>Join game</button>
+    <button id="btn-create" class="btn big" type="button">Create a room</button>
+    <button id="btn-solo" class="btn big mari" type="button">Play solo</button>
+    <p id="solo-hint" class="hint center">Solo: you against two computer rivals, $5,000 to win.</p>
+  </div>
+  <p id="stats-line" class="center hint" hidden></p>
+  <p class="center"><a class="about-link" href="about.html">About the game</a></p>
+</section>
+
+<!-- LOBBY -->
+<section id="screen-lobby" class="screen" hidden>
+  <a class="lobby-home" href="./">&larr; Home</a>
+  <h2 class="mini-title">Desert Bandit</h2>
+  <div class="card code-card">
+    <div class="label">Room code</div>
+    <div id="lobby-code" class="room-code"></div>
+    <div class="hint">Friends join at <span id="lobby-link"></span></div>
+  </div>
+  <div class="card">
+    <div class="label">Players (<span id="lobby-count">0</span>/4)</div>
+    <ul id="lobby-players" class="player-list"></ul>
+    <button id="btn-addbot" class="btn sage slim" type="button" hidden>+ Add computer</button>
+  </div>
+  <div class="card">
+    <label class="label" for="sel-target">Victory total</label>
+    <select id="sel-target" class="target-select"></select>
+    <div id="target-fixed" class="target-fixed" hidden></div>
+    <p id="game-length" class="hint"></p>
+  </div>
+  <button id="btn-start" class="btn big" type="button" hidden>Start game</button>
+  <p id="lobby-wait" class="center hint" hidden>Waiting for the host to start&hellip;</p>
+  <p id="lobby-error" class="error" role="alert"></p>
+</section>
+
+<!-- GAME: the phone screen of the pitch mock-up -->
+<section id="screen-game" class="screen game" hidden>
+  <header class="top">
+    <span id="game-code" class="room-chip"></span>
+    <b class="logo">DESERT BANDIT</b>
+    <button id="btn-snd" class="snd-btn" type="button" aria-label="Sound settings" aria-haspopup="true" aria-expanded="false">&#9835;</button>
+    <div id="snd-panel" class="snd-panel" role="dialog" aria-label="Sound" hidden>
+      <label class="snd-row"><input id="set-mute" type="checkbox"><span>Mute</span></label>
+      <label class="snd-row snd-vol"><span>Volume <b id="set-vol-val">70</b></span><input id="set-vol" type="range" min="0" max="100" step="1"></label>
+    </div>
+  </header>
+
+  <div id="race" class="race" aria-label="The race"></div>
+  <p id="race-note" class="race-note"></p>
+
+  <div id="goal" class="goal">
+    <span class="tp gt"></span>
+    <div id="goal-icon" class="goal-icon" aria-hidden="true"></div>
+    <div class="goal-txt">
+      <div id="goal-kicker" class="gk">YOUR GOAL CARD</div>
+      <b id="goal-name"></b>
+      <p id="goal-text"></p>
+    </div>
+  </div>
+
+  <div id="cab" class="cab">
+    <div class="cbg"></div>
+    <div id="cab-label" class="clabel">SIX REELS &middot; TAP TO HOLD</div>
+    <div id="reels" class="reels"></div>
+    <div id="cab-flash" class="cab-flash" aria-live="polite"></div>
+  </div>
+
+  <div class="stake">
+    <div class="st"><small>THIS TURN</small><b id="stake-amt">$0</b><i id="stake-pop" class="stake-pop"></i></div>
+    <p id="stake-msg" aria-live="polite"></p>
+  </div>
+
+  <div class="actions">
+    <button id="btn-roll" class="pbtn roll" type="button" disabled><b>ROLL</b><span id="roll-sub">&nbsp;</span></button>
+    <button id="btn-bank" class="pbtn bank" type="button" disabled><b>BANK</b><span id="bank-sub">&nbsp;</span></button>
+  </div>
+  <p id="game-error" class="error" role="alert"></p>
+
+  <div id="over" class="over" hidden>
+    <div id="over-title" class="over-title"></div>
+    <button id="btn-rematch" class="btn big mari" type="button" hidden>Play again</button>
+    <p id="rematch-wait" class="center hint" hidden>Waiting for the host to start a rematch&hellip;</p>
+    <a id="btn-new" class="btn big sage" href="./">New game</a>
+  </div>
+
+  <div id="chips" class="chips"></div>
+
+  <div id="host-tools" class="card host-tools" hidden>
+    <div class="label">Host tools</div>
+    <button id="btn-skip" class="btn sage slim" type="button">Skip turn</button>
+    <ul id="host-players" class="player-list"></ul>
+  </div>
+
+  <ol id="log" class="log"></ol>
+</section>
+
+<script src="assets/js/sync.js?v=1"></script>
+<script src="assets/js/sound.js?v=1"></script>
+<script src="assets/js/scoring.js?v=1"></script>
+<script src="assets/js/race.js?v=1"></script>
+<script src="assets/js/app.js?v=1"></script>
+</body>
+</html>
