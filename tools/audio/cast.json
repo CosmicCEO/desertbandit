@@ -1,0 +1,11 @@
+{
+ "_about": "Voice casting for the Desert Bandit radio lines: the four radio voices copied unchanged from Desert Ranger's tools/audio/cast.json (do not change them). ref = the Kokoro preset used to make the ~10-12 s reference clip (Desert Ranger's make_refs.py; the clips already exist in ~/Developer/desertranger-audio/audio-work/refs and are not remade here), which Chatterbox clones zero-shot (gen_lines.py). ex/cfg/temp are Chatterbox generate() params. Never clone a real person's voice.",
+ "dispatch":      {"ref": "af_sarah",   "speed": 1.05, "pitch_st": 0.0,  "ex": 0.40, "cfg": 0.50, "temp": 0.8, "alt": {"ref": "af_nova", "pitch_st": -0.5},
+                   "ref_text": "Copy that, unit two. Your location is logged. Fire crew is staging at the north gate, tow is en route from Borrego, and the road past mile marker nine stays closed until further notice. Advise when clear."},
+ "senior_ranger": {"ref": "af_kore",    "speed": 0.92, "pitch_st": -2.0, "ex": 0.50, "cfg": 0.50, "temp": 0.8, "alt": {"ref": "af_river", "pitch_st": -2.0},
+                   "ref_text": "Listen up. The wash is closed past the second marker, and I mean closed. Turn your vehicles around, check your water, and report back to me in ten minutes. No exceptions. No excuses. And yes, I did see that cactus. Everybody saw that cactus."},
+ "ranger_273":    {"ref": "am_michael", "speed": 1.00, "pitch_st": -3.0, "ex": 0.50, "cfg": 0.50, "temp": 0.8, "alt": {"ref": "am_adam", "pitch_st": 0.0},
+                   "ref_text": "Alright folks, gather in close. This tall one with the red tips is the ocotillo. It looks dead most of the year, but give it one good rain and it leafs out in a couple of days. Family first, common name second. Watch your step on the way back."},
+ "r55":           {"ref": "am_liam",    "speed": 1.00, "pitch_st": 2.0,  "ex": 0.55, "cfg": 0.45, "temp": 0.8, "alt": {"ref": "am_echo", "pitch_st": 0.0},
+                   "ref_text": "Yeah, Dispatch, I copy. I'm crossing the highway now, should be back in service in about twenty. It's a hundred and nine out here and the truck's air conditioning is making a noise I don't love. Over."}
+}
