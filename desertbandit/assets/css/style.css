@@ -94,7 +94,8 @@ a.btn { line-height: 30px; }
 .snd-row { display: flex; align-items: center; gap: 12px; min-height: 48px; font-weight: 700; }
 .snd-row input[type=checkbox] { width: 26px; height: 26px; min-height: 26px; margin: 0; accent-color: var(--terra); display: inline-block; }
 .snd-vol { flex-direction: column; align-items: stretch; gap: 2px; }
-.snd-vol input[type=range] { min-height: 36px; padding: 0; border: 0; background: transparent; accent-color: var(--terra); }
+.snd-vol input[type=range] { min-height: 44px; padding: 0; border: 0; background: transparent; accent-color: var(--terra); }
+.snd-test { margin: 8px 0 2px; }
 
 /* race strip */
 .race { position: relative; height: 72px; margin-top: 4px; }

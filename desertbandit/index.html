@@ -6,15 +6,17 @@
 <meta name="theme-color" content="#C3623B">
 <link rel="icon" href="assets/img/reels/0.svg">
 <title>Desert Bandit</title>
-<link rel="stylesheet" href="assets/css/style.css?v=1">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
 <!-- The phone paused the sound (call, lock screen) or it has not started yet: one tap here starts it. In the page flow, never fixed, so it never covers a button. -->
 <button id="sound-bar" class="sound-bar" type="button" hidden>Sound is paused. Tap here to turn it on.</button>
 <!--
   Desert Bandit, Wave 1. One page, three screens (home / lobby / game). Plain ES5, no build step:
-    assets/js/sync.js     shared clock + Web Audio scheduling (Sound.at)
+    assets/js/sync.js     shared clock + Web Audio scheduling (Sound.at), buses, clips from audio/manifest.json
     assets/js/sound.js    synthesized machine sounds
+    assets/js/radio.js    the radio calls (Wave 2): which line plays, on the shared clock
+    assets/js/ambience.js the desert bed and critters (local to each phone)
     assets/js/scoring.js  the browser's copy of the scoring rules (hints and button labels; the server decides)
     assets/js/race.js     the race strip
     assets/js/app.js      screens, API calls, polling, the reel animations
@@ -84,8 +86,12 @@
     <b class="logo">DESERT BANDIT</b>
     <button id="btn-snd" class="snd-btn" type="button" aria-label="Sound settings" aria-haspopup="true" aria-expanded="false">&#9835;</button>
     <div id="snd-panel" class="snd-panel" role="dialog" aria-label="Sound" hidden>
-      <label class="snd-row"><input id="set-mute" type="checkbox"><span>Mute</span></label>
-      <label class="snd-row snd-vol"><span>Volume <b id="set-vol-val">70</b></span><input id="set-vol" type="range" min="0" max="100" step="1"></label>
+      <label class="snd-row"><input id="set-mute" type="checkbox"><span>Mute all sound</span></label>
+      <label class="snd-row snd-vol"><span>Game volume <b id="set-vol-val">50</b></span><input id="set-vol" type="range" min="0" max="100" step="1"></label>
+      <label class="snd-row"><input id="set-radio" type="checkbox"><span>Radio voices</span></label>
+      <label class="snd-row"><input id="set-amb" type="checkbox"><span>Desert sounds</span></label>
+      <label class="snd-row snd-vol"><span>Desert volume <b id="set-amb-val">20</b></span><input id="set-amb-vol" type="range" min="0" max="100" step="1"></label>
+      <button id="btn-test-snd" class="btn sage slim snd-test" type="button">Test sound</button>
     </div>
   </header>
 
@@ -138,10 +144,12 @@
   <ol id="log" class="log"></ol>
 </section>
 
-<script src="assets/js/sync.js?v=1"></script>
+<script src="assets/js/sync.js?v=2"></script>
 <script src="assets/js/sound.js?v=1"></script>
+<script src="assets/js/radio.js?v=2"></script>
+<script src="assets/js/ambience.js?v=2"></script>
 <script src="assets/js/scoring.js?v=1"></script>
 <script src="assets/js/race.js?v=1"></script>
-<script src="assets/js/app.js?v=1"></script>
+<script src="assets/js/app.js?v=2"></script>
 </body>
 </html>

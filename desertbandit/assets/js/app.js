@@ -42,6 +42,7 @@
   };
 
   var Clock = window.BanditClock, Sound = window.BanditSound, Sfx = window.BanditSfx, R = window.BanditScoring;
+  var Radio = window.BanditRadio, Amb = window.BanditAmbience;   // Wave 2: radio calls and the desert bed
   var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var $ = function (id) { return document.getElementById(id); };
 
@@ -295,12 +296,20 @@
       S.lastEventId = ev.id;
       fresh.push(ev);
     });
-    if (wasFirst) fresh.forEach(function (ev) { addLog(ev); });   // history: listed, never replayed
+    var g = j.game;
+    if (wasFirst) {   // history: listed, never replayed; the radio takes the card in force from it
+      var card = g.card ? g.card.key : null;
+      fresh.forEach(function (ev) { addLog(ev); if (ev.type === 'turn' && ev.data) card = ev.data.card; });
+      Radio.setCard(card);
+    }
     S.firstLoad = false;
 
-    var g = j.game;
     if (S.lastTurnSeen !== g.turn) { S.lastTurnSeen = g.turn; S.lastChangeAt = now(); }
 
+    try {
+      Amb.setActive(true);                       // the desert bed plays in the lobby and the game (from the unlock tap)
+      Radio.setActive(g.status === 'active');    // tier B of the radio clips loads once a game is on
+    } catch (e) { console.warn('audio', e); }
     if (g.status === 'lobby') {
       if (S.gameShown) resetGameView();
       show('lobby');
@@ -418,6 +427,8 @@
     var t = grp.playAt ? Clock.toLocal(grp.playAt) : now();
     if (t < S.animEnd) t = S.animEnd;            // the previous action is still playing here: queue behind it
     var at = t;
+    try { Radio.onAction(grp.events, t + Clock.offset, S.state.game.target); }   // result call + card call (radio.js decides; it skips late ones)
+    catch (e) { console.warn('radio', e); }                                      // sound must never stop the game
     grp.events.forEach(function (ev) {
       var d = DUR[ev.type] || 0, start = at, sT = start + Clock.offset;
       at += d;
@@ -1009,10 +1020,14 @@
   }
 
   function wireSoundPanel() {
-    var panel = $('snd-panel');
+    var panel = $('snd-panel'), set = Sound.settings;
     $('set-mute').checked = Sound.muted;
-    $('set-vol').value = Sound.volume;
-    $('set-vol-val').textContent = Sound.volume;
+    $('set-radio').checked = set.radioOn;
+    $('set-amb').checked = set.ambOn;
+    $('set-vol').value = set.gameVol;
+    $('set-vol-val').textContent = set.gameVol;
+    $('set-amb-vol').value = set.ambVol;
+    $('set-amb-val').textContent = set.ambVol;
     $('btn-snd').classList.toggle('muted', Sound.muted);
     $('btn-snd').onclick = function (e) {
       e.stopPropagation();
@@ -1024,9 +1039,13 @@
     document.addEventListener('click', function () { panel.hidden = true; $('btn-snd').setAttribute('aria-expanded', 'false'); });
     $('set-mute').onchange = function () { Sound.setMuted(this.checked); $('btn-snd').classList.toggle('muted', Sound.muted); updateSoundBar(); };
     $('set-vol').oninput = function () {
-      $('set-vol-val').textContent = this.value; Sound.setVolume(+this.value);
+      $('set-vol-val').textContent = this.value; Sound.setSetting('gameVol', +this.value);
       if (Sfx.ready()) Sfx.play('clink', null, { gain: 0.6 });
     };
+    $('set-radio').onchange = function () { Sound.setSetting('radioOn', this.checked); };
+    $('set-amb').onchange = function () { Sound.setSetting('ambOn', this.checked); };
+    $('set-amb-vol').oninput = function () { $('set-amb-val').textContent = this.value; Sound.setSetting('ambVol', +this.value); };
+    $('btn-test-snd').onclick = function () { Sound.unlock(); Radio.test(); };
   }
 
   // ------------------------------------------------------------------ start-up
