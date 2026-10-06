@@ -47,7 +47,8 @@ const { chromium } = require('../../dev/e2e/node_modules/playwright-core');
     const tag = await sheets[i].getAttribute('data-png');
     await sheets[i].screenshot({ path: tag ? out + '-' + tag + '.png' : out + '.png' });
   }
-  await page.pdf({ path: out + '.pdf', width: '8.5in', height: '11in', printBackground: true, preferCSSPageSize: true });
-  console.log('rendered', sheets.length, 'page(s) ->', out + '.{png,pdf}');
+  // PNG only by default; PITCH_PDF=1 also writes the (large) PDF
+  if (process.env.PITCH_PDF === '1') await page.pdf({ path: out + '.pdf', width: '8.5in', height: '11in', printBackground: true, preferCSSPageSize: true });
+  console.log('rendered', sheets.length, 'page(s) ->', out + (process.env.PITCH_PDF === '1' ? '.{png,pdf}' : '.png'));
   await browser.close();
 })();
