@@ -753,6 +753,10 @@
     var key = V.card, c = CARDS[key] || ['', ''], st = S.state;
     var gcard = st.game.card;
     if (gcard && gcard.key === key) c = [gcard.name || c[0], gcard.text || c[1]];
+    if (V.status === 'finished') {
+      c = ['The race is won', nameOf(V.winnerId) + ' reached ' + money(V.target) + ' first.'];
+      key = 'sweep';
+    }
     $('goal-name').textContent = c[0] ? c[0].toUpperCase() : '';
     $('goal-text').textContent = c[1];
     if ($('goal-icon').getAttribute('data-k') !== key) {
@@ -820,7 +824,7 @@
     $('bank-sub').textContent = bsub;
     roll.setAttribute('aria-label', 'Roll ' + (rsub.trim() || ''));
     bank.setAttribute('aria-label', 'Bank ' + (bsub.trim() || ''));
-    $('cab-label').textContent = V.currentId === me && V.status === 'active' ? 'SIX REELS · TAP TO HOLD' : (nameOf(V.currentId) + "'S REELS").toUpperCase();
+    $('cab-label').textContent = V.status === 'finished' ? 'GAME OVER' : V.currentId === me ? 'SIX REELS · TAP TO HOLD' : (nameOf(V.currentId) + "'S REELS").toUpperCase();
 
     renderChips();
     renderOver();
