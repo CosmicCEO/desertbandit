@@ -14,11 +14,11 @@
   h2 { font: 400 1.15rem Bungee, 'Arial Black', Impact, sans-serif; margin: 22px 0 8px; }
   p { margin: 6px 0; }
   .card { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; box-shadow: 3px 4px 0 var(--ink); padding: 14px; }
-  .reels { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .reels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
   .slot { background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 6px 4px 8px; text-align: center; cursor: pointer; font: inherit; color: inherit; }
   .slot.sel { outline: 4px solid var(--mari); background: #fff4d6; }
   .slot img { width: 100%; aspect-ratio: 1; object-fit: contain; display: block; }
-  .slot b { display: block; font: 400 .72rem Bungee, 'Arial Black', Impact, sans-serif; }
+  .slot b { display: block; font: 400 .72rem Bungee, 'Arial Black', Impact, sans-serif; overflow-wrap: anywhere; }
   .slot span { display: block; font-size: .72rem; color: var(--ink2); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
   .cand { background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 6px; text-align: center; cursor: pointer; font: inherit; color: inherit; }
@@ -35,7 +35,7 @@
 <body>
 <div class="wrap">
   <h1>Pick the six reel symbols</h1>
-  <p>Six reels, six symbols: a reel shows each symbol with equal chance, and one of each on the six reels is the Supersweep. My proposal is on the machine below. Tap a symbol slot, then tap any doodle to swap it in. Copy the list at the bottom and send it back.</p>
+  <p>Six reels, six symbols: a reel shows each symbol with equal chance, and one of each on the six reels is the Supersweep. The machine below shows the picks so far. Tap a symbol slot, then tap any doodle to swap it in. Copy the list at the bottom and send it back.</p>
 
   <h2>The machine</h2>
   <div class="card">
@@ -65,7 +65,7 @@
     'Three of a kind $300',
     'Three of a kind $200 (the lowest)'
   ];
-  var picks = ['olla', 'star', 'water-drop', 'sheep', 'palm-trees', 'wrench'];
+  var picks = ['olla', 'sunset-mountain', 'numeral-17-palms', 'sheep', 'palm-trees', 'dos-cabezas'];   // the owner's picks, Oct 6 2026
   var skip = { 'title-desert-ranger': 1, 'finish': 1, 'start': 1 };
   var manifest = null, sel = 0, line = false;
 

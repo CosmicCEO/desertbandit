@@ -21,7 +21,8 @@ It follows the rules of play of *One Arm Battle* (see `~/Developer/one-arm-battl
 | Fonts | Reuse Desert Ranger's fonts |
 | Art | Board art is Jeffery Price's hand-drawn work, rights reserved by Jerod Price; reuse for this client confirmed |
 | One Arm Battle credit | None in the game's About page (it stays in `docs/`) |
-| Goal-card names, icons | Agreed as proposed (final icon pick in the Wave 0 review page) |
+| Goal-card names | Agreed as proposed |
+| Icons | Picked on the review page: Olla, Sunset Mountain, 17 Palms, Sheep, Palm Trees, Dos Cabezas |
 
 ## Rules
 1. Each turn the player draws a **goal card** (odds below).
@@ -33,13 +34,13 @@ It follows the rules of play of *One Arm Battle* (see `~/Developer/one-arm-battl
 7. The first player whose banked total reaches the victory total wins at once.
 
 ## Symbols and scoring
-Six symbols; every reel shows each symbol with equal chance, independently. They are: Olla, Star, Water Drop, Sheep, Palm, Wrench.
+Six symbols; every reel shows each symbol with equal chance, independently. They are the owner's picks (Oct 6, 2026), all hand-drawn doodles from the board: Olla (Found an Olla), Sunset Mountain, 17 Palms (the green numeral), Bighorn Sheep (Sheep Canyon), Palm Trees (Palm Canyon) and Dos Cabezas (the twin rocks). Olla and Sunset Mountain are the two that score alone. To check at reel size in Wave 1: the 17 Palms numeral and Palm Trees must stay easy to tell apart, and Sunset Mountain is a thin doodle.
 
 | Group | Value |
 |---|---|
 | A lone Olla | $100 |
-| A lone Star | $50 |
-| Three of a kind | Olla $1,000, Star $600, Water Drop $500, Sheep $400, Palm $300, Wrench $200 |
+| A lone Sunset Mountain | $50 |
+| Three of a kind | Olla $1,000, Sunset Mountain $600, 17 Palms $500, Sheep $400, Palm Trees $300, Dos Cabezas $200 |
 | Four / five / six of a kind | the three-of-a-kind value x2 / x3 / x4 |
 | Supersweep: one of each symbol on six reels | $1,500 |
 
