@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "note": "Desert Bandit spoken lines. All wording is new (docs/DESIGN.md, DETERMINATION.md: no sampled game, film or meme audio). 'a' and 'b' are the plain variants, 'c' is the meme-fresh one (played about one time in four). tts_text is what the voice reads (no hyphens, numbers spelled out); text is what the review page shows.",
+  "characters": ["dispatch", "senior_ranger", "ranger_273", "r55"],
+  "moments": {
+    "bust": "a roll that scores nothing; the stake is lost",
+    "lock": "a keep worth at least $500 (three of a kind or better), when it is not a sweep",
+    "sweep": "all six reels kept (Found an Olla, Ground Fire, Subpoena, Reports Overdue turns)",
+    "supersweep": "one of each symbol kept at once ($1,500)",
+    "fire": "Ground Fire Report bank (the $500 bonus)",
+    "subpoena": "Subpoena bank that took money from the leader",
+    "broken": "Vehicle Breaks Down: the turn is skipped",
+    "offroad": "Off-Road Bust sweep: the payout",
+    "overdue": "Reports Overdue bank (two sweeps)",
+    "win": "a bank reaches the victory total",
+    "bigbank": "a bank of $1,500 or more that is not one of the cards above",
+    "card": "a new turn starts with this goal card"
+  },
+  "lines": [
+    {"id": "call-bust-a", "character": "senior_ranger", "moment": "bust", "variant": "a", "text": "Stake's gone.", "tts_text": "Stake's gone.", "max_sec": 2.4},
+    {"id": "call-bust-b", "character": "ranger_273", "moment": "bust", "variant": "b", "text": "Locks cleared.", "tts_text": "Locks cleared.", "max_sec": 2.4},
+    {"id": "call-bust-c", "character": "r55", "moment": "bust", "variant": "c", "text": "This roll chose violence and then missed.", "tts_text": "This roll chose violence, and then missed.", "max_sec": 4.2},
+
+    {"id": "call-lock-a", "character": "ranger_273", "moment": "lock", "variant": "a", "text": "Clean lock!", "tts_text": "Clean lock!", "max_sec": 2.4},
+    {"id": "call-lock-b", "character": "senior_ranger", "moment": "lock", "variant": "b", "text": "Sharp pull!", "tts_text": "Sharp pull!", "max_sec": 2.4},
+    {"id": "call-lock-c", "character": "r55", "moment": "lock", "variant": "c", "text": "Locked. The bit was serious.", "tts_text": "Locked. The bit was serious.", "max_sec": 4.2},
+
+    {"id": "call-sweep-a", "character": "senior_ranger", "moment": "sweep", "variant": "a", "text": "All six.", "tts_text": "All six.", "max_sec": 2.4},
+    {"id": "call-sweep-b", "character": "ranger_273", "moment": "sweep", "variant": "b", "text": "Full set of locks.", "tts_text": "Full set of locks.", "max_sec": 2.4},
+    {"id": "call-sweep-c", "character": "r55", "moment": "sweep", "variant": "c", "text": "It's the sweep for me.", "tts_text": "It's the sweep for me.", "max_sec": 4.2},
+
+    {"id": "call-supersweep-a", "character": "senior_ranger", "moment": "supersweep", "variant": "a", "text": "One of each.", "tts_text": "One of each.", "max_sec": 2.4},
+    {"id": "call-supersweep-b", "character": "ranger_273", "moment": "supersweep", "variant": "b", "text": "The whole set.", "tts_text": "The whole set.", "max_sec": 2.4},
+    {"id": "call-supersweep-c", "character": "r55", "moment": "supersweep", "variant": "c", "text": "One of each. Screenshot this.", "tts_text": "One of each. Screenshot this.", "max_sec": 4.2},
+
+    {"id": "call-fire-a", "character": "senior_ranger", "moment": "fire", "variant": "a", "text": "The thousand.", "tts_text": "The thousand.", "max_sec": 2.4},
+    {"id": "call-fire-b", "character": "ranger_273", "moment": "fire", "variant": "b", "text": "Forced and finished.", "tts_text": "Forced and finished.", "max_sec": 2.4},
+    {"id": "call-fire-c", "character": "r55", "moment": "fire", "variant": "c", "text": "Grand Force said commit, and it committed.", "tts_text": "Grand Force said commit, and it committed.", "max_sec": 4.2},
+
+    {"id": "call-subpoena-a", "character": "senior_ranger", "moment": "subpoena", "variant": "a", "text": "They felt that.", "tts_text": "They felt that.", "max_sec": 2.4},
+    {"id": "call-subpoena-b", "character": "ranger_273", "moment": "subpoena", "variant": "b", "text": "Lead, cut down.", "tts_text": "Lead, cut down.", "max_sec": 2.4},
+    {"id": "call-subpoena-c", "character": "r55", "moment": "subpoena", "variant": "c", "text": "Revenge posted. Replies are closed.", "tts_text": "Revenge posted. Replies are closed.", "max_sec": 4.2},
+
+    {"id": "call-broken-a", "character": "dispatch", "moment": "broken", "variant": "a", "text": "Machine's down.", "tts_text": "Machine's down.", "max_sec": 2.4},
+    {"id": "call-broken-b", "character": "dispatch", "moment": "broken", "variant": "b", "text": "Turn skipped.", "tts_text": "Turn skipped.", "max_sec": 2.4},
+    {"id": "call-broken-c", "character": "r55", "moment": "broken", "variant": "c", "text": "Out of order. Canon event.", "tts_text": "Out of order. Canon event.", "max_sec": 4.2},
+
+    {"id": "call-offroad-a", "character": "senior_ranger", "moment": "offroad", "variant": "a", "text": "Stack it higher!", "tts_text": "Stack it higher!", "max_sec": 2.4},
+    {"id": "call-offroad-b", "character": "ranger_273", "moment": "offroad", "variant": "b", "text": "That's the heat!", "tts_text": "That's the heat!", "max_sec": 2.4},
+    {"id": "call-offroad-c", "character": "r55", "moment": "offroad", "variant": "c", "text": "Chat, nobody told the reels to sit down.", "tts_text": "Chat, nobody told the reels to sit down.", "max_sec": 4.2},
+
+    {"id": "call-overdue-a", "character": "senior_ranger", "moment": "overdue", "variant": "a", "text": "Paid twice.", "tts_text": "Paid twice.", "max_sec": 2.4},
+    {"id": "call-overdue-b", "character": "ranger_273", "moment": "overdue", "variant": "b", "text": "Both of them.", "tts_text": "Both of them.", "max_sec": 2.4},
+    {"id": "call-overdue-c", "character": "r55", "moment": "overdue", "variant": "c", "text": "Two sweeps back to back. The timeline is cooked.", "tts_text": "Two sweeps back to back. The timeline is cooked.", "max_sec": 4.6},
+
+    {"id": "call-win-a", "character": "senior_ranger", "moment": "win", "variant": "a", "text": "Count it up!", "tts_text": "Count it up!", "max_sec": 2.4},
+    {"id": "call-win-b", "character": "ranger_273", "moment": "win", "variant": "b", "text": "The bank is closed!", "tts_text": "The bank is closed!", "max_sec": 2.4},
+    {"id": "call-win-c", "character": "r55", "moment": "win", "variant": "c", "text": "Game over for them. We're so posted.", "tts_text": "Game over for them. We're so posted.", "max_sec": 4.2},
+
+    {"id": "call-bigbank-a", "character": "dispatch", "moment": "bigbank", "variant": "a", "text": "Deposit confirmed.", "tts_text": "Deposit confirmed.", "max_sec": 2.4},
+    {"id": "call-bigbank-b", "character": "senior_ranger", "moment": "bigbank", "variant": "b", "text": "That's a big one.", "tts_text": "That's a big one.", "max_sec": 2.4},
+
+    {"id": "card-sweep-a", "character": "dispatch", "moment": "card", "variant": "a", "card": "sweep", "text": "Goal card. Found an Olla.", "tts_text": "Goal card. Found an Olla.", "max_sec": 3.0},
+    {"id": "card-sweep-b", "character": "dispatch", "moment": "card", "variant": "b", "card": "sweep", "text": "Found an Olla. Sweep it for a bonus.", "tts_text": "Found an Olla. Sweep it for a bonus.", "max_sec": 3.6},
+    {"id": "card-fire-a", "character": "dispatch", "moment": "card", "variant": "a", "card": "fire", "text": "Goal card. Ground Fire Report.", "tts_text": "Goal card. Ground Fire Report.", "max_sec": 3.0},
+    {"id": "card-fire-b", "character": "dispatch", "moment": "card", "variant": "b", "card": "fire", "text": "Ground Fire Report. Nothing banks under a thousand.", "tts_text": "Ground Fire Report. Nothing banks under a thousand.", "max_sec": 4.2},
+    {"id": "card-offroad-a", "character": "dispatch", "moment": "card", "variant": "a", "card": "offroad", "text": "Goal card. Off-Road Bust.", "tts_text": "Goal card. Off Road Bust.", "max_sec": 3.0},
+    {"id": "card-offroad-b", "character": "dispatch", "moment": "card", "variant": "b", "card": "offroad", "text": "Off-Road Bust. No banking. Roll for the sweep.", "tts_text": "Off Road Bust. No banking. Roll for the sweep.", "max_sec": 4.2},
+    {"id": "card-subpoena-a", "character": "dispatch", "moment": "card", "variant": "a", "card": "subpoena", "text": "Goal card. Subpoena.", "tts_text": "Goal card. Subpoena.", "max_sec": 3.0},
+    {"id": "card-subpoena-b", "character": "dispatch", "moment": "card", "variant": "b", "card": "subpoena", "text": "Subpoena. Bank, and the leader pays.", "tts_text": "Subpoena. Bank, and the leader pays.", "max_sec": 3.6},
+    {"id": "card-overdue-a", "character": "dispatch", "moment": "card", "variant": "a", "card": "overdue", "text": "Goal card. Reports Overdue.", "tts_text": "Goal card. Reports Overdue.", "max_sec": 3.0},
+    {"id": "card-overdue-b", "character": "dispatch", "moment": "card", "variant": "b", "card": "overdue", "text": "Reports Overdue. Two sweeps, then bank.", "tts_text": "Reports Overdue. Two sweeps, then bank.", "max_sec": 3.8}
+  ]
+}
