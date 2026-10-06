@@ -141,11 +141,26 @@ function check(name, ok, detail) { ok ? pass++ : fail++; console.log((ok ? 'ok  
 
   // ---------------------------------------------------------------- Play solo: one tap makes a game with two computers
   console.log('Play solo');
-  const P = await open('solo');
+  const P = await open('solo', Object.assign({ reducedMotion: 'reduce' }, phone));
   await enterHome(P, 'Solo', 'jeep-red');
   await P.tap('#btn-solo');
   await P.waitForSelector('#screen-game:not([hidden])', { timeout: 15000 });
   check('Play solo: straight into a game with two computers', (await P.locator('#chips .chip').count()) === 3 && /computer/.test(await P.textContent('#chips')));
+  check('reduced motion: a spinning reel has no animation and no blur', await P.evaluate(() => {
+    const w = document.querySelector('#reels .win'); w.classList.add('spin');
+    const cs = getComputedStyle(w.querySelector('.strip')), ok = cs.animationName === 'none' && cs.filter === 'none';
+    w.classList.remove('spin'); return ok;
+  }));
+  // the phone pauses the audio (a call, the lock screen): the in-flow bar appears and covers no button
+  await P.evaluate(() => { const S = window.BanditSound; S.unlock(); window.__f = 'interrupted'; Object.defineProperty(S.ctx, 'state', { get: () => window.__f, configurable: true }); S.ctx.onstatechange(); });
+  await sleep(200);
+  const bar = await P.evaluate(() => { const b = document.getElementById('sound-bar'), br = b.getBoundingClientRect();
+    const hit = [].filter.call(document.querySelectorAll('button:not(#sound-bar), a'), x => x.offsetParent !== null).filter(x => { const r = x.getBoundingClientRect(); return r.top < br.bottom && r.bottom > br.top && r.left < br.right && r.right > br.left; }).map(x => x.id || x.textContent.trim());
+    return { shown: !b.hidden, pos: getComputedStyle(b).position, hit }; });
+  check('sound paused: the bar shows, in the page flow, covering no button', bar.shown && bar.pos !== 'fixed' && bar.hit.length === 0, bar);
+  await P.evaluate(() => { window.__f = 'running'; window.BanditSound.ctx.onstatechange(); });
+  await sleep(200);
+  check('sound running again: the bar hides', await P.evaluate(() => document.getElementById('sound-bar').hidden));
   await P.close();
 
   // ---------------------------------------------------------------- game 2: two phones, the second joins by room code

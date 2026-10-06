@@ -401,7 +401,8 @@
     S.viewReady = true;
   }
 
-  function animating() { return now() < S.animEnd; }
+  /** True from the moment an action is scheduled until the view has been set from the state again after it. */
+  function animating() { return S.animPending || now() < S.animEnd; }
 
   /** Group fresh events by action (same playAt) and schedule each action on the shared clock. */
   function scheduleEvents(evs) {
@@ -430,6 +431,7 @@
       later(start - now(), function () { applyEvent(ev, true); addLog(ev); renderGame(); });
     });
     if (at > S.animEnd) S.animEnd = at;
+    S.animPending = true;
     clearTimeout(S.animTimer);
     S.animTimer = setTimeout(animDone, Math.max(0, S.animEnd - now()) + 30);
   }
@@ -444,7 +446,8 @@
   }
 
   function animDone() {
-    if (animating()) { S.animTimer = setTimeout(animDone, Math.max(0, S.animEnd - now()) + 30); return; }
+    if (now() < S.animEnd) { S.animTimer = setTimeout(animDone, Math.max(0, S.animEnd - now()) + 30); return; }
+    S.animPending = false;
     S.lastChangeAt = now();
     if (S.state && S.state.game.status !== 'lobby') { reconcile(); renderGame(); }
   }
@@ -529,21 +532,21 @@
         V.sweeps = d.sweeps; V.stake += d.bonus || 0;
         if (animate) {
           bump($('cab'), 'sweepflash', 1300);
-          flash('SWEEP!' + (d.bonus ? ' Olla +' + money(d.bonus) : ''), 'good', 1300);
+          flash('SWEEP!', 'good', 1300, d.bonus ? 'Olla bonus +' + money(d.bonus) : 'Six fresh reels');
           later(DUR.sweep - 100, function () { V.locked = blankLocks(); renderReels(); });
         } else V.locked = blankLocks();
         break;
       case 'bust':
         if (animate) {
           bump($('cab'), animate === true ? 'bust' : 'bustr', 1400);
-          flash('BUST!' + (d.lost ? ' ' + money(d.lost) + ' lost' : ''), 'bad', 1400);
+          flash('BUST!', 'bad', 1400, d.lost ? money(d.lost) + ' lost' : 'Nothing scored');
         }
         V.stake = 0; V.scoring = blankLocks();
         break;
       case 'bank':
         var p = viewPlayer(d.playerId);
         if (animate === true) coins(d.playerId);
-        if (animate) flash('BANKED ' + money(d.amount) + (d.steal ? ' + ' + money(d.steal.amount) + ' from the leader' : ''), 'good', 1600);
+        if (animate) flash('BANKED ' + money(d.amount), 'good', 1600, d.steal ? '+ ' + money(d.steal.amount) + ' from ' + nameOf(d.steal.fromId) : (d.via === 'offroad' ? 'Off-road sweep pays double' : ''));
         var setBank = function () {
           if (p) p.bank = d.bank;
           if (d.steal) { var f = viewPlayer(d.steal.fromId); if (f) f.bank -= d.steal.amount; }
@@ -572,9 +575,10 @@
     setTimeout(function () { node.classList.remove(cls); }, ms);
   }
 
-  function flash(text, kind, ms) {
+  function flash(text, kind, ms, sub) {
     var f = $('cab-flash');
     f.textContent = text;
+    if (sub) f.appendChild(el('small', null, sub));
     f.className = 'cab-flash on ' + (kind || '');
     clearTimeout(S.flashTimer);
     S.flashTimer = setTimeout(function () { f.className = 'cab-flash'; }, ms);
@@ -971,7 +975,7 @@
     S.gameShown = false; S.viewReady = false; V = null;
     clearTimeout(S.botTimer); S.botTimer = null;
     S.timers.forEach(clearTimeout); S.timers = [];
-    S.animEnd = 0; S.sel = {}; S.selTurn = null; S.arming = false;
+    S.animEnd = 0; S.animPending = false; clearTimeout(S.animTimer); S.sel = {}; S.selTurn = null; S.arming = false;
     $('log').textContent = '';
     $('game-error').textContent = '';
     $('over').hidden = true;

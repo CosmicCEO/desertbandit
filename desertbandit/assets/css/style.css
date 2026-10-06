@@ -183,6 +183,8 @@ a.btn { line-height: 30px; }
   background: var(--paper); border: 2.5px solid var(--ink); border-radius: 10px; padding: 4px 14px 2px; box-shadow: 3px 4px 0 rgba(58,42,30,.35);
   font: 1.9rem Bangers, Bungee, sans-serif; letter-spacing: 1px; white-space: nowrap; max-width: 96%; overflow: hidden; text-overflow: ellipsis;
   transition: opacity .15s, transform .25s cubic-bezier(.2,1.6,.4,1); }
+.cab-flash small { display: block; font: 700 1.05rem Caveat, cursive; letter-spacing: 0; line-height: 1; margin: -2px 0 3px; text-align: center; }
+.cab-flash { text-align: center; }
 .cab-flash.on { opacity: 1; transform: translate(-50%,-50%) rotate(-4deg) scale(1); }
 .cab-flash.good { background: var(--gold); }
 .cab-flash.bad { background: #f3c1a8; color: #7a2410; }
