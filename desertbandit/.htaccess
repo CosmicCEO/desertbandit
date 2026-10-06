@@ -33,5 +33,7 @@ DirectoryIndex index.html
   ExpiresByType application/json "access plus 0 seconds"
 </IfModule>
 AddType font/ttf .ttf
+# The host may send no type for .svg (the reel faces are SVG images); verify-deploy.sh checks this.
+AddType image/svg+xml .svg
 # The host sends no type for .json, so the ExpiresByType application/json rule above never matched (its cache then kept manifest.json for 4 h).
 AddType application/json .json
