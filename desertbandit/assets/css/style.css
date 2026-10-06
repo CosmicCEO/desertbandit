@@ -123,7 +123,7 @@ a.btn { line-height: 30px; }
 
 /* the cardboard cabinet with six windows */
 .cab { position: relative; margin-top: 14px; padding: 38px 12px 18px; }
-.cab .cbg { position: absolute; inset: 0; border: 2.5px solid var(--ink); border-radius: 12px 14px 11px 13px / 13px 11px 14px 12px;
+.cab .cbg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 2.5px solid var(--ink); border-radius: 12px 14px 11px 13px / 13px 11px 14px 12px;
   background: repeating-linear-gradient(90deg, rgba(120,80,35,.16) 0 2px, transparent 2px 6px), var(--kraft); box-shadow: 3px 4px 0 rgba(58,42,30,.22); }
 .clabel { position: absolute; left: 50%; top: 9px; transform: translateX(-50%) rotate(-1deg); background: var(--paper); border: 1.8px solid var(--ink);
   padding: 3px 10px; font: .66rem Bungee, sans-serif; white-space: nowrap; box-shadow: 1px 2px 0 rgba(58,42,30,.3); z-index: 2; max-width: 92%; overflow: hidden; text-overflow: ellipsis; }
@@ -131,13 +131,13 @@ a.btn { line-height: 30px; }
 
 .win { position: relative; cursor: pointer; outline: none; -webkit-user-select: none; user-select: none; }
 .win::before { content: ""; display: block; padding-top: 131%; }   /* 90 x 118 like the mock-up (iOS 14 has no aspect-ratio) */
-.win .wbg { position: absolute; inset: 0; border: 2.2px solid var(--ink); border-radius: 10px 11px 9px 12px;
+.win .wbg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 2.2px solid var(--ink); border-radius: 10px 11px 9px 12px;
   background: repeating-linear-gradient(90deg, rgba(120,80,35,.16) 0 2px, transparent 2px 6px), var(--kraft2); transition: background .2s; }
 .win.held .wbg { background: repeating-linear-gradient(90deg, rgba(60,90,40,.16) 0 2px, transparent 2px 6px), var(--held); }
 .win.locked .wbg { background: repeating-linear-gradient(90deg, rgba(60,90,40,.2) 0 2px, transparent 2px 6px), #8fa673; }
 .win .hole { position: absolute; left: 7%; right: 7%; top: 5%; bottom: 5%; overflow: hidden; border: 2px solid var(--ink); border-radius: 4px;
   background: #f6ecd0 repeating-linear-gradient(0deg, rgba(150,120,70,.08) 0 1px, transparent 1px 4px); }
-.win .hole::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+.win .hole::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;
   background: linear-gradient(rgba(60,35,10,.42), transparent 24%, transparent 72%, rgba(60,35,10,.34)); }
 /* the paper strip: 18 square cells (the six faces three times); .bob is centred on the hole, .strip slides inside it */
 .win .bob { position: absolute; left: 0; right: 0; top: 50%; margin-top: -50%; }
@@ -152,12 +152,12 @@ a.btn { line-height: 30px; }
   padding: 1px 7px; font: .62rem Bungee, sans-serif; white-space: nowrap; box-shadow: 1px 2px 0 rgba(58,42,30,.3); z-index: 3; pointer-events: none; }
 .win .tag.locked { background: #e6eed8; }
 .win .tag.hint { background: var(--mari); font: 1rem Bangers, Bungee, sans-serif; letter-spacing: .6px; padding: 0 8px; bottom: -11px; }
-.win.hint::after { content: ""; position: absolute; inset: -5px; border: 3px dashed var(--mari); border-radius: 14px; pointer-events: none; animation: ring 1.6s ease-in-out infinite; }
+.win.hint::after { content: ""; position: absolute; top: -5px; right: -5px; bottom: -5px; left: -5px; border: 3px dashed var(--mari); border-radius: 14px; pointer-events: none; animation: ring 1.6s ease-in-out infinite; }
 @keyframes ring { 50% { border-color: #f6c46a; } }
 .win.idle .cell img { opacity: .42; }
 .win.idle .hole { background-color: #efe3c4; }
 .win.spin .strip { animation: spin .32s linear infinite; filter: url(#vblur); }
-.win.spin .hole::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+.win.spin .hole::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; pointer-events: none;
   background: repeating-linear-gradient(90deg, transparent 0 9px, rgba(58,42,30,.14) 9px 11px, transparent 11px 24px); }
 @keyframes spin { from { transform: translateY(-66.6667%); } to { transform: translateY(-33.3333%); } }
 .win .bob.settle { animation: settle .38s cubic-bezier(.3,1.5,.5,1); }
@@ -175,6 +175,7 @@ a.btn { line-height: 30px; }
 .cab.bust .reels { animation: bustshake .6s; }
 @keyframes bustshake { 10%, 50% { transform: translateX(-7px) rotate(-.8deg); } 30%, 70% { transform: translateX(7px) rotate(.8deg); } 90% { transform: translateX(-2px); } 100% { transform: none; } }
 .cab.bust::after, .cab.bustr::after { content: ""; position: absolute; left: -6px; right: -6px; top: 47%; height: 22px; z-index: 4; background: var(--cream);
+  -webkit-clip-path: polygon(0 40%, 5% 0, 10% 55%, 16% 10%, 22% 60%, 28% 5%, 34% 50%, 40% 15%, 46% 65%, 52% 0, 58% 55%, 64% 10%, 70% 60%, 76% 5%, 82% 55%, 88% 10%, 94% 60%, 100% 20%, 100% 75%, 94% 100%, 88% 55%, 82% 95%, 76% 50%, 70% 100%, 64% 55%, 58% 95%, 52% 45%, 46% 100%, 40% 60%, 34% 95%, 28% 50%, 22% 100%, 16% 55%, 10% 95%, 5% 50%, 0 90%);
   clip-path: polygon(0 40%, 5% 0, 10% 55%, 16% 10%, 22% 60%, 28% 5%, 34% 50%, 40% 15%, 46% 65%, 52% 0, 58% 55%, 64% 10%, 70% 60%, 76% 5%, 82% 55%, 88% 10%, 94% 60%, 100% 20%, 100% 75%, 94% 100%, 88% 55%, 82% 95%, 76% 50%, 70% 100%, 64% 55%, 58% 95%, 52% 45%, 46% 100%, 40% 60%, 34% 95%, 28% 50%, 22% 100%, 16% 55%, 10% 95%, 5% 50%, 0 90%);
   animation: tear 1.4s ease-out forwards; }
 .cab.bustr::after { animation: none; opacity: .9; }
