@@ -53,7 +53,15 @@ for p in config.sample.php lib/schema.sql lib/game.php lib/rules.php lib/policy.
 
 echo "Caching (the host puts a cache in front of the site)"
 h=$(curl -sI -m 20 "$BASE/api.php?a=time"); grep -qi 'no-store' <<<"$h" && ok "api.php replies carry Cache-Control: no-store" || warn "api.php replies are not marked no-store (expected only while api.php is not answering yet)"
-grep -qi '^age: *[1-9]' <<<"$h" && bad "api.php?a=time was served from a cache (Age header): game state would be stale" || ok "api.php replies are not served from a cache (no Age header)"
+# The host's front proxy sometimes stamps "Age: 2" on a fresh reply (Desert Ranger shows it too), so the header alone proves nothing.
+# Judge staleness by the data: the server's clock in the reply must be within 2.5 s of this Mac's clock.
+ts=$(body "$BASE/api.php?a=time" | grep -o '"t":[0-9]*' | cut -d: -f2); lt=$(python3 -c 'import time;print(int(time.time()*1000))' 2>/dev/null)
+if [ -n "${ts:-}" ] && [ -n "${lt:-}" ]; then
+  d=$((lt - ts)); [ "$d" -lt 0 ] && d=$((-d))
+  if [ "$d" -lt 2500 ]; then
+    if grep -qi '^age: *[1-9]' <<<"$h"; then ok "the host adds an Age header, but replies are fresh (server time is within ${d} ms of this Mac)"; else ok "api.php replies are fresh (server time is within ${d} ms of this Mac)"; fi
+  else bad "api.php?a=time is ${d} ms away from this Mac's clock: a cache may be serving stale replies (or this Mac's clock is wrong)"; fi
+else warn "freshness test skipped: api.php?a=time is not answering yet (or no python3)"; fi
 t1=$(body "$BASE/api.php?a=time" | grep -o '"t":[0-9]*' | cut -d: -f2); sleep 1.2; t2=$(body "$BASE/api.php?a=time" | grep -o '"t":[0-9]*' | cut -d: -f2)
 if [ -z "${t1:-}" ] || [ -z "${t2:-}" ]; then warn "two-calls cache test skipped: api.php?a=time is not answering yet"
 elif [ $((t2 - t1)) -ge 1000 ]; then ok "two api.php?a=time calls 1.2 s apart return different times (not cached)"
