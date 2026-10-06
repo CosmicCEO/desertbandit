@@ -22,7 +22,7 @@ for l in D["lines"]:
     e = man.get(l["id"], {}); s = qa.get(l["id"], {}); ok = bool(e.get("file")) and os.path.exists(f"{OUT}/{e.get('file', '')}")
     if ok: audio[l["id"]] = b64(f"{OUT}/{e['file']}")
     rows.append(dict(id=l["id"], moment=l["moment"], variant=l["variant"], card=l.get("card"), who=NAMES[l["character"]], text=l["text"],
-                     heard=s.get("heard_plain") or s.get("heard") or "", qa=e.get("qa", "not made"), reason=e.get("reason", ""),
+                     heard=s.get("heard_plain") or s.get("heard") or "", heard_hint=s.get("heard") if s.get("heard") and s.get("heard") != s.get("heard_plain") else "", qa=e.get("qa", "not made"), reason=e.get("reason", ""),
                      sec=e.get("sec"), max_sec=l.get("max_sec"), lufs=e.get("lufs"), tp=e.get("tp"), kb=round(e["bytes"] / 1024, 1) if ok else None, has=ok))
 esc = lambda t: html.escape(str(t), quote=True)
 h = []
@@ -84,7 +84,9 @@ for mo, desc in MOMENTS.items():
                  f'<button type="button" class="air" data-id="{esc(r["id"])}"{dis}>On air</button>'
                  f'<div class="txt"><b>&ldquo;{esc(r["text"])}&rdquo;</b><div class="meta">{esc(r["who"])} &middot; {esc(r["id"])} (variant {esc(r["variant"])}){tag} '
                  f'<span class="badge b-{esc(r["qa"].replace(" ", "-"))}">{esc(r["qa"])}</span></div>'
-                 f'<div class="heard">Whisper heard: &ldquo;{esc(r["heard"])}&rdquo;</div><div class="meta">{stats}</div></div></div>'
+                 f'<div class="heard">Whisper heard: &ldquo;{esc(r["heard"])}&rdquo;'
+                 + (f' (second pass, with the line&rsquo;s capitalised words as a hint: &ldquo;{esc(r["heard_hint"])}&rdquo;)' if r["heard_hint"] else "")
+                 + f'</div><div class="meta">{stats}</div></div></div>'
                  f'<div class="choice"><button type="button" class="keep" data-id="{esc(r["id"])}">Keep</button><button type="button" class="redo" data-id="{esc(r["id"])}">Redo</button>'
                  f'<input type="text" class="note" data-id="{esc(r["id"])}" placeholder="Note (what to change)" aria-label="Note for {esc(r["id"])}"></div></div>')
     h.append("</section>")

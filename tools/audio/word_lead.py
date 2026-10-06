@@ -76,6 +76,9 @@ def stray_token(heard_tokens, ref_tokens, align, lev):
     """Reason string if the transcript starts with a hesitation/letter that is not part of the script's first word, or the first script word is missing."""
     if not ref_tokens: return None
     if not heard_tokens: return "nothing heard"
+    # Desert Bandit: Whisper may join two script words into one token ("goalcard" for "goal card"); split it so the first word is not reported missing
+    pairs = {ref_tokens[k] + ref_tokens[k + 1]: [ref_tokens[k], ref_tokens[k + 1]] for k in range(len(ref_tokens) - 1)}
+    heard_tokens = [x for t in heard_tokens for x in (pairs[t] if t in pairs and t not in ref_tokens else [t])]
     spans = align(ref_tokens, heard_tokens); s0 = spans[0]; r0 = ref_tokens[0]
     if not s0: return f"first script word '{r0}' missing (clipped?)"
     first = heard_tokens[s0[0]]

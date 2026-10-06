@@ -3,7 +3,8 @@
 usage: python tools/audio/qa_check.py [--ids ...] [--moments bust,lock] [--model small.en]
 reads <work>/takes/<id>/*.wav, writes <work>/qa/<id>.json and <work>/qa/summary.json (<work> = $BANDIT_AUDIO_WORK, default audio-work-bandit).
 The reference is the line's "qa_text" when present, else its "tts_text" (what the voice was asked to read), else its "text".
-Bandit change: a compound split or joined by Whisper ("screen shot" for "screenshot") counts as the same word (merge_compounds).
+Bandit changes: a compound split or joined by Whisper ("screen shot" for "screenshot") counts as the same word (merge_compounds);
+among passing takes, one whose UNPROMPTED transcript also passes is preferred (plain_ok), since the hint pass can paper over a slurred first word.
 A leading [bracketed phrase] in qa_text (e.g. "[R five five], ten-twenty?") is a loose lead-in: Whisper cannot reliably transcribe
 a deliberately drawn-out word ("fiiive" is heard as "phi, I've"), so 1-10 heard words before the rest of the line are accepted
 instead of the bracketed words (something must be heard there); everything after the bracket is checked as usual.
@@ -182,18 +183,19 @@ for i in ids:
                 lf = f[:-4] + "_lf.wav"; wm.write_wav(lf, y2, srn); files.append(lf)
             strict = strict and not wm_fail and not lead_flags
         ok = e <= allowed and strict and 0.3 <= dur <= l.get("max_sec", 9) * TEMPO_MAX and float(np.abs(y).max()) > 0.02
-        res.append(dict(file=f, heard=hyp_t, heard_plain=plain, errors=e, allowed=allowed, sec=round(dur, 2), ok=ok, strict_ok=strict, pron=ev, spelled=sp_, wm_fail=wm_fail, lead_flags=lead_flags))
+        e_plain = e if (tw or plain == hyp_t) else errors(ref_text, plain, ign, voice)   # Bandit: also score the unprompted transcript
+        res.append(dict(file=f, heard=hyp_t, heard_plain=plain, errors_plain=e_plain, plain_ok=e_plain <= allowed, errors=e, allowed=allowed, sec=round(dur, 2), ok=ok, strict_ok=strict, pron=ev, spelled=sp_, wm_fail=wm_fail, lead_flags=lead_flags))
     good = [r for r in res if r["ok"]]
     if good:
         med = float(np.median([r["sec"] for r in good]))
-        pick = min(good, key=lambda r: (r["errors"], abs(r["sec"] - med)))
+        pick = min(good, key=lambda r: (not r["plain_ok"], r["errors"], abs(r["sec"] - med)))   # Bandit: prefer a take that also passes WITHOUT the hint
     else:       # nothing passes: prefer takes whose words AND pronunciation are right (length-only failures), shortest first
         lenonly = [r for r in res if r["errors"] <= r["allowed"] and r["strict_ok"]]
         pick = min(lenonly, key=lambda r: r["sec"]) if lenonly else min(res, key=lambda r: (r["errors"], not r["strict_ok"], r["sec"]))
     reason = None if good else ("length only" if any(r["errors"] <= r["allowed"] and r["strict_ok"] for r in res) else "pronunciation/words")
     out = dict(id=i, text=ref_text, status="pass" if good else "FAIL", fail_reason=reason, pick=pick["file"], takes=res)
     json.dump(out, open(f"{a.qa_dir}/{i}.json", "w"), indent=1)
-    summ[i] = dict(status=out["status"], fail_reason=reason, pick=pick["file"], heard=pick["heard"], heard_plain=pick.get("heard_plain"), errors=pick["errors"], sec=pick["sec"], pron=pick.get("pron", []))
+    summ[i] = dict(status=out["status"], fail_reason=reason, pick=pick["file"], heard=pick["heard"], heard_plain=pick.get("heard_plain"), plain_ok=pick.get("plain_ok"), errors=pick["errors"], sec=pick["sec"], pron=pick.get("pron", []))
     print(i, out["status"], reason or "", pick["errors"], pick["sec"], "|", pick["heard"], "|", "; ".join(f"{e['word']}: heard '{e['heard']}' -> {e['match'] or 'NO MATCH'}" for e in pick.get("pron", [])), flush=True)
 json.dump(summ, open(f"{a.qa_dir}/summary.json", "w"), indent=1)
 print("FAILS:", [k for k, v in summ.items() if v["status"] != "pass"])

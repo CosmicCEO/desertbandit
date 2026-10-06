@@ -23,6 +23,7 @@ Run everything from the repo root. The heavy tools use the Desert Ranger audio w
 2. Master: `python3 tools/audio/master.py [--ids ...]` (radio chain, -16 LUFS, true peak <= -1.5 dBTP, mono MP3 48 kbps 44.1 kHz, sped up at most 15 % to fit `max_sec`).
    Passing lines get `qa: "pending-ear"`; a line still failing gets `qa: "FAIL"` and a reason and no file.
 3. Desert Ranger entries: `python3 tools/audio/import_dr_manifest.py` copies the fx, place-call and ambience entries verbatim into the manifest (checks their hashes).
+   Check: `python3 tools/audio/verify_calls.py` re-measures every MP3 (ebur128 / ffprobe: loudness, true peak, format, length, manifest hash, 600 KB budget).
 4. Review page: `python3 tools/audio/build_review.py` writes `desertbandit/audio/review.html` (self-contained; not deployed).
    The owner's Export gives `{"keep":[...],"redo":[...],"notes":{...}}`. Redo ids go back through step 1 (move their takes aside first), then 2 and 4.
    Lines the owner keeps: set their manifest `qa` to `"owner-approved"` (`master.py --ids ... --qa owner-approved`).
@@ -35,8 +36,11 @@ Respelled words (Olla) must be heard as the word or its respelling with the righ
 - Paths: `audio-work/` -> `audio-work-bandit/` (env `BANDIT_AUDIO_WORK`), output `desertbandit/audio/`, venvs from `~/Developer/desertranger-audio`.
 - Lines are selected by `--ids` or `--moments` (no phases); the respelling table moved to `tools/audio/pronunciations.json`.
 - `gen_lines.py`: one reference per voice, no `--alt` / `--pron` / `--pron-alt` (voices are fixed; respellings always apply).
-- `qa_check.py`: reference text is `tts_text`; a compound Whisper splits or joins ("screen shot") counts as the same word.
+- `qa_check.py`: reference text is `tts_text`; a compound Whisper splits or joins ("screen shot", "goalcard") counts as the same word
+  (also in `word_lead.py`'s first-word check); among passing takes, one that also passes Whisper's unprompted pass is preferred
+  (Desert Ranger's second, hinted pass can hide a slurred first word: "poll six" for "All six").
+- `verify_calls.py`, `review_test.js` (Playwright, Chrome Canary: `node tools/audio/review_test.js [playwright-core path] [shots dir]`): new.
 - `master.py`: radio chain only, no `--fx` (the fx come from Desert Ranger); file `calls/<id>.mp3`, kind `call` or `card`;
   aims 60 ms under `max_sec` to leave room for MP3 padding; FAIL lines are not encoded.
 - `build_review.py`: new page (moments, on-air playback, Keep / Redo, Export JSON).
-- `word_metrics.py`, `word_lead.py`: copied unchanged (qa_check imports them for lines with respelled words).
+- `word_metrics.py`, `word_lead.py`: copied (qa_check imports them for lines with respelled words); only the compound split above is new.
