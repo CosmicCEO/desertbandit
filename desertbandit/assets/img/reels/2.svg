@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Giant desert hairy scorpion (Hadrurus arizonensis)</title>
+  <defs>
+    <pattern id="sc-hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#3b2814" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <clipPath id="sc-tailclip">
+      <circle cx="101" cy="152" r="10"/>
+      <circle cx="108" cy="164" r="9.6"/>
+      <circle cx="119" cy="172" r="9.2"/>
+      <circle cx="132" cy="175" r="8.8"/>
+      <circle cx="144" cy="170" r="8.4"/>
+      <circle cx="152" cy="158" r="8"/>
+      <circle cx="155" cy="143" r="7.6"/>
+      <circle cx="152" cy="128" r="7.2"/>
+      <circle cx="145" cy="116" r="7"/>
+      <ellipse cx="134" cy="106" rx="10" ry="8"/>
+    </clipPath>
+    <!-- left half: four legs and one big claw (mirrored for the right side) -->
+    <g id="sc-half" stroke="#2b1d12" stroke-width="2.4">
+      <path d="M84,88 L58,80 L40,90 L28,106 M82,100 L56,98 L38,112 L26,130 M82,112 L56,116 L40,134 L30,154 M84,124 L62,136 L50,156 L44,180" stroke-width="6.8"/>
+      <path d="M84,88 L58,80 L40,90 L28,106 M82,100 L56,98 L38,112 L26,130 M82,112 L56,116 L40,134 L30,154 M84,124 L62,136 L50,156 L44,180" stroke="#d9b45a" stroke-width="3.2"/>
+      <path d="M58,78 L56,70 M40,88 L34,84 M56,96 L52,90 M38,110 L32,106 M56,114 L52,108 M40,132 L34,130 M62,134 L60,128 M50,154 L44,152" stroke-width="1.2" stroke="#6b4a12"/>
+      <!-- arm -->
+      <path d="M90,76 C76,72 66,66 60,54" stroke-width="10"/>
+      <path d="M90,76 C76,72 66,66 60,54" stroke="#d9b45a" stroke-width="6"/>
+      <!-- pincer -->
+      <path d="M42,52 C34,36 42,20 58,10 C63,8 67,11 65,15 C60,22 60,28 64,32 C70,24 76,18 82,18 C86,20 85,25 81,29 C75,36 72,48 63,56 C54,60 45,58 42,52 Z" fill="#d9b45a"/>
+      <path d="M64,32 C70,24 76,18 82,18 C86,20 85,25 81,29 C75,36 72,48 63,56 C58,58 54,58 51,56 C62,50 68,42 64,32 Z" fill="url(#sc-hb)" stroke="none"/>
+      <path d="M50,48 C46,40 48,30 54,22" stroke-width="1.3" stroke="#6b4a12"/>
+      <path d="M44,44 L38,42 M46,34 L40,30 M54,22 L50,16" stroke-width="1.2" stroke="#6b4a12"/>
+    </g>
+  </defs>
+  <use href="#sc-half"/>
+  <use href="#sc-half" transform="translate(200 0) scale(-1 1)"/>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- dark back plates -->
+    <path d="M78,94 C92,88 108,88 122,94 C128,112 124,136 112,148 C106,152 94,152 88,148 C76,136 72,112 78,94 Z" fill="#5a3a22"/>
+    <path d="M100,92 C112,92 122,98 122,98 C128,114 124,136 112,148 C106,152 100,152 100,152 Z" fill="url(#sc-hb)" stroke="none"/>
+    <path d="M77,104 C92,98 108,98 123,104 M75,116 C92,110 108,110 125,116 M77,128 C92,122 108,122 123,128 M82,140 C94,135 106,135 118,140" stroke-width="1.6" stroke="#2b1d12"/>
+    <path d="M80,100 C92,95 108,95 120,100 M79,112 C92,106 108,106 121,112 M80,124 C92,118 108,118 120,124 M84,136 C94,131 106,131 116,136" stroke-width="1.2" stroke="#9a7040"/>
+    <!-- carapace -->
+    <path d="M84,72 C84,58 116,58 116,72 C122,84 116,96 100,98 C84,96 78,84 84,72 Z" fill="#d6aa52"/>
+    <path d="M100,60 C110,60 116,64 116,72 C122,84 116,96 100,98 C108,86 108,70 100,60 Z" fill="url(#sc-hb)" stroke="none"/>
+    <path d="M100,78 L100,92" stroke-width="1.4"/>
+    <!-- segmented tail curling up and over the back -->
+    <circle cx="101" cy="152" r="10" fill="#d9a640"/>
+    <circle cx="108" cy="164" r="9.6" fill="#d9a640"/>
+    <circle cx="119" cy="172" r="9.2" fill="#d9a640"/>
+    <circle cx="132" cy="175" r="8.8" fill="#d9a640"/>
+    <circle cx="144" cy="170" r="8.4" fill="#d9a640"/>
+    <circle cx="152" cy="158" r="8" fill="#d9a640"/>
+    <circle cx="155" cy="143" r="7.6" fill="#d9a640"/>
+    <circle cx="152" cy="128" r="7.2" fill="#d9a640"/>
+    <circle cx="145" cy="116" r="7" fill="#d9a640"/>
+    <path d="M108,172 C116,184 134,186 146,178 C158,170 164,152 161,138 C159,128 154,120 150,114" stroke="url(#sc-hb)" stroke-width="9" clip-path="url(#sc-tailclip)"/>
+    <ellipse cx="134" cy="106" rx="10" ry="8" fill="#d9a640"/>
+    <path d="M128,102 C120,100 114,94 112,84 C122,88 132,90 140,98 Z" fill="#2b1d12"/>
+    <path d="M110,170 L106,176 M124,178 L125,184 M138,180 L142,185 M150,172 L156,175 M159,152 L165,152 M160,134 L166,131 M153,122 L158,118" stroke-width="1.2" stroke="#6b4a12"/>
+  </g>
+  <!-- eyes -->
+  <circle cx="96" cy="70" r="2" fill="#2b1d12"/>
+  <circle cx="104" cy="70" r="2" fill="#2b1d12"/>
+</svg>
