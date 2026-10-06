@@ -14,12 +14,16 @@ and nothing is uploaded from a Claude session. Claude builds the folder and the 
 ## What is different from Desert Ranger
 - **Same database, new tables.** The install creates only `bandit_games`, `bandit_players` and `bandit_events`. It refuses to run if `bandit_games` already exists, and it never reads or changes Desert Ranger's `games`, `players` or `events`.
 - **Same database login.** `config.php` uses the same host, database, user and password as Desert Ranger's server `config.php` (the user already has rights on that database). Copy the values by hand from your password manager or from Desert Ranger's `config.php`; do not paste them anywhere else.
-- Sounds are made in the browser, so there are no audio files to upload in Wave 1.
+- **The audio folder is part of the upload (Wave 2).** `desertbandit/audio/` holds `manifest.json`, the 42 radio lines (`calls/`), and Desert Ranger's radio
+  click, squelch and hiss (`radio/fx/`), the 104 place calls (`radio/places/`) and the desert bed and critters (`amb/`). About 2.5 MB in all (the bed is 0.7 MB,
+  the place calls 0.9 MB, the new lines under 0.6 MB). The Desert Ranger clips are links in the clone (`bash tools/link-game-audio.sh`); the deploy script copies
+  real files. `audio/review.html` (the owner's listening page) is never uploaded. The machine sounds are still made in the browser.
 
 ## Steps
 1. **Create the folder.** In `htdocs`, create `desertbandit` (only if it does not exist yet; if it does, stop and tell us).
-2. **Build the upload folder** on the lab Mac clone (on `main`, with the art linked: `bash tools/link-game-art.sh`):
-   `bash dev/make-deploy-folder.sh` makes `deploy/desertbandit/` and `deploy/DEPLOY-MANIFEST.txt`. It copies the linked art as real files, never copies `config.php` or markdown, checks PHP syntax, and warns about anything missing.
+2. **Build the upload folder** on the lab Mac clone (on `main`, with the art and the audio linked: `bash tools/link-game-art.sh` and `bash tools/link-game-audio.sh`):
+   `bash dev/make-deploy-folder.sh` makes `deploy/desertbandit/` and `deploy/DEPLOY-MANIFEST.txt`. It copies the linked art and audio as real files, never copies `config.php`,
+   markdown or `audio/review.html`, checks PHP syntax, and warns about anything missing (fewer than 104 place calls, no bed, no `audio/manifest.json`, test placeholders).
 3. **Create `config.php` locally**, inside `deploy/desertbandit/` only: copy `config.sample.php` to `config.php` and fill in the same host, port (3306), database, user and password as Desert Ranger, leave `db_socket` empty and `'debug' => false`. It is never committed.
 4. **Upload.** In Cyberduck (SFTP, port 2222), drag the **`desertbandit` folder itself** (from `deploy/`) onto `htdocs`. Dragging the folder, not its contents, takes the hidden `.htaccess` along. If Cyberduck asks about existing files choose **Skip**. Check the server's `desertbandit` folder shows `.htaccess` (View, Show Hidden Files) and that the file count matches the manifest (plus `config.php`).
 5. **Install.** Open `https://YOURDOMAIN/desertbandit/install.php` once. It checks PHP, the driver, `config.php` and the database, then creates the three tables. Then **delete `install.php` from the server**.
@@ -36,6 +40,7 @@ and nothing is uploaded from a Claude session. Claude builds the folder and the 
 | install.php says "Already installed" | `bandit_games` exists: the tables are already there. Delete `install.php`. |
 | Reel pictures missing or blank | `.svg` is not served as `image/svg+xml` (the `.htaccess` AddType was blocked): `verify-deploy.sh` says so; ask the host to allow it. |
 | Game state looks frozen or stale | A cache is answering instead of PHP: `verify-deploy.sh` fails the two-calls test or shows an `Age` header. Ask the host to exclude `api.php` from caching. |
+| No radio voices or desert sounds (the machine sounds play) | `verify-deploy.sh` checks the audio lines. If a clip answers 404, the `audio` folder (or part of it) was not uploaded: upload it again. If it answers 200 but not as `audio/mpeg`, the `.htaccess` `AddType audio/mpeg .mp3` line was not applied (Safari then refuses the clips): check `.htaccess` is on the server, or ask the host to serve `.mp3` as `audio/mpeg`. On the phone, also check the sound panel (the &#9835; button): Radio voices and Desert sounds on, not muted, and the silent switch off. |
 | Old files after an update | The host caches static files for hours. Hard-refresh; if `index.html` still lags, the verify script's caching lines show the cache time. |
 | Polling errors or "too many connections" | Shared MySQL connection limit shared with Desert Ranger. Ask the host for `max_user_connections`. |
 
@@ -43,6 +48,7 @@ Fallback `.htaccess` (only if the full one gives a 500; keeps the secrets blocke
 ```
 DirectoryIndex index.html
 AddType image/svg+xml .svg
+AddType audio/mpeg .mp3
 <FilesMatch "^(config\.php|config\.sample\.php|.*\.sql|.*\.md)$">
   <IfModule mod_authz_core.c>
     Require all denied
@@ -61,3 +67,4 @@ Desert Ranger and its tables are untouched.
 
 ## Updating later
 Rebuild `deploy/`, upload changed files only (Cyberduck compare/sync), and never overwrite the server's `config.php`.
+Audio updates: upload the changed clips together with `audio/manifest.json` (its hashes make phones fetch the new versions; MP3s are otherwise cached 30 days).

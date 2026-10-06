@@ -25,10 +25,25 @@ i=$(body "$BASE/api.php?a=info"); grep -q 'bronco-orange' <<<"$i" && ok "api.php
 
 echo "Pages and files"
 ix=$(body "$BASE/index.html"); [ "$(code "$BASE/index.html")" = 200 ] && grep -q 'Bandit' <<<"$ix" && ok "index.html" || bad "index.html missing or wrong"
-for p in assets/css/style.css assets/js/sync.js assets/js/sound.js assets/js/scoring.js assets/js/race.js assets/js/app.js about.html assets/img/pieces/bronco-orange.png assets/fonts/Bungee-Regular.ttf \
+for p in assets/css/style.css assets/js/sync.js assets/js/sound.js assets/js/radio.js assets/js/ambience.js assets/js/scoring.js assets/js/race.js assets/js/app.js about.html assets/img/pieces/bronco-orange.png assets/fonts/Bungee-Regular.ttf \
          assets/img/reels/0.svg assets/img/reels/1.svg assets/img/reels/2.svg assets/img/reels/3.svg assets/img/reels/4.svg assets/img/reels/5.svg; do
   [ "$(code "$BASE/$p")" = 200 ] && ok "$p" || bad "$p is missing (200 expected)"; done
 ct=$(ctype "$BASE/assets/img/reels/0.svg"); case "$ct" in image/svg+xml*) ok "reel faces are served as image/svg+xml" ;; *) bad "reels/0.svg is served as '$ct' (expected image/svg+xml): the .htaccess AddType for .svg was not applied" ;; esac
+
+echo "Sound files (audio/: the radio voices, the place calls, the desert bed)"
+man=$(body "$BASE/audio/manifest.json"); mc=$(code "$BASE/audio/manifest.json")
+nclips=$(grep -o '"file" *: *"[^"]*\.mp3"' <<<"$man" | wc -l | tr -d ' ')
+if [ "$mc" = 200 ] && [ "${nclips:-0}" -gt 0 ]; then ok "audio/manifest.json lists $nclips clips"
+else bad "audio/manifest.json is missing or lists no clips (status $mc): upload the audio folder (the game then plays without voices, but never errors)"; fi
+mh=$(curl -sI -m 20 "$BASE/audio/manifest.json" | tr -d '\r' | grep -i '^cache-control' | grep -o 'max-age=[0-9]*' | cut -d= -f2)
+[ -z "${mh:-}" ] || [ "$mh" -le 600 ] && ok "audio/manifest.json is not cached for long" || warn "audio/manifest.json is cached for ${mh} s: after an audio update phones may ask for old clip versions for that long"
+# one clip of each kind: a result call, a place call (both voices' folder) and the bed
+for p in audio/calls/call-bust-a.mp3 audio/radio/places/pl-sr-12.mp3 audio/radio/fx/radio-click-01.mp3 audio/amb/amb-bed-01.mp3; do
+  s=$(code "$BASE/$p"); ct=$(ctype "$BASE/$p")
+  if [ "$s" != 200 ]; then bad "$p is missing ($s; 200 expected): upload the whole audio folder"
+  else case "$ct" in audio/mpeg*) ok "$p (audio/mpeg)" ;; *) bad "$p is served as '$ct' (expected audio/mpeg): the .htaccess AddType for .mp3 was not applied; some phones then play no voices" ;; esac; fi
+done
+[ "$(code "$BASE/audio/review.html")" = 200 ] && warn "audio/review.html is on the server: it is for the owner's ears only; delete it" || ok "audio/review.html is not uploaded"
 
 echo "Protection (these should NOT be readable)"
 c=$(body "$BASE/config.php"); if grep -qiE "db_pass|db_user|password" <<<"$c"; then bad "config.php is READABLE and contains settings: block it NOW (check .htaccess) and change the database password"; else ok "config.php does not leak its contents (status $(code "$BASE/config.php"))"; fi

@@ -30,11 +30,11 @@ Result call priority, highest first; the first match in the action wins and the 
 | 7 | `sweep` (not offroad) | sweep | `sweep` start + 300 ms |
 | 8 | `broken` | broken | `broken` start + 200 ms |
 | 9 | `bust` | bust | `bust` start + 300 ms |
-| 10 | `lock` with `points >= 500`, only when `ev.id % 2 == 0` | lock | `lock` start + 100 ms |
+| 10 | `lock` with `points >= 500`, only when `ev.id % 3 == 0` | lock | `lock` start + 100 ms |
 | 11 | `bank` with `amount >= 1500` | bigbank (variants a, b only) | `bank` start + 500 ms |
 | 12 | `bank` where the player's rig moves to a different square, `sq = floor(bank / target * 51)` (cap 51), before vs after | place call `pl-<sr or r273>-<NN>`, voice by `ev.id % 2` | `bank` start + 600 ms |
 The card in force for a `bank` is the card of the last `turn` event the client has seen (a `turn` event carries `card`).
-**Card call**: on a `turn` event whose card is not `broken`: `card-<card>-<a|b>` (dispatch), variant `ev.id % 2 == 0 ? 'a' : 'b'`; for the `sweep` card only when `ev.id % 4 == 1`
+**Card call**: on a `turn` event whose card is not `broken`: `card-<card>-<a|b>` (dispatch), variant `ev.id % 2 == 0 ? 'a' : 'b'`; for the `sweep` card only when `ev.id % 9 == 0`
 (it is 56% of turns, so it would nag). It starts at that `turn` event's start + 150 ms. A call that would overlap another voice already scheduled, or that the clip is not loaded for in time, is skipped.
 Radio treatment at runtime follows `desertranger/assets/js/radio.js`: click, voice 0.1 s later over the looped hiss (gain 0.5), squelch at the end, all on the voice bus; the bed ducks -12 dB while voices play.
 The place calls and result calls use the radio treatment; the voice lines' own radio chain is already baked into the MP3 (as in Desert Ranger), the click, squelch and hiss are separate clips.
