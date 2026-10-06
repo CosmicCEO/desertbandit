@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Greater roadrunner (Geococcyx californianus)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2f2216" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- far leg and near leg, striding: dark outline then a pale core -->
+    <path d="M112,118 L130,140 L150,160 M150,160 L168,158 M150,160 L164,170 M150,160 L140,170" stroke-width="6.5"/>
+    <path d="M96,122 L82,146 L62,166 M62,166 L44,164 M62,166 L50,176 M62,166 L74,174" stroke-width="6.5"/>
+    <path d="M112,118 L130,140 L150,160 M96,122 L82,146 L62,166" stroke="#8fa0ae" stroke-width="2.6"/>
+    <!-- long tail streaming back, white tips -->
+    <path d="M146,92 C170,86 188,78 198,70 L196,56 C176,62 158,72 138,82 Z" fill="#5a4330"/>
+    <path d="M150,88 C170,80 186,74 197,66 L196,56 C176,62 158,72 142,80 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M198,70 L196,56 L186,60 L188,74 Z" fill="#f4ebd3"/>
+    <!-- neck, behind the body so the join is smooth -->
+    <path d="M36,74 C40,96 62,108 92,104 L96,76 C74,78 62,70 56,56 Z" fill="#b89460"/>
+    <path d="M52,84 L58,94 M62,82 L68,96 M44,78 L50,90" stroke="#2f2216" stroke-width="1.6"/>
+    <!-- body -->
+    <path d="M60,78 C84,66 126,70 150,88 C152,108 130,126 102,128 C80,128 62,108 60,78 Z" fill="#8c6c48"/>
+    <path d="M100,98 C112,104 128,102 148,90 C150,108 130,126 102,128 C92,126 86,116 84,108 Z" fill="url(#hb)" stroke="none"/>
+    <!-- pale belly -->
+    <path d="M70,106 C84,122 118,128 140,108 C132,124 116,130 102,128 C86,126 74,118 70,106 Z" fill="#f1e6c8"/>
+    <!-- plumage streaks -->
+    <path d="M84,76 L90,92 M98,72 L104,90 M112,72 L118,90 M126,76 L130,92 M74,88 L80,100 M92,98 L96,108 M108,98 L112,108" stroke="#f1e6c8" stroke-width="2.2"/>
+    <!-- head -->
+    <path d="M24,62 C24,48 38,40 50,44 C62,48 66,62 60,74 C52,82 34,78 24,62 Z" fill="#f1e6c8"/>
+    <path d="M40,46 C54,44 64,56 60,72 C54,80 46,80 40,76 C48,66 48,54 40,46 Z" fill="url(#hb)" stroke="none"/>
+    <!-- shaggy crest -->
+    <path d="M46,44 L60,26 L58,44 L74,34 L62,56 L66,62 Z" fill="#2f241a"/>
+    <!-- long heavy beak -->
+    <path d="M26,58 L2,64 L26,74 Z" fill="#3a2a1a"/>
+  </g>
+  <!-- bare skin patch behind the eye -->
+  <path d="M50,54 C60,52 64,60 60,68 C52,66 48,60 50,54 Z" fill="#e8782a" stroke="#2b1d12" stroke-width="1.8"/>
+  <circle cx="42" cy="57" r="3.4" fill="#2b1d12"/>
+  <circle cx="41" cy="56" r="1" fill="#f4ebd3"/>
+</svg>
