@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Gambel's quail (Callipepla gambelii)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2f2216" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- legs: dark outline then a pale core -->
+    <path d="M114,148 L112,178 M112,178 L98,180 M112,178 L112,182 M112,178 L124,181" stroke-width="5.6"/>
+    <path d="M92,150 L88,178 M88,178 L74,180 M88,178 L88,182 M88,178 L100,181" stroke-width="5.6"/>
+    <path d="M114,148 L112,178 M92,150 L88,178" stroke="#a69c88" stroke-width="2"/>
+    <!-- short tail, held up a little -->
+    <path d="M144,92 L190,82 L192,98 L158,120 Z" fill="#6f6a60"/>
+    <path d="M150,108 L192,98 L158,120 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M160,92 L182,88 M158,100 L186,95" stroke-width="1.2" stroke="#f4ebd3" opacity=".8"/>
+    <!-- plump body, blue-grey -->
+    <path d="M40,88 C36,116 56,148 98,154 C128,158 152,146 160,126 C166,110 160,98 148,90 C126,72 90,70 66,78 C54,82 44,84 40,88 Z" fill="#8a97a9"/>
+    <!-- folded wing -->
+    <path d="M68,84 C98,72 138,78 160,102 C142,116 100,118 78,106 C70,100 66,92 68,84 Z" fill="#8a7a62"/>
+    <path d="M110,92 C128,88 148,94 160,102 C142,116 106,118 96,110 C108,106 112,100 110,92 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M82,90 L96,98 M96,84 L108,94 M110,82 L122,92 M126,84 L136,94" stroke-width="1.3" stroke="#f4ebd3"/>
+    <!-- chestnut flank with white streaks -->
+    <path d="M78,108 C100,120 142,118 160,104 C162,120 154,134 142,140 C112,144 90,134 78,108 Z" fill="#a4512c"/>
+    <path d="M118,124 C132,124 150,116 160,104 C162,120 154,134 142,140 C132,140 122,134 118,124 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M92,116 L96,128 M104,120 L108,132 M116,122 L120,134 M128,122 L130,134 M140,118 L141,130" stroke-width="2.2" stroke="#f4ebd3"/>
+    <!-- scaled buff belly with dark patch -->
+    <path d="M56,122 C66,138 84,142 112,142 C132,142 146,138 152,130 C150,142 140,152 120,154 C98,157 76,150 64,140 C60,134 57,128 56,122 Z" fill="#e6cfa0" stroke="none"/>
+    <path d="M56,122 C64,140 78,150 98,154 C128,158 152,146 160,126" stroke-width="2.4"/>
+    <path d="M86,144 C94,146 108,146 118,144 C112,152 94,152 86,144 Z" fill="#4a3320" stroke="none"/>
+    <path d="M66,136 C69,139 73,139 76,136 M76,142 C79,145 83,145 86,142 M122,146 C125,149 129,149 132,146 M132,142 C135,145 139,145 142,142 M70,146 C73,149 77,149 80,146 M138,134 C141,137 145,137 148,134 M96,136 C99,139 103,139 106,136 M108,132 C111,135 115,135 118,132" stroke-width="1.2" stroke="#7a5a30"/>
+    <!-- tail of the head: neck and throat collar -->
+    <path d="M36,66 C34,84 46,98 64,96 C74,92 78,80 74,68 Z" fill="#f4ebd3"/>
+    <!-- head -->
+    <path d="M34,62 C34,46 48,38 62,42 C76,46 80,62 72,74 C64,84 44,82 38,72 Z" fill="#f4ebd3"/>
+    <!-- rusty crown -->
+    <path d="M42,48 C52,38 68,40 74,52 C76,58 76,60 76,62 C68,52 54,50 42,56 Z" fill="#a4512c"/>
+    <!-- black face and throat -->
+    <path d="M34,64 C42,58 56,58 68,66 C72,76 66,88 56,90 C46,90 36,80 34,64 Z" fill="#2b1d12"/>
+    <!-- black plume curling forward -->
+    <path d="M62,46 C62,30 52,16 38,14 C30,13 27,22 33,26 C42,26 50,34 54,48 Z" fill="#2b1d12"/>
+    <ellipse cx="33" cy="20" rx="6.4" ry="5.4" transform="rotate(-20 33 20)" fill="#2b1d12"/>
+    <!-- beak -->
+    <path d="M35,62 L24,66 L35,70 Z" fill="#3a2a1a"/>
+  </g>
+  <!-- white stripe above the eye, and eye -->
+  <path d="M36,60 C46,52 62,52 74,60" stroke="#f4ebd3" stroke-width="3.4"/>
+  <circle cx="51" cy="66" r="3.6" fill="#7a3a1c"/>
+  <circle cx="51" cy="66" r="2" fill="#0f0a06"/>
+  <circle cx="50" cy="65" r=".9" fill="#f4ebd3"/>
+</svg>

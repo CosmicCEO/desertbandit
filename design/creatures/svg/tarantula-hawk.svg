@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Tarantula hawk wasp (Pepsis sp.)</title>
+  <defs>
+    <pattern id="th-hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2f2216" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <pattern id="th-hw" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <line x1="0" y1="0" x2="0" y2="3.4" stroke="#4a2410" stroke-width="1" opacity=".75"/>
+    </pattern>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- far wing (darker rust), held up behind -->
+    <path d="M80,82 C92,52 126,40 176,38 C188,40 186,48 176,54 C152,72 118,86 90,90 Z" fill="#b24f1c"/>
+    <path d="M140,50 C158,46 172,44 178,46 C176,54 164,62 150,68 C146,60 142,56 140,50 Z" fill="#5a2a12" stroke="none"/>
+    <path d="M88,84 C108,64 136,54 170,46 M90,88 C116,76 146,64 174,52" stroke-width="1.2" stroke="#4a2410"/>
+
+    <!-- six long legs dangling: dark outline then a blue core -->
+    <path d="M62,104 L46,130 L34,156 L38,184 M70,106 L62,134 L58,162 L62,186 M78,108 L80,138 L84,164 L90,188" stroke-width="7.4"/>
+    <path d="M86,106 L102,134 L112,160 L120,184 M90,104 L114,126 L134,150 L142,178 M94,104 L104,126 L126,162 L134,188" stroke-width="7.4"/>
+    <path d="M62,104 L46,130 L34,156 L38,184 M70,106 L62,134 L58,162 L62,186 M78,108 L80,138 L84,164 L90,188 M86,106 L102,134 L112,160 L120,184 M90,104 L114,126 L134,150 L142,178 M94,104 L104,126 L126,162 L134,188" stroke="#3a5688" stroke-width="3"/>
+
+    <!-- abdomen, narrow waist, thorax, head -->
+    <path d="M90,94 L106,98" stroke-width="7"/>
+    <path d="M90,94 L106,98" stroke="#1e2d4d" stroke-width="3"/>
+    <path d="M104,96 C124,82 154,90 166,112 L172,126 L160,124 C132,128 108,114 104,104 Z" fill="#1e2d4d"/>
+    <path d="M112,110 C128,124 148,124 160,124 L172,126 L166,112 C160,120 148,120 138,116 Z" fill="url(#th-hb)" stroke="none"/>
+    <path d="M114,94 C128,88 144,92 154,102" stroke="#6f9ad6" stroke-width="1.8" opacity=".9"/>
+    <path d="M122,100 L124,110 M134,98 L136,110 M146,100 L148,112" stroke-width="1.3" stroke="#0f1830"/>
+    <path d="M52,100 C52,80 74,72 92,80 C102,90 98,108 82,110 C66,112 54,108 52,100 Z" fill="#1e2d4d"/>
+    <path d="M68,106 C80,110 96,106 98,94 C100,104 90,112 78,112 C70,112 66,110 68,106 Z" fill="url(#th-hb)" stroke="none"/>
+    <path d="M62,86 C70,80 80,80 88,84" stroke="#6f9ad6" stroke-width="1.8" opacity=".9"/>
+    <path d="M30,94 C30,82 42,76 54,80 C62,86 62,100 54,106 C44,110 30,106 30,94 Z" fill="#1e2d4d"/>
+    <path d="M42,106 C52,106 60,100 60,90 C62,100 56,110 46,110 Z" fill="url(#th-hb)" stroke="none"/>
+
+    <!-- near wing (bright rust-orange), swept up and back over the body -->
+    <path d="M70,84 C62,52 88,20 142,10 C164,8 172,16 164,28 C142,52 110,78 82,90 Z" fill="#e0702c"/>
+    <path d="M112,56 C130,40 148,28 168,22 C168,28 160,36 150,46 C136,60 122,72 106,80 C106,72 108,62 112,56 Z" fill="url(#th-hw)" stroke="none"/>
+    <path d="M132,14 C150,10 164,10 168,18 C164,28 154,36 140,42 C142,32 138,22 132,14 Z" fill="#6b2f12" stroke="none"/>
+    <path d="M78,82 C80,56 100,30 134,18 M82,86 C104,70 130,48 154,24" stroke-width="1.4" stroke="#6b2f12"/>
+    <path d="M74,80 C84,70 94,60 100,48" stroke="#f4ebd3" stroke-width="1.6" opacity=".85"/>
+  </g>
+  <!-- stinger -->
+  <path d="M170,124 L180,132" stroke="#2b1d12" stroke-width="2.6"/>
+  <!-- eye and mandible -->
+  <ellipse cx="42" cy="90" rx="4.6" ry="5.4" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.6"/>
+  <circle cx="41.5" cy="90.5" r="2.6" fill="#2b1d12"/>
+  <path d="M32,100 L28,106 L36,104" stroke="#2b1d12" stroke-width="2" fill="#2b1d12"/>
+  <!-- orange antennae, curled -->
+  <g fill="none">
+    <path d="M38,80 C32,66 20,64 14,54 C10,46 16,40 22,44 C26,48 22,52 20,52" stroke="#2b1d12" stroke-width="5.4"/>
+    <path d="M44,78 C46,62 36,52 38,42 C40,34 48,34 50,40 C50,44 46,46 45,45" stroke="#2b1d12" stroke-width="5.4"/>
+    <path d="M38,80 C32,66 20,64 14,54 C10,46 16,40 22,44 C26,48 22,52 20,52" stroke="#e87b2a" stroke-width="2.6"/>
+    <path d="M44,78 C46,62 36,52 38,42 C40,34 48,34 50,40 C50,44 46,46 45,45" stroke="#e87b2a" stroke-width="2.6"/>
+  </g>
+</svg>

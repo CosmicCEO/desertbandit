@@ -1,0 +1,24 @@
+{
+ "note": "Candidates for the six reel faces. Original SVG drawings (see PROVENANCE.md). 'fact' lines are checked against park sources before the review page is sent.",
+ "categories": ["Mammal", "Bird", "Fish", "Invertebrate", "Flower", "Reptile"],
+ "creatures": [
+  {"id": "bighorn-sheep", "category": "Mammal", "name": "Peninsular bighorn sheep", "latin": "Ovis canadensis nelsoni", "fact": "The park's symbol; the Peninsular population was listed as federally endangered in 1998."},
+  {"id": "kit-fox", "category": "Mammal", "name": "Kit fox", "latin": "Vulpes macrotis", "fact": "Large ears for hearing prey and shedding heat; listed among the animals seen across the park."},
+  {"id": "coyote", "category": "Mammal", "name": "Coyote", "latin": "Canis latrans", "fact": "Listed among the animals seen throughout the park."},
+  {"id": "roadrunner", "category": "Bird", "name": "Greater roadrunner", "latin": "Geococcyx californianus", "fact": "Documented in the park; runs fast on the ground, which suits a race."},
+  {"id": "gambels-quail", "category": "Bird", "name": "Gambel's quail", "latin": "Callipepla gambelii", "fact": "Recorded in the park bird counts; the curled head plume is its signature."},
+  {"id": "costas-hummingbird", "category": "Bird", "name": "Costa's hummingbird", "latin": "Calypte costae", "fact": "Recorded in the park; the male's violet gorget flares at the sides."},
+  {"id": "desert-pupfish", "category": "Fish", "name": "Desert pupfish", "latin": "Cyprinodon macularius", "fact": "The only native fish of the region and endangered; it lives naturally only in nearby San Felipe and Salt creeks. Breeding males turn bright blue."},
+  {"id": "tarantula-hawk", "category": "Invertebrate", "name": "Tarantula hawk wasp", "latin": "Pepsis sp.", "fact": "Common in the park; up to two inches long, it paralyzes tarantulas rather than killing them."},
+  {"id": "desert-hairy-scorpion", "category": "Invertebrate", "name": "Giant desert hairy scorpion", "latin": "Hadrurus arizonensis", "fact": "Seen year-round on warm, moonless nights."},
+  {"id": "desert-tarantula", "category": "Invertebrate", "name": "Desert tarantula", "latin": "Aphonopelma (genus)", "fact": "Three species live in the park; in fall the males wander the lower desert looking for mates."},
+  {"id": "ocotillo", "category": "Flower", "name": "Ocotillo", "latin": "Fouquieria splendens", "fact": "Also a place on the old board (Ocotillo Wells)."},
+  {"id": "desert-sand-verbena", "category": "Flower", "name": "Desert sand verbena", "latin": "Abronia villosa", "fact": "Carpets the sand dunes purple in good wildflower years."},
+  {"id": "beavertail-cactus", "category": "Flower", "name": "Beavertail cactus", "latin": "Opuntia basilaris", "fact": "Flat pads with bright magenta blooms in spring."},
+  {"id": "chuckwalla", "category": "Reptile", "name": "Chuckwalla", "latin": "Sauromalus ater", "fact": "A big, flat-bodied lizard that wedges itself into rock crevices."},
+  {"id": "sidewinder", "category": "Reptile", "name": "Sidewinder", "latin": "Crotalus cerastes", "fact": "A small rattlesnake that moves sideways across loose sand."},
+  {"id": "flat-tailed-horned-lizard", "category": "Reptile", "name": "Flat-tailed horned lizard", "latin": "Phrynosoma mcallii", "fact": "A flat, spiny sand-dweller listed among the park's lizards; it hides by lying still and buries itself in loose sand."}
+ ],
+ "defaults": ["bighorn-sheep", "roadrunner", "desert-pupfish", "tarantula-hawk", "ocotillo", "sidewinder"],
+ "tiers": ["top $1,000", "$600", "$500", "$400", "$300", "$200"]
+}

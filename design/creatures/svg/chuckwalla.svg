@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Chuckwalla (Sauromalus ater)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#2f2216" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <clipPath id="bodyclip">
+      <path d="M54,106 C56,90 74,80 98,78 C124,76 146,82 160,94 C172,104 184,118 192,134 C190,143 180,143 174,139 C166,133 156,131 148,135 C138,143 118,143 94,141 C70,139 52,128 54,106 Z"/>
+    </clipPath>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- far legs, darker: outline pass then fill pass -->
+    <g fill="none" stroke-width="19">
+      <path d="M62,120 L76,142 L52,152"/><path d="M146,126 L130,146 L150,156"/>
+    </g>
+    <g fill="none" stroke-width="14.5">
+      <path d="M62,120 L76,142 L52,152" stroke="#33323a"/><path d="M146,126 L130,146 L150,156" stroke="#85543a"/>
+    </g>
+    <!-- body and tail -->
+    <path d="M54,106 C56,90 74,80 98,78 C124,76 146,82 160,94 C172,104 184,118 192,134 C190,143 180,143 174,139 C166,133 156,131 148,135 C138,143 118,143 94,141 C70,139 52,128 54,106 Z" fill="#dccaa0"/>
+    <g clip-path="url(#bodyclip)" stroke="none">
+      <!-- reddish-tan rear body, ragged edges -->
+      <path d="M92,70 L156,70 C150,82 158,90 152,100 C158,110 150,120 156,130 L156,150 L100,150 C106,138 96,130 102,120 C96,108 104,98 96,88 C102,80 92,76 92,70 Z" fill="#b8704a"/>
+      <!-- dark grey-black head and shoulders -->
+      <path d="M44,70 L98,70 C92,80 102,88 96,98 C102,108 94,118 100,128 C96,136 100,142 98,150 L44,150 Z" fill="#46454a"/>
+      <!-- flecks on the reddish rear -->
+      <g fill="#7a3f22"><circle cx="112" cy="94" r="2"/><circle cx="126" cy="100" r="2.2"/><circle cx="118" cy="112" r="2"/><circle cx="136" cy="112" r="1.8"/><circle cx="132" cy="90" r="1.8"/><circle cx="108" cy="124" r="1.8"/></g>
+      <!-- engraved shading under the belly and tail -->
+      <path d="M56,124 C70,138 120,144 150,132 C160,134 172,140 194,140 L194,150 L56,150 Z" fill="url(#hb)"/>
+    </g>
+    <!-- loose skin: folds on neck and flanks, scalloped belly edge -->
+    <path d="M60,100 C70,108 70,122 62,134 M70,90 C80,100 80,118 72,134" stroke-width="1.5" stroke="#16130f"/>
+    <path d="M104,92 C112,100 112,114 106,126 M122,86 C130,96 130,110 124,124 M140,90 C146,98 146,108 142,118" stroke-width="1.4" stroke="#5a3318"/>
+    <path d="M62,128 C68,136 76,136 82,131 C88,138 98,138 104,132 C110,139 120,139 126,133 C132,138 140,136 144,132" stroke-width="1.3" stroke="#2f2216"/>
+    <path d="M164,100 C166,108 164,114 160,120 M176,114 C177,120 176,124 172,128" stroke-width="1.2" stroke="#8a7650"/>
+    <!-- body outline again over the tints -->
+    <path d="M54,106 C56,90 74,80 98,78 C124,76 146,82 160,94 C172,104 184,118 192,134 C190,143 180,143 174,139 C166,133 156,131 148,135 C138,143 118,143 94,141 C70,139 52,128 54,106 Z"/>
+    <!-- near legs: bent, with toes -->
+    <g fill="none" stroke-width="19.5">
+      <path d="M78,124 L92,146 L68,158"/><path d="M128,126 L112,148 L134,162"/>
+    </g>
+    <g fill="none" stroke-width="15">
+      <path d="M78,124 L92,146 L68,158" stroke="#46454a"/><path d="M128,126 L112,148 L134,162" stroke="#b8704a"/>
+    </g>
+    <path d="M84,134 C88,140 90,144 92,146 M120,136 C118,142 114,146 112,148" stroke-width="3" stroke="url(#hb)"/>
+    <path d="M66,158 L55,154 M66,160 L56,162 M68,162 L60,169 M132,162 L121,160 M132,164 L122,168 M134,166 L127,172" stroke-width="2.2"/>
+    <!-- head -->
+    <path d="M11,120 C11,106 22,97 36,96 C50,95 64,99 67,112 C69,126 61,138 49,140 C33,142 13,136 11,120 Z" fill="#46454a"/>
+    <path d="M28,132 C40,140 58,136 66,122 C66,136 58,144 46,144 C32,144 20,140 11,128 Z" fill="url(#hb)" stroke="none"/>
+    <!-- brow, mouth and neck skin -->
+    <path d="M20,104 C28,98 40,98 46,104" stroke-width="2"/>
+    <path d="M12,122 C26,128 42,130 56,126" stroke-width="1.8"/>
+    <path d="M46,98 C54,104 56,114 52,122" stroke="#8a8a92" stroke-width="1.3"/>
+    <!-- highlight along the pale tail and back -->
+    <path d="M150,82 C166,88 180,104 188,124" stroke="#f4ebd3" stroke-width="2.2" opacity=".85"/>
+  </g>
+  <ellipse cx="31" cy="108" rx="5" ry="4.2" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.6"/>
+  <circle cx="30" cy="108.5" r="2.6" fill="#2b1d12"/>
+  <circle cx="17.5" cy="114" r="1.6" fill="#2b1d12"/>
+</svg>

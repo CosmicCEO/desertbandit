@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Kit fox (Vulpes macrotis)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#3b2814" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- bushy tail with black tip -->
+    <path d="M140,98 C164,80 192,92 196,124 C198,150 186,164 170,156 C168,142 158,126 138,118 Z" fill="#b8a283"/>
+    <path d="M158,108 C178,108 192,116 196,124 C198,150 186,164 170,156 C170,142 164,128 148,118 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M195,132 C198,152 186,165 170,156 C168,150 170,144 174,140 C182,144 190,142 195,132 Z" fill="#2b1d12"/>
+    <!-- far legs, slender, in shadow -->
+    <path d="M80,114 L94,116 C92,130 90,142 89,156 L89,172 L82,172 L82,156 C81,142 80,128 80,114 Z" fill="#a67a44"/>
+    <ellipse cx="83" cy="175" rx="8" ry="3.6" fill="#a67a44"/>
+    <path d="M112,116 L128,120 C126,134 123,148 122,160 L122,172 L115,172 L116,158 C115,146 113,132 112,116 Z" fill="#a67a44"/>
+    <ellipse cx="117" cy="175" rx="8" ry="3.6" fill="#a67a44"/>
+    <!-- near front leg, tucked under the shoulder -->
+    <path d="M62,110 L80,110 C80,128 76,142 75,156 L75,172 L67,172 L67,156 C65,142 62,128 62,110 Z" fill="#d6a468"/>
+    <path d="M72,112 L80,110 C80,128 76,142 75,156 L75,172 L71,172 L71,156 Z" fill="url(#hb)" stroke="none"/>
+    <ellipse cx="68" cy="175" rx="8.5" ry="3.8" fill="#d6a468"/>
+    <!-- body, shoulders and neck in one shape -->
+    <path d="M62,66 C80,78 124,76 148,92 C160,106 156,124 140,130 L80,131 C62,130 50,118 46,100 C44,86 46,74 50,64 Z" fill="#b8a283"/>
+    <path d="M66,120 C86,128 126,130 148,112 C150,124 146,129 138,129 L80,129 C72,129 68,126 66,120 Z" fill="#f4ebd3" stroke="none"/>
+    <path d="M98,92 C116,88 140,92 148,92 C160,106 156,124 140,130 C120,132 102,128 92,120 C102,114 104,102 98,92 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M100,100 C106,106 108,112 104,120 M114,98 C120,104 122,112 118,122" stroke-width="1.3" stroke="#4a3320"/>
+    <path d="M40,82 C42,100 52,118 66,124 C54,126 44,112 40,96 Z" fill="#f4ebd3" stroke="none"/>
+    <!-- near hind leg: haunch, hock, slim lower leg -->
+    <path d="M124,106 C146,98 162,116 154,138 C151,146 148,152 147,160 L148,172 L140,172 L140,160 C138,152 134,146 128,136 Z" fill="#d6a468"/>
+    <path d="M146,124 C154,126 156,134 154,138 C151,146 148,152 147,160 L148,172 L143,172 L143,158 C146,148 148,136 146,124 Z" fill="url(#hb)" stroke="none"/>
+    <ellipse cx="143" cy="175" rx="8.5" ry="3.8" fill="#d6a468"/>
+    <!-- far ear -->
+    <path d="M50,64 C54,46 64,32 82,22 C86,40 80,58 68,70 Z" fill="#9a6e3c"/>
+    <!-- head -->
+    <path d="M9,84 C18,80 26,72 38,62 C48,56 60,60 64,70 C66,82 60,94 48,98 C38,100 28,96 20,92 C13,90 9,88 9,84 Z" fill="#d6a468"/>
+    <path d="M44,80 C54,76 62,74 64,70 C66,82 60,94 48,98 C38,100 30,96 24,92 C34,92 44,90 44,80 Z" fill="url(#hb)" stroke="none"/>
+    <!-- pale muzzle and cheek -->
+    <path d="M9,86 C18,90 30,96 46,98 C36,102 24,98 16,92 Z" fill="#f4ebd3"/>
+    <path d="M20,86 C30,92 38,90 46,86 C40,96 30,98 20,92 Z" fill="#f4ebd3" stroke="none"/>
+    <!-- huge near ear: buff outside, cream inside -->
+    <path d="M34,66 C26,44 32,24 44,8 C58,24 64,46 58,70 Z" fill="#d6a468"/>
+    <path d="M42,62 C37,46 41,30 46,20 C53,32 55,48 53,64 Z" fill="#f4ebd3" stroke="none"/>
+    <path d="M44,62 C46,50 47,38 46,20 C53,32 55,48 53,64 Z" fill="url(#hb)" stroke="none"/>
+  </g>
+  <!-- dark whisker patch, nose, eye -->
+  <path d="M22,84 C26,86 30,86 34,84" stroke="#2b1d12" stroke-width="1.6"/>
+  <ellipse cx="10.5" cy="85" rx="4" ry="3.2" fill="#2b1d12"/>
+  <path d="M26,72 C31,68 38,70 41,75 C36,79 29,79 26,72 Z" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.5"/>
+  <circle cx="33" cy="74.5" r="2.7" fill="#2b1d12"/>
+  <path d="M24,92 C30,95 36,96 42,95" stroke="#2b1d12" stroke-width="1.4"/>
+</svg>

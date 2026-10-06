@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <title>Flat-tailed horned lizard (Phrynosoma mcallii)</title>
+  <defs>
+    <pattern id="hb" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#3b2814" stroke-width="1.1" opacity=".75"/>
+    </pattern>
+    <clipPath id="tailclip">
+      <path d="M128,86 C150,88 172,94 192,99 C176,102 152,108 128,114 Z"/>
+    </clipPath>
+  </defs>
+  <g stroke="#2b1d12" stroke-width="2.4">
+    <!-- fringe of spines round the body and tail edges -->
+    <path d="M128.6,118.9 L140.7,121.5 L132.3,111.4 Z M124.7,124.0 L136.1,128.7 L129.6,117.2 Z M119.9,128.3 L130.3,134.9 L126.0,122.5 Z M114.3,131.8 L123.5,140.1 L121.3,127.1 Z M108.3,134.3 L115.9,144.1 L115.9,130.9 Z M101.8,135.8 L107.7,146.7 L109.9,133.7 Z M95.1,136.2 L99.1,147.9 L103.5,135.5 Z M88.5,135.5 L90.5,147.7 L96.9,136.2 Z M82.1,133.7 L82.0,146.1 L90.2,135.8 Z M76.1,130.9 L73.9,143.1 L83.7,134.3 Z M70.7,127.1 L66.5,138.8 L77.7,131.8 Z M66.0,122.5 L60.0,133.3 L72.1,128.3 Z M62.4,117.2 L54.5,126.8 L67.3,124.0 Z M67.3,76.0 L55.9,71.3 L62.4,82.8 Z M72.1,71.7 L61.7,65.1 L66.0,77.5 Z M77.7,68.2 L68.5,59.9 L70.7,72.9 Z M83.7,65.7 L76.1,55.9 L76.1,69.1 Z M90.2,64.2 L84.3,53.3 L82.1,66.3 Z M96.9,63.8 L92.9,52.1 L88.5,64.5 Z M103.5,64.5 L101.5,52.3 L95.1,63.8 Z M109.9,66.3 L110.0,53.9 L101.8,64.2 Z M115.9,69.1 L118.1,56.9 L108.3,65.7 Z M121.3,72.9 L125.5,61.2 L114.3,68.2 Z M126.0,77.5 L132.0,66.7 L119.9,71.7 Z M129.6,82.8 L137.5,73.2 L124.7,76.0 Z M132.3,88.6 L141.8,80.6 L128.6,81.1 Z" fill="#f4ebd3" stroke-width="1.8"/>
+    <path d="M134.5,89.7 L139.5,82.0 L141.5,89.7 Z M142.8,91.1 L147.5,83.9 L149.2,91.1 Z M151.0,92.6 L155.5,85.9 L157.0,92.6 Z M159.3,94.0 L163.5,87.8 L164.7,94.0 Z M167.6,95.4 L171.5,89.7 L172.4,95.4 Z M175.8,96.9 L179.5,91.7 L180.2,96.9 Z M184.1,98.3 L187.5,93.6 L187.9,98.3 Z M134.5,110.3 L139.5,118.0 L141.5,110.3 Z M142.8,108.9 L147.5,116.1 L149.2,108.9 Z M151.0,107.4 L155.5,114.1 L157.0,107.4 Z M159.3,106.0 L163.5,112.2 L164.7,106.0 Z M167.6,104.6 L171.5,110.3 L172.4,104.6 Z M175.8,103.1 L179.5,108.3 L180.2,103.1 Z M184.1,101.7 L187.5,106.4 L187.9,101.7 Z" fill="#f4ebd3" stroke-width="1.6"/>
+    <!-- long flat tail -->
+    <path d="M128,86 C150,88 172,94 192,99 C176,102 152,108 128,114 Z" fill="#d4b480"/>
+    <g clip-path="url(#tailclip)" stroke="none">
+      <path d="M128,104 C152,102 176,100 192,100 L192,110 L128,116 Z" fill="url(#hb)"/>
+    </g>
+    <!-- legs: outline pass then fill pass -->
+    <g fill="none" stroke-width="16">
+      <path d="M84,70 L78,52 L58,46"/><path d="M118,66 L136,50 L120,42"/>
+      <path d="M84,130 L78,148 L58,154"/><path d="M118,134 L136,150 L120,158"/>
+    </g>
+    <g fill="none" stroke="#c9a56e" stroke-width="11.5">
+      <path d="M84,70 L78,52 L58,46"/><path d="M118,66 L136,50 L120,42"/>
+      <path d="M84,130 L78,148 L58,154"/><path d="M118,134 L136,150 L120,158"/>
+    </g>
+    <path d="M58,46 L47,42 M58,46 L46,48 M58,46 L50,55 M120,42 L110,37 M120,42 L108,44 M120,42 L112,51 M58,154 L47,158 M58,154 L46,152 M58,154 L50,145 M120,158 L110,163 M120,158 L108,156 M120,158 L112,149" stroke-width="2"/>
+    <!-- flat, round body -->
+    <ellipse cx="96" cy="100" rx="40" ry="38" fill="#d9bb86"/>
+    <path d="M58,106 A40 38 0 0 0 136,104 C122,124 82,128 58,106 Z" fill="url(#hb)" stroke="none"/>
+    <!-- dark stripe down the back, over the body and tail -->
+    <path d="M62,100 L132,100" stroke="#4a3220" stroke-width="7" stroke-linecap="round"/>
+    <path d="M132,100 C152,100 172,100 190,99.6" stroke="#4a3220" stroke-width="4" stroke-linecap="round"/>
+    <!-- darker blotches either side of the stripe -->
+    <g fill="#8f6a3e" stroke="none">
+      <ellipse cx="84" cy="84" rx="6" ry="4.6"/><ellipse cx="106" cy="82" rx="6.4" ry="4.6"/><ellipse cx="122" cy="90" rx="4.6" ry="3.6"/>
+      <ellipse cx="84" cy="116" rx="6" ry="4.6"/><ellipse cx="106" cy="118" rx="6.4" ry="4.6"/><ellipse cx="122" cy="110" rx="4.6" ry="3.6"/>
+    </g>
+    <!-- head -->
+    <path d="M13,100 C18,88 34,81 52,83 L68,88 L68,112 L52,117 C34,119 18,112 13,100 Z" fill="#cfae78"/>
+    <path d="M13,102 C20,114 36,120 52,117 L68,112 L68,106 C48,112 28,110 13,102 Z" fill="url(#hb)" stroke="none"/>
+    <path d="M58,100 L20,100" stroke="#4a3220" stroke-width="3.4"/>
+    <!-- crown of horns -->
+        <path d="M62,90 Q88,86 112,62 Q98,92 74,100 Z" fill="#bd9358"/>
+    <path d="M62,110 Q88,114 112,138 Q98,108 74,100 Z" fill="#bd9358"/>
+    <path d="M54,86 Q62,72 80,58 Q76,80 68,94 Z" fill="#c7a066"/>
+    <path d="M54,114 Q62,128 80,142 Q76,120 68,106 Z" fill="#c7a066"/>
+    <path d="M70,92 Q92,84 106,68 M70,108 Q92,116 106,132 M64,86 Q72,74 76,66 M64,114 Q72,126 76,134" stroke-width="1.3"/>
+  </g>
+  <!-- eyes and nostrils -->
+  <circle cx="38" cy="92" r="4.2" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.6"/>
+  <circle cx="37" cy="92" r="2.3" fill="#2b1d12"/>
+  <circle cx="38" cy="108" r="4.2" fill="#f4ebd3" stroke="#2b1d12" stroke-width="1.6"/>
+  <circle cx="37" cy="108" r="2.3" fill="#2b1d12"/>
+  <circle cx="19" cy="96" r="1.3" fill="#2b1d12"/><circle cx="19" cy="104" r="1.3" fill="#2b1d12"/>
+</svg>
