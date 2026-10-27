@@ -1,3 +1,11 @@
+<h1 align="center">Desert Bandit</h1>
+
+<p align="center"><em>A slot machine game in the theme of desert-ranger, now playable on any phone.</em></p>
+
+<p align="center"><strong><a href="https://www.jprice.net/desertbandit/">Play Desert Bandit</a></strong> &nbsp;·&nbsp; <a href="https://www.jprice.net/desertbandit/about.html">About the game</a></p>
+
+<br>
+
 # Desert Bandit
 
 A six-reel slot-machine race game for 2 to 4 players (any seat can be a computer), played in online rooms on phones, in the paper look of the Desert Ranger board
